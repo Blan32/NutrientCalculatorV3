@@ -7,18 +7,70 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2709AA032858A7B300655C19 /* AgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA022858A7B300655C19 /* AgeView.swift */; };
+		2709AA052858A80A00655C19 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA042858A80A00655C19 /* PreviewProvider.swift */; };
+		2709AA082858AF1500655C19 /* BirthdayPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA072858AF1500655C19 /* BirthdayPicker.swift */; };
+		2709AA0B2858C17400655C19 /* SexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA0A2858C17400655C19 /* SexView.swift */; };
+		2709AA112858C49C00655C19 /* SexPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA102858C49C00655C19 /* SexPicker.swift */; };
+		2709AA142858D23100655C19 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA132858D23100655C19 /* Alert.swift */; };
+		2709AA192858EA5900655C19 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA182858EA5900655C19 /* ActivityView.swift */; };
+		2709AA1C2858EAEA00655C19 /* StepPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA1B2858EAEA00655C19 /* StepPicker.swift */; };
+		2709AA1E2858FA8200655C19 /* WorkoutAmountPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA1D2858FA8200655C19 /* WorkoutAmountPicker.swift */; };
+		2709AA2028591AA100655C19 /* ActivityEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA1F28591AA100655C19 /* ActivityEnums.swift */; };
+		270CDD382857630000D32953 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD372857630000D32953 /* User.swift */; };
+		270CDD3C285767EC00D32953 /* WeighIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD3B285767EC00D32953 /* WeighIn.swift */; };
+		270CDD402857719300D32953 /* GlobalUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD3F2857719300D32953 /* GlobalUserViewModel.swift */; };
+		270CDD45285783E600D32953 /* BottomButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD44285783E600D32953 /* BottomButtonModifier.swift */; };
+		270CDD472857933900D32953 /* HeightMeasurementTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD462857933900D32953 /* HeightMeasurementTypeView.swift */; };
+		270CDD49285793B700D32953 /* HeightPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD48285793B700D32953 /* HeightPickerView.swift */; };
+		270CDD4D2857B4FF00D32953 /* WeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD4C2857B4FE00D32953 /* WeightView.swift */; };
+		270CDD4F2857B80100D32953 /* WeightMeasurementTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD4E2857B80100D32953 /* WeightMeasurementTypeView.swift */; };
+		270CDD512857BA6000D32953 /* WeightTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD502857BA6000D32953 /* WeightTextFieldView.swift */; };
+		274FBBDF2860AD02001CB004 /* PriorMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FBBDE2860AD02001CB004 /* PriorMacros.swift */; };
 		27D51909285375C5004F4C9C /* NutrientCalculatorV3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D51908285375C5004F4C9C /* NutrientCalculatorV3App.swift */; };
-		27D5190B285375C5004F4C9C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D5190A285375C5004F4C9C /* ContentView.swift */; };
 		27D5190D285375C6004F4C9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D5190C285375C6004F4C9C /* Assets.xcassets */; };
 		27D51910285375C6004F4C9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D5190F285375C6004F4C9C /* Preview Assets.xcassets */; };
+		27D5191728537608004F4C9C /* DashboardTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D5191628537608004F4C9C /* DashboardTabView.swift */; };
+		27D5191928537717004F4C9C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D5191828537717004F4C9C /* OnboardingView.swift */; };
+		27D5191B28537ADE004F4C9C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D5191A28537ADE004F4C9C /* Color.swift */; };
+		27D5191D28537CDB004F4C9C /* HeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D5191C28537CDB004F4C9C /* HeightView.swift */; };
+		27E8241C285B9FFD00A7FE96 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8241B285B9FFD00A7FE96 /* GoalView.swift */; };
+		27E8241E285BA4FD00A7FE96 /* GoalPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8241D285BA4FD00A7FE96 /* GoalPicker.swift */; };
+		27E82422285BE91C00A7FE96 /* GoalEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E82421285BE91C00A7FE96 /* GoalEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2709AA022858A7B300655C19 /* AgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeView.swift; sourceTree = "<group>"; };
+		2709AA042858A80A00655C19 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
+		2709AA072858AF1500655C19 /* BirthdayPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayPicker.swift; sourceTree = "<group>"; };
+		2709AA0A2858C17400655C19 /* SexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexView.swift; sourceTree = "<group>"; };
+		2709AA102858C49C00655C19 /* SexPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexPicker.swift; sourceTree = "<group>"; };
+		2709AA132858D23100655C19 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		2709AA182858EA5900655C19 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		2709AA1B2858EAEA00655C19 /* StepPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepPicker.swift; sourceTree = "<group>"; };
+		2709AA1D2858FA8200655C19 /* WorkoutAmountPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutAmountPicker.swift; sourceTree = "<group>"; };
+		2709AA1F28591AA100655C19 /* ActivityEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityEnums.swift; sourceTree = "<group>"; };
+		270CDD372857630000D32953 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		270CDD3B285767EC00D32953 /* WeighIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeighIn.swift; sourceTree = "<group>"; };
+		270CDD3F2857719300D32953 /* GlobalUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUserViewModel.swift; sourceTree = "<group>"; };
+		270CDD44285783E600D32953 /* BottomButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonModifier.swift; sourceTree = "<group>"; };
+		270CDD462857933900D32953 /* HeightMeasurementTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightMeasurementTypeView.swift; sourceTree = "<group>"; };
+		270CDD48285793B700D32953 /* HeightPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightPickerView.swift; sourceTree = "<group>"; };
+		270CDD4C2857B4FE00D32953 /* WeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightView.swift; sourceTree = "<group>"; };
+		270CDD4E2857B80100D32953 /* WeightMeasurementTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightMeasurementTypeView.swift; sourceTree = "<group>"; };
+		270CDD502857BA6000D32953 /* WeightTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTextFieldView.swift; sourceTree = "<group>"; };
+		274FBBDE2860AD02001CB004 /* PriorMacros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorMacros.swift; sourceTree = "<group>"; };
 		27D51905285375C5004F4C9C /* NutrientCalculatorV3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutrientCalculatorV3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D51908285375C5004F4C9C /* NutrientCalculatorV3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientCalculatorV3App.swift; sourceTree = "<group>"; };
-		27D5190A285375C5004F4C9C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		27D5190C285375C6004F4C9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27D5190F285375C6004F4C9C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		27D5191628537608004F4C9C /* DashboardTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabView.swift; sourceTree = "<group>"; };
+		27D5191828537717004F4C9C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		27D5191A28537ADE004F4C9C /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		27D5191C28537CDB004F4C9C /* HeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightView.swift; sourceTree = "<group>"; };
+		27E8241B285B9FFD00A7FE96 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
+		27E8241D285BA4FD00A7FE96 /* GoalPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalPicker.swift; sourceTree = "<group>"; };
+		27E82421285BE91C00A7FE96 /* GoalEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalEnum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +84,121 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2709AA062858AEEE00655C19 /* AgeViews */ = {
+			isa = PBXGroup;
+			children = (
+				2709AA022858A7B300655C19 /* AgeView.swift */,
+				2709AA072858AF1500655C19 /* BirthdayPicker.swift */,
+			);
+			path = AgeViews;
+			sourceTree = "<group>";
+		};
+		2709AA092858C16000655C19 /* SexViews */ = {
+			isa = PBXGroup;
+			children = (
+				2709AA0A2858C17400655C19 /* SexView.swift */,
+				2709AA102858C49C00655C19 /* SexPicker.swift */,
+			);
+			path = SexViews;
+			sourceTree = "<group>";
+		};
+		2709AA122858D1FF00655C19 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				2709AA132858D23100655C19 /* Alert.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		2709AA172858EA0000655C19 /* UserViews */ = {
+			isa = PBXGroup;
+			children = (
+				27E8241A285B9FEE00A7FE96 /* GoalViews */,
+				2709AA1A2858EA6000655C19 /* ActivityViews */,
+				270CDD4A2857941E00D32953 /* HeightViews */,
+				270CDD4B2857B4ED00D32953 /* WeightViews */,
+				2709AA062858AEEE00655C19 /* AgeViews */,
+				2709AA092858C16000655C19 /* SexViews */,
+			);
+			path = UserViews;
+			sourceTree = "<group>";
+		};
+		2709AA1A2858EA6000655C19 /* ActivityViews */ = {
+			isa = PBXGroup;
+			children = (
+				2709AA1F28591AA100655C19 /* ActivityEnums.swift */,
+				2709AA182858EA5900655C19 /* ActivityView.swift */,
+				2709AA1B2858EAEA00655C19 /* StepPicker.swift */,
+				2709AA1D2858FA8200655C19 /* WorkoutAmountPicker.swift */,
+			);
+			path = ActivityViews;
+			sourceTree = "<group>";
+		};
+		270CDD39285765E400D32953 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				270CDD372857630000D32953 /* User.swift */,
+				270CDD3B285767EC00D32953 /* WeighIn.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		270CDD3A285765ED00D32953 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				270CDD3F2857719300D32953 /* GlobalUserViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		270CDD412857735500D32953 /* OnboardingViews */ = {
+			isa = PBXGroup;
+			children = (
+				27D5191828537717004F4C9C /* OnboardingView.swift */,
+				274FBBDE2860AD02001CB004 /* PriorMacros.swift */,
+				270CDD44285783E600D32953 /* BottomButtonModifier.swift */,
+			);
+			path = OnboardingViews;
+			sourceTree = "<group>";
+		};
+		270CDD422857736900D32953 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2709AA122858D1FF00655C19 /* Alerts */,
+				270CDD432857737300D32953 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		270CDD432857737300D32953 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				27D5191A28537ADE004F4C9C /* Color.swift */,
+				2709AA042858A80A00655C19 /* PreviewProvider.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		270CDD4A2857941E00D32953 /* HeightViews */ = {
+			isa = PBXGroup;
+			children = (
+				27D5191C28537CDB004F4C9C /* HeightView.swift */,
+				270CDD462857933900D32953 /* HeightMeasurementTypeView.swift */,
+				270CDD48285793B700D32953 /* HeightPickerView.swift */,
+			);
+			path = HeightViews;
+			sourceTree = "<group>";
+		};
+		270CDD4B2857B4ED00D32953 /* WeightViews */ = {
+			isa = PBXGroup;
+			children = (
+				270CDD4C2857B4FE00D32953 /* WeightView.swift */,
+				270CDD4E2857B80100D32953 /* WeightMeasurementTypeView.swift */,
+				270CDD502857BA6000D32953 /* WeightTextFieldView.swift */,
+			);
+			path = WeightViews;
+			sourceTree = "<group>";
+		};
 		27D518FC285375C5004F4C9C = {
 			isa = PBXGroup;
 			children = (
@@ -51,9 +218,14 @@
 		27D51907285375C5004F4C9C /* NutrientCalculatorV3 */ = {
 			isa = PBXGroup;
 			children = (
-				27D51908285375C5004F4C9C /* NutrientCalculatorV3App.swift */,
-				27D5190A285375C5004F4C9C /* ContentView.swift */,
+				270CDD422857736900D32953 /* Utilities */,
+				270CDD3A285765ED00D32953 /* ViewModels */,
+				270CDD39285765E400D32953 /* Models */,
+				270CDD412857735500D32953 /* OnboardingViews */,
+				2709AA172858EA0000655C19 /* UserViews */,
+				27D5191628537608004F4C9C /* DashboardTabView.swift */,
 				27D5190C285375C6004F4C9C /* Assets.xcassets */,
+				27D51908285375C5004F4C9C /* NutrientCalculatorV3App.swift */,
 				27D5190E285375C6004F4C9C /* Preview Content */,
 			);
 			path = NutrientCalculatorV3;
@@ -65,6 +237,16 @@
 				27D5190F285375C6004F4C9C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		27E8241A285B9FEE00A7FE96 /* GoalViews */ = {
+			isa = PBXGroup;
+			children = (
+				27E82421285BE91C00A7FE96 /* GoalEnum.swift */,
+				27E8241B285B9FFD00A7FE96 /* GoalView.swift */,
+				27E8241D285BA4FD00A7FE96 /* GoalPicker.swift */,
+			);
+			path = GoalViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +319,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27D5190B285375C5004F4C9C /* ContentView.swift in Sources */,
+				27E8241E285BA4FD00A7FE96 /* GoalPicker.swift in Sources */,
+				2709AA2028591AA100655C19 /* ActivityEnums.swift in Sources */,
+				2709AA1E2858FA8200655C19 /* WorkoutAmountPicker.swift in Sources */,
+				27E8241C285B9FFD00A7FE96 /* GoalView.swift in Sources */,
+				270CDD512857BA6000D32953 /* WeightTextFieldView.swift in Sources */,
+				274FBBDF2860AD02001CB004 /* PriorMacros.swift in Sources */,
+				2709AA0B2858C17400655C19 /* SexView.swift in Sources */,
+				270CDD49285793B700D32953 /* HeightPickerView.swift in Sources */,
+				2709AA112858C49C00655C19 /* SexPicker.swift in Sources */,
+				27D5191928537717004F4C9C /* OnboardingView.swift in Sources */,
+				270CDD402857719300D32953 /* GlobalUserViewModel.swift in Sources */,
+				2709AA082858AF1500655C19 /* BirthdayPicker.swift in Sources */,
+				270CDD45285783E600D32953 /* BottomButtonModifier.swift in Sources */,
+				2709AA032858A7B300655C19 /* AgeView.swift in Sources */,
+				27D5191B28537ADE004F4C9C /* Color.swift in Sources */,
+				27E82422285BE91C00A7FE96 /* GoalEnum.swift in Sources */,
+				270CDD3C285767EC00D32953 /* WeighIn.swift in Sources */,
+				2709AA1C2858EAEA00655C19 /* StepPicker.swift in Sources */,
+				2709AA192858EA5900655C19 /* ActivityView.swift in Sources */,
+				270CDD4D2857B4FF00D32953 /* WeightView.swift in Sources */,
+				270CDD382857630000D32953 /* User.swift in Sources */,
+				27D5191728537608004F4C9C /* DashboardTabView.swift in Sources */,
+				27D5191D28537CDB004F4C9C /* HeightView.swift in Sources */,
+				270CDD4F2857B80100D32953 /* WeightMeasurementTypeView.swift in Sources */,
+				2709AA052858A80A00655C19 /* PreviewProvider.swift in Sources */,
+				270CDD472857933900D32953 /* HeightMeasurementTypeView.swift in Sources */,
+				2709AA142858D23100655C19 /* Alert.swift in Sources */,
 				27D51909285375C5004F4C9C /* NutrientCalculatorV3App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +481,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -302,6 +511,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

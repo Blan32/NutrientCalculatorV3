@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct NutrientCalculatorV3App: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DashboardTabView()
         }
     }
 }
