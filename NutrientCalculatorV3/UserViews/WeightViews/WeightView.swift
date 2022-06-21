@@ -10,15 +10,18 @@ import SwiftUI
 struct WeightView: View {
         
     var body: some View {
-        VStack {
-            Text("Input your current weight.")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
-                .padding(.bottom, 20)
-            
-            WeightMeasurementTypeView()
-            WeightTextFieldView()
-            Spacer()
+        NavigationView {
+            VStack {
+                Text("Input your current weight.")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+                    .padding(.bottom, 10)
+                    .navigationBarHidden(true)
+                
+                WeightMeasurementTypeView()
+                WeightTextFieldView()
+                Spacer()
+            }
         }
     }
 }
@@ -29,3 +32,5 @@ struct WeightView_Previews: PreviewProvider {
             .environmentObject(dev.globalViewModel)
     }
 }
+
+

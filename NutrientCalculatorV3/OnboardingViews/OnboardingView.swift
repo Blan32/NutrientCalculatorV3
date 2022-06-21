@@ -13,38 +13,53 @@ struct OnboardingView: View {
     @Environment(\.colorScheme) var colorScheme
     @State var onboardingState: Int = 0
     @Binding var newUser: Bool
+    @FocusState private var focusedTextField: Bool
+
+    let transition: AnyTransition = .asymmetric(insertion: .move(edge: .trailing),
+                                                removal: .move(edge: .leading))
 
     
-    // BUILD TRANSITION ANIMATIONS!!!
-    
+    //MARK: View
     var body: some View {
         NavigationView {
             ZStack {
                 switch onboardingState {
                 case 0:
                     welcomeScreen
+                        .transition(transition)
                         .navigationTitle("Welcome")
                 case 1:
                     HeightView()
+                        .transition(transition)
                         .navigationTitle("Height")
                 case 2:
                     WeightView()
+                        .transition(transition)
                         .navigationTitle("Weight")
                 case 3:
                     AgeView()
+                        .transition(transition)
                         .navigationTitle("Birthday")
                 case 4:
                     SexView()
+                        .transition(transition)
                         .navigationTitle("Sex")
                 case 5:
                     ActivityView()
+                        .transition(transition)
                         .navigationTitle("Activity")
                 case 6:
                     GoalView()
+                        .transition(transition)
                         .navigationTitle("Goal")
-                default:
-                    HeightPickerView()
+                case 7:
+                    CurrentMacrosView()
+                        .transition(transition)
                         .navigationTitle("Current Macros")
+                default:
+                    GoalView()
+                        .transition(transition)
+                        .navigationTitle("Goal")
                 }
                 
                 bottomButton
@@ -60,7 +75,9 @@ struct OnboardingView: View {
                         .opacity(onboardingState > 0 ? 1.0 : 0.0)
                         .onTapGesture {
                             if onboardingState > 0 {
-                                onboardingState -= 1
+                               //withAnimation(.easeInOut) {
+                                    onboardingState -= 1
+                               // }
                             }
                         }
             )
@@ -78,6 +95,7 @@ struct OnboardingView_Previews: PreviewProvider {
 
 extension OnboardingView {
     
+    //MARK: Welcome Screen
     private var welcomeScreen: some View {
         VStack {
             Image("HypertroFit")
@@ -99,22 +117,13 @@ extension OnboardingView {
         }
     }
     
+    //MARK: Bottom Button
     private var bottomButton: some View {
         VStack {
             Spacer()
             
             Button {
-                if onboardingState == 2 && !viewModel.isValidWeight {
-                    // Shows invalidWeight Alert from viewModel
-                }
-                
-                else if onboardingState == 6 && !viewModel.isValidGoalWeight {
-                    //viewModel.alertItem = AlertContext.invalidFatLossGoal
-                }
-                // Checking that we haven't reached the final onboardingState
-                else if onboardingState <= 7 {
-                    onboardingState += 1
-                }
+                buttonPressed()
             } label: {
                 if onboardingState <= 7 {
                     Text("Proceed to Step \(onboardingState + 1)/8")
@@ -127,6 +136,27 @@ extension OnboardingView {
                 }
             }
             .modifier(BottomButtonModifier())
+        }
+    }
+    
+    //MARK: Button Pressed Func
+    private func buttonPressed() {
+        if onboardingState == 2 && !viewModel.isValidWeight {
+            // Shows invalidWeight Alert from viewModel
+        } else if onboardingState == 6 && !viewModel.isValidGoalWeight {
+            // Shows invalidGoalWeight Alert from viewModel
+        } else if onboardingState == 6 && viewModel.user.goalType == .maintenance {
+            viewModel.user.goalWeightLbs = ""
+            viewModel.user.goalWeightKgs = ""
+            withAnimation(.easeInOut) {
+                onboardingState += 1
+            }
+        } else if onboardingState == 7 && !viewModel.isValidCurrentMacros() {
+            // Shows invalidMacros Alert from viewModel
+        } else if onboardingState <= 7 {
+            withAnimation(.easeInOut) {
+                onboardingState += 1
+            }
         }
     }
 }

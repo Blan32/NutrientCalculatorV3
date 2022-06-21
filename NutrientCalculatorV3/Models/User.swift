@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftUI
 
-final class User: ObservableObject {
+final class User: ObservableObject, Codable {
     
     
     var name: String = ""
@@ -56,7 +57,7 @@ final class User: ObservableObject {
     
     // MARK: Activity
     var stepsPerDayIntensityScore: Int = StepAmounts.moderate.stepIntensityScore() // Possiblities: 1,2,3,4,5 (none, low, moderate, high, extreme)
-    var trainingSessionsPerWeekIntensityScore = WorkoutsPerWeek.moderate.workoutIntensityScore() // Possibilites: 1,3,5,8,10 (none, low, moderate, high, extreme)
+    var trainingSessionsPerWeekIntensityScore: Int = WorkoutsPerWeek.moderate.workoutIntensityScore() // Possibilites: 1,3,5,8,10 (none, low, moderate, high, extreme)
     var totalIntensityScore: Int {
         return (stepsPerDayIntensityScore + trainingSessionsPerWeekIntensityScore) // 15 is the heighest possible intensity score
     }
@@ -89,4 +90,14 @@ final class User: ObservableObject {
             return Double(goalWeightKgs) ?? 1.0
         }
     }
+    
+    // MARK: Current Macros
+    // Used in onboarding screens
+    var inputFats: String = ""
+    var inputCarbs: String = ""
+    var inputProtein: String = ""
+    var inputCalories: String = ""
+    var calculatedCalories: Double?
+    var inputWeightChange: Double = 0.0
+    
 }

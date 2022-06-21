@@ -11,15 +11,21 @@ struct WeightTextFieldView: View {
     
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @FocusState private var focusedTextField: Bool
+    
     var body: some View {
         VStack {
             HStack {
                 if viewModel.user.weightInPounds {
                     TextField("Current Weight", text: $viewModel.user.weightLbs)
+                        .keyboardType(.decimalPad)
+                        .focused($focusedTextField)
                     Text("lbs")
-                        
+                    
                 } else {
                     TextField("Current Weight", text: $viewModel.user.weightKgs)
+                        .keyboardType(.decimalPad)
+                        .focused($focusedTextField)
                     Text("kgs")
                 }
             }
@@ -32,6 +38,14 @@ struct WeightTextFieldView: View {
                     .padding(.horizontal)
             )
         }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                HStack {
+                    KeyboardDismissButton(focusedTextField: $focusedTextField)
+                    Spacer()
+                }
+            }
+        }
     }
 }
 
@@ -43,3 +57,4 @@ struct WeightTextFieldView_Previews: PreviewProvider {
         .environmentObject(dev.globalViewModel)
     }
 }
+

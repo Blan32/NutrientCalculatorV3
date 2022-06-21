@@ -18,7 +18,6 @@ struct HeightView: View {
             
             HeightMeasurementTypeView()
             HeightPickerView()
-            
             Spacer()
         }
     }

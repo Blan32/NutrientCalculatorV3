@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+//MARK: Step Amounts
 enum StepAmounts: String, CaseIterable {        // Relative intensity weightings:
     case none =     "0 - 3,000"                 // 1
     case low =      "3,000 - 6,000"             // 2
@@ -32,6 +33,7 @@ enum StepAmounts: String, CaseIterable {        // Relative intensity weightings
     }
 }
 
+//MARK: Workouts Per Week
 enum WorkoutsPerWeek: String, CaseIterable {    // Relative intensity weightings:
     case none =     "Little to no exercise"     // 1
     case low =      "1 - 2 days / week"         // 3
@@ -56,6 +58,7 @@ enum WorkoutsPerWeek: String, CaseIterable {    // Relative intensity weightings
     }
 }
 
+//MARK: Activity Level
 enum ActivityLevel: String {
     case none =     "Little to None"    //"2 - 4 / 15"
     case low =      "Low"               //"5 - 6 / 15"
@@ -95,6 +98,7 @@ enum ActivityLevel: String {
     }
 }
 
+//MARK: Total Intensity Score Range
 // Total intensity score ranges (steps + workouts)
 // 2 - 4 = none
 // 5 - 6 = low

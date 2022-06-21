@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct GoalView: View {
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
     
     var body: some View {
+        
         VStack {
             Text("Select your goal.")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
-                .padding(.bottom, 20)
+                .padding(.bottom, 10)
             
             GoalPicker()
-            
             Spacer()
         }
     }
@@ -27,7 +26,6 @@ struct GoalView: View {
 struct GoalView_Previews: PreviewProvider {
     static var previews: some View {
         GoalView()
-            //.preferredColorScheme(.dark)
             .environmentObject(dev.globalViewModel)
     }
 }

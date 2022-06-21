@@ -12,10 +12,10 @@ struct SexPicker: View {
     @EnvironmentObject private var viewModel: GlobalUserViewModel
     
     init() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.black) //changes selected background
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor) //changes selected background
         
         let attributes: [NSAttributedString.Key:Any] = [
-            .foregroundColor : UIColor.white
+            .foregroundColor : UIColor(Color.inverseAccentColor)
         ]
         UISegmentedControl.appearance().setTitleTextAttributes(attributes, for: .selected) //changes selected foreground
     }
@@ -39,7 +39,6 @@ struct SexPicker: View {
                 .frame(height: 220)
                 .opacity(0)
         }
-        
         
         Picker(selection: $viewModel.user.sex) {
             Text("Male")

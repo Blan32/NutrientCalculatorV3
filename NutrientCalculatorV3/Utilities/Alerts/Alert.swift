@@ -62,7 +62,7 @@ struct AlertContext {
                                               dismissButton: .default(Text("OK")))
     
     static let invalidMacros =    AlertItem(title: Text("Invalid Macros"),
-                                              message: Text("You must fill in at least the calorie totals or you can skip this section."),
+                                              message: Text("You must fill in all of the macros or if filling in only one or two macros, calories must be input manually. Otherwise leave everything blank."),
                                               dismissButton: .default(Text("OK")))
 }
 

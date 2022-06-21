@@ -13,10 +13,10 @@ struct HeightMeasurementTypeView: View {
     
     // Purely for changing the color of the selected Metrics Buttons as a picker
     init() {
-        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.black) //changes selected background
+        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor) //changes selected background
         
         let attributes: [NSAttributedString.Key:Any] = [
-            .foregroundColor : UIColor.white
+            .foregroundColor : UIColor(Color.inverseAccentColor)
         ]
         UISegmentedControl.appearance().setTitleTextAttributes(attributes, for: .selected) //changes selected foreground
     }
@@ -34,6 +34,7 @@ struct HeightMeasurementTypeView: View {
         .foregroundColor(Color.buttonColor)
         .padding()
         .padding(.bottom, 80)
+        
         //Custom buttons for metrics that don't work
         /*
 //        VStack {

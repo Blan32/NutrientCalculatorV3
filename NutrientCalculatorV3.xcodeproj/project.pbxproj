@@ -26,7 +26,8 @@
 		270CDD4D2857B4FF00D32953 /* WeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD4C2857B4FE00D32953 /* WeightView.swift */; };
 		270CDD4F2857B80100D32953 /* WeightMeasurementTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD4E2857B80100D32953 /* WeightMeasurementTypeView.swift */; };
 		270CDD512857BA6000D32953 /* WeightTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD502857BA6000D32953 /* WeightTextFieldView.swift */; };
-		274FBBDF2860AD02001CB004 /* PriorMacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FBBDE2860AD02001CB004 /* PriorMacros.swift */; };
+		274FBBDF2860AD02001CB004 /* CurrentMacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FBBDE2860AD02001CB004 /* CurrentMacrosView.swift */; };
+		274FBBE62861D6F8001CB004 /* KeyboardDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FBBE52861D6F8001CB004 /* KeyboardDismissButton.swift */; };
 		27D51909285375C5004F4C9C /* NutrientCalculatorV3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D51908285375C5004F4C9C /* NutrientCalculatorV3App.swift */; };
 		27D5190D285375C6004F4C9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D5190C285375C6004F4C9C /* Assets.xcassets */; };
 		27D51910285375C6004F4C9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D5190F285375C6004F4C9C /* Preview Assets.xcassets */; };
@@ -59,7 +60,8 @@
 		270CDD4C2857B4FE00D32953 /* WeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightView.swift; sourceTree = "<group>"; };
 		270CDD4E2857B80100D32953 /* WeightMeasurementTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightMeasurementTypeView.swift; sourceTree = "<group>"; };
 		270CDD502857BA6000D32953 /* WeightTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTextFieldView.swift; sourceTree = "<group>"; };
-		274FBBDE2860AD02001CB004 /* PriorMacros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorMacros.swift; sourceTree = "<group>"; };
+		274FBBDE2860AD02001CB004 /* CurrentMacrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMacrosView.swift; sourceTree = "<group>"; };
+		274FBBE52861D6F8001CB004 /* KeyboardDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissButton.swift; sourceTree = "<group>"; };
 		27D51905285375C5004F4C9C /* NutrientCalculatorV3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutrientCalculatorV3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D51908285375C5004F4C9C /* NutrientCalculatorV3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientCalculatorV3App.swift; sourceTree = "<group>"; };
 		27D5190C285375C6004F4C9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -143,19 +145,19 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		270CDD3A285765ED00D32953 /* ViewModels */ = {
+		270CDD3A285765ED00D32953 /* GlobalViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				270CDD3F2857719300D32953 /* GlobalUserViewModel.swift */,
 			);
-			path = ViewModels;
+			path = GlobalViewModel;
 			sourceTree = "<group>";
 		};
 		270CDD412857735500D32953 /* OnboardingViews */ = {
 			isa = PBXGroup;
 			children = (
 				27D5191828537717004F4C9C /* OnboardingView.swift */,
-				274FBBDE2860AD02001CB004 /* PriorMacros.swift */,
+				274FBBDE2860AD02001CB004 /* CurrentMacrosView.swift */,
 				270CDD44285783E600D32953 /* BottomButtonModifier.swift */,
 			);
 			path = OnboardingViews;
@@ -199,6 +201,14 @@
 			path = WeightViews;
 			sourceTree = "<group>";
 		};
+		274FBBE32861D6BB001CB004 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				274FBBE52861D6F8001CB004 /* KeyboardDismissButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		27D518FC285375C5004F4C9C = {
 			isa = PBXGroup;
 			children = (
@@ -218,8 +228,9 @@
 		27D51907285375C5004F4C9C /* NutrientCalculatorV3 */ = {
 			isa = PBXGroup;
 			children = (
+				274FBBE32861D6BB001CB004 /* Components */,
 				270CDD422857736900D32953 /* Utilities */,
-				270CDD3A285765ED00D32953 /* ViewModels */,
+				270CDD3A285765ED00D32953 /* GlobalViewModel */,
 				270CDD39285765E400D32953 /* Models */,
 				270CDD412857735500D32953 /* OnboardingViews */,
 				2709AA172858EA0000655C19 /* UserViews */,
@@ -324,12 +335,13 @@
 				2709AA1E2858FA8200655C19 /* WorkoutAmountPicker.swift in Sources */,
 				27E8241C285B9FFD00A7FE96 /* GoalView.swift in Sources */,
 				270CDD512857BA6000D32953 /* WeightTextFieldView.swift in Sources */,
-				274FBBDF2860AD02001CB004 /* PriorMacros.swift in Sources */,
+				274FBBDF2860AD02001CB004 /* CurrentMacrosView.swift in Sources */,
 				2709AA0B2858C17400655C19 /* SexView.swift in Sources */,
 				270CDD49285793B700D32953 /* HeightPickerView.swift in Sources */,
 				2709AA112858C49C00655C19 /* SexPicker.swift in Sources */,
 				27D5191928537717004F4C9C /* OnboardingView.swift in Sources */,
 				270CDD402857719300D32953 /* GlobalUserViewModel.swift in Sources */,
+				274FBBE62861D6F8001CB004 /* KeyboardDismissButton.swift in Sources */,
 				2709AA082858AF1500655C19 /* BirthdayPicker.swift in Sources */,
 				270CDD45285783E600D32953 /* BottomButtonModifier.swift in Sources */,
 				2709AA032858A7B300655C19 /* AgeView.swift in Sources */,
