@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-struct BottomButtonModifier: ViewModifier {
+struct UserInfoBottomButtonModifier: ViewModifier {
         
     func body(content: Content) -> some View {
         content
             .buttonStyle(.bordered)
             .buttonBorderShape(.capsule)
             .tint(.buttonColor)
+            .background(Capsule().fill(Color.inverseAccentColor))
             .padding()
     }
 }

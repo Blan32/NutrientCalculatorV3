@@ -17,19 +17,43 @@ class GlobalUserViewModel: ObservableObject {
     //MARK: Validate Forms ----------
     let fiftyPounds = 22.6796
     let oneThousandPounds = 453.592
+    let poundsToKgs = 0.453592
     
-    //MARK: * valid weight
+    //MARK: * validate weight
     // Checking to make sure user entered a valid weight between 55.0 and 1000.0 pounds on WeightView (453.592kg = 1000lbs)
-    var isValidWeight: Bool {
-        if user.weightLbs.isEmpty && user.weightKgs.isEmpty || user.startingWeight < fiftyPounds || user.startingWeight > oneThousandPounds {
+    func isValidWeight() -> Bool {
+        if user.inputWeight.isEmpty || user.startingWeight < fiftyPounds || user.startingWeight > oneThousandPounds {
             alertItem = AlertContext.invalidWeight
             return false
         }
         return true
     }
     
-    //MARK: * valid goal weight
-    var isValidGoalWeight: Bool {
+    func isValidUpdateWeight() -> Bool {
+        if user.updateInputWeight.isEmpty {
+            alertItem = AlertContext.invalidWeight
+            return false
+        }
+        
+        if user.weightInPounds {
+            if (Double(user.updateInputWeight) ?? 0) * poundsToKgs < fiftyPounds || (Double(user.updateInputWeight) ?? 0) * poundsToKgs > oneThousandPounds {
+                alertItem = AlertContext.invalidWeight
+                return false
+            }
+        }
+        
+        if !user.weightInPounds {
+            if (Double(user.updateInputWeight) ?? 0) < fiftyPounds || (Double(user.updateInputWeight) ?? 0) > oneThousandPounds {
+                alertItem = AlertContext.invalidWeight
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    //MARK: * validate goal weight
+    func isValidGoalWeight() -> Bool {
         if user.goalType == .fatloss && user.goalWeight < fiftyPounds {
             alertItem = AlertContext.invalidFatLossGoal
             return false
@@ -58,16 +82,20 @@ class GlobalUserViewModel: ObservableObject {
             return true
         }
         
-        if user.inputCalories == "" {
+        if user.inputCalories == "" && (user.inputFats != "" || user.inputCarbs != "" || user.inputProtein != "") {
             alertItem = AlertContext.invalidMacros
             return false
+        }
+        
+        if user.inputCalories == "" {
+            user.inputWeightChange = 0.0
         }
         return true
     }
     
     //MARK: Calculate Current Calories --
     func calculateInputCalories() -> String {
-        return "\(calculateInputFatCalories() + calculateInputCarbCalories() + calculateInputProteinCalories())"
+        return "\(Int((calculateInputFatCalories() + calculateInputCarbCalories() + calculateInputProteinCalories()).rounded()))"
     }
     
     private func calculateInputFatCalories() -> Double {

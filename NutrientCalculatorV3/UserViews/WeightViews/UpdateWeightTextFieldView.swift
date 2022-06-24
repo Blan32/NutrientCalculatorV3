@@ -1,13 +1,13 @@
 //
-//  WeightTextFieldView.swift
+//  UpdateWeightTextField.swift
 //  NutrientCalculatorV3
 //
-//  Created by Kyle Blandford on 6/13/22.
+//  Created by Kyle Blandford on 6/24/22.
 //
 
 import SwiftUI
 
-struct WeightTextFieldView: View {
+struct UpdateWeightTextFieldView: View {
     
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject private var viewModel: GlobalUserViewModel
@@ -16,23 +16,10 @@ struct WeightTextFieldView: View {
     var body: some View {
         VStack {
             HStack {
-                TextField("Current Weight", text: $viewModel.user.inputWeight)
+                TextField(viewModel.user.inputWeight, text: $viewModel.user.updateInputWeight)
                     .keyboardType(.decimalPad)
                     .focused($focusedTextField)
                 Text(viewModel.user.weightInPounds ? "lbs" : "kgs")
-//                if viewModel.user.weightInPounds {
-//                    TextField("Current Weight", text: $viewModel.user.weightLbs)
-//                        .keyboardType(.decimalPad)
-//                        .focused($focusedTextField)
-//                    Text("lbs")
-//
-//                } else {
-//                    TextField("Current Weight", text: $viewModel.user.weightKgs)
-//                        .keyboardType(.decimalPad)
-//                        .focused($focusedTextField)
-//                    Text("kgs")
-//                
-//                }
             }
             .font(.body)
             .padding()
@@ -54,10 +41,14 @@ struct WeightTextFieldView: View {
     }
 }
 
-struct WeightTextFieldView_Previews: PreviewProvider {
+struct UpdateWeightTextField_Previews: PreviewProvider {
     static var previews: some View {
-        WeightTextFieldView()
+        UpdateWeightTextFieldView()
             .environmentObject(dev.globalViewModel)
     }
 }
+
+
+
+
 

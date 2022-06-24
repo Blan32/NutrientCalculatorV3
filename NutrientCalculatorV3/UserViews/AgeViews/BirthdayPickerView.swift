@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BirthdayPicker: View {
+struct BirthdayPickerView: View {
     
     @EnvironmentObject private var viewModel: GlobalUserViewModel
     
@@ -26,7 +26,7 @@ struct BirthdayPicker: View {
 
 struct BirthdayPicker_Previews: PreviewProvider {
     static var previews: some View {
-        BirthdayPicker()
+        BirthdayPickerView()
             .environmentObject(dev.globalViewModel)
     }
 }

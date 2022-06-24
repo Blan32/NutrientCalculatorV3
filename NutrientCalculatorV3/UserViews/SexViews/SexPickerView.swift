@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SexPicker: View {
+struct SexPickerView: View {
     
     @EnvironmentObject private var viewModel: GlobalUserViewModel
     
@@ -57,7 +57,7 @@ struct SexPicker: View {
 
 struct SexPicker_Previews: PreviewProvider {
     static var previews: some View {
-        SexPicker()
+        SexPickerView()
             .environmentObject(dev.globalViewModel)
     }
 }

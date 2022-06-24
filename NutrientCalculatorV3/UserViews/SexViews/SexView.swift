@@ -18,7 +18,7 @@ struct SexView: View {
             .padding()
             .padding(.bottom, 20)
             
-            SexPicker()
+            SexPickerView()
             Spacer()
         }
     }

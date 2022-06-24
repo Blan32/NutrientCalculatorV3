@@ -38,7 +38,7 @@ extension ActivityView {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
             
-            StepPicker()
+            StepPickerView()
         }
     }
     
@@ -49,7 +49,7 @@ extension ActivityView {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
             
-            WorkoutAmountPicker()
+            WorkoutAmountPickerView()
         }
     }
     

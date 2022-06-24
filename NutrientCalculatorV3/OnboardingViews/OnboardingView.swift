@@ -17,8 +17,6 @@ struct OnboardingView: View {
 
     let transition: AnyTransition = .asymmetric(insertion: .move(edge: .trailing),
                                                 removal: .move(edge: .leading))
-
-    
     //MARK: View
     var body: some View {
         NavigationView {
@@ -53,15 +51,22 @@ struct OnboardingView: View {
                         .transition(transition)
                         .navigationTitle("Goal")
                 case 7:
-                    CurrentMacrosView()
+                    InputCurrentMacrosView()
                         .transition(transition)
                         .navigationTitle("Current Macros")
                 default:
-                    GoalView()
+                    OnboardingUserInfoSummaryView()
                         .transition(transition)
-                        .navigationTitle("Goal")
+                        .navigationTitle("Summary")
                 }
                 
+                VStack {
+                    Spacer()
+                    Rectangle()
+                        .fill(colorScheme == .light ? Color.white : Color.black)
+                        .ignoresSafeArea()
+                        .frame(height: 60)
+                }
                 bottomButton
             }
             .alert(item: $viewModel.alertItem) { alertItem in
@@ -75,9 +80,7 @@ struct OnboardingView: View {
                         .opacity(onboardingState > 0 ? 1.0 : 0.0)
                         .onTapGesture {
                             if onboardingState > 0 {
-                               //withAnimation(.easeInOut) {
                                     onboardingState -= 1
-                               // }
                             }
                         }
             )
@@ -102,7 +105,6 @@ extension OnboardingView {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200)
-                .padding(.top, 20)
                 .background(
                     colorScheme == .light ?
                         RoundedRectangle(cornerRadius: 25)
@@ -130,20 +132,20 @@ extension OnboardingView {
                         .frame(height: 30)
                         .frame(maxWidth: .infinity)
                 } else {
-                    Text("Continue")
+                    Text("Submit Profile")
                         .frame(height: 30)
                         .frame(maxWidth: .infinity)
                 }
             }
-            .modifier(BottomButtonModifier())
+            .modifier(UserInfoBottomButtonModifier())
         }
     }
     
     //MARK: Button Pressed Func
     private func buttonPressed() {
-        if onboardingState == 2 && !viewModel.isValidWeight {
+        if onboardingState == 2 && !viewModel.isValidWeight() {
             // Shows invalidWeight Alert from viewModel
-        } else if onboardingState == 6 && !viewModel.isValidGoalWeight {
+        } else if onboardingState == 6 && !viewModel.isValidGoalWeight() {
             // Shows invalidGoalWeight Alert from viewModel
         } else if onboardingState == 6 && viewModel.user.goalType == .maintenance {
             viewModel.user.goalWeightLbs = ""
@@ -157,6 +159,8 @@ extension OnboardingView {
             withAnimation(.easeInOut) {
                 onboardingState += 1
             }
+        } else {
+            newUser.toggle()
         }
     }
 }

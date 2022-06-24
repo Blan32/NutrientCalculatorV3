@@ -18,7 +18,7 @@ struct AgeView: View {
             .padding()
             .padding(.bottom, 20)
             
-            BirthdayPicker()
+            BirthdayPickerView()
             Spacer()
         }
     }

@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct WorkoutAmountPicker: View {
+struct WorkoutAmountPickerView: View {
     
     @EnvironmentObject private var viewModel: GlobalUserViewModel
     
     var body: some View {
-        Picker(selection: $viewModel.user.trainingSessionsPerWeekIntensityScore) {
+        Picker(selection: $viewModel.user.trainingSessionsPerWeek) {
             ForEach(WorkoutsPerWeek.allCases, id: \.self) { workout in
                 Text(workout.rawValue)
-                    .tag(workout.workoutIntensityScore())
+                    .tag(workout)
             }
         } label: {
             Text("Step Amounts")
@@ -29,7 +29,7 @@ struct WorkoutAmountPicker: View {
 
 struct WorkoutAmountPicker_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutAmountPicker()
+        WorkoutAmountPickerView()
             .environmentObject(dev.globalViewModel)
     }
 }

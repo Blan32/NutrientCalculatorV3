@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GoalPicker: View {
+struct GoalPickerView: View {
     
     @EnvironmentObject private var viewModel: GlobalUserViewModel
     @Environment(\.colorScheme) var colorScheme
@@ -50,13 +50,13 @@ struct GoalPicker: View {
 
 struct GoalPicker_Previews: PreviewProvider {
     static var previews: some View {
-        GoalPicker()
+        GoalPickerView()
             .environmentObject(dev.globalViewModel)
     }
 }
 
 
-extension GoalPicker {
+extension GoalPickerView {
     
     //MARK: Goal Image
     private var goalImage: some View {

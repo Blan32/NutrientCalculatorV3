@@ -10,14 +10,13 @@ import SwiftUI
 struct GoalView: View {
     
     var body: some View {
-        
         VStack {
             Text("Select your goal.")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
                 .padding(.bottom, 10)
             
-            GoalPicker()
+            GoalPickerView()
             Spacer()
         }
     }

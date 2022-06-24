@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CurrentMacrosView: View {
+struct InputCurrentMacrosView: View {
     
     @EnvironmentObject private var viewModel: GlobalUserViewModel
     @FocusState private var focusedTextField: FormTextField?
@@ -29,27 +29,17 @@ struct CurrentMacrosView: View {
                         .padding(.horizontal)
                 }
                 
-//                if focusedTextField != nil {
-//                    Text("Calories must be input manually if entering only one or two macros.")
-//                        .bold()
-//                        .foregroundColor(Color.red)
-//                        .padding(.top)
-//                        .padding(.horizontal)
-//                }
-                
                 Text("Enter Current Macros:")
                     .font(.caption)
                     .foregroundColor(.secondary)
                     .bold()
-                    .padding(.top, 30)
+                    .padding(.top, focusedTextField == nil ? 30 : 5)
                 
                 inputMacros
                 
-                if focusedTextField == nil {
-                    weightChangeLastMonth
-                        .padding(.top, 50)
-                }
-
+                weightChangeLastMonth
+                    .padding(.top, focusedTextField == nil ?  50 : 0)
+                
                 Spacer()
             }
             .navigationBarHidden(true)
@@ -66,12 +56,12 @@ struct CurrentMacrosView: View {
 
 struct PriorMacros_Previews: PreviewProvider {
     static var previews: some View {
-        CurrentMacrosView()
+        InputCurrentMacrosView()
             .environmentObject(dev.globalViewModel)
     }
 }
 
-extension CurrentMacrosView {
+extension InputCurrentMacrosView {
     
     //MARK: Keyboard Buttons
     private var keyboardDownButton: some View {
@@ -100,7 +90,7 @@ extension CurrentMacrosView {
     
     //MARK: InputMacros
     private var inputMacros: some View {
-        VStack {
+        VStack(spacing: 8) {
             
             //MARK: Fats
             HStack {
@@ -206,10 +196,13 @@ extension CurrentMacrosView {
     //MARK: weightChangeLastMonth
     private var weightChangeLastMonth: some View {
         VStack {
-            Text("How much has your weight changed in the last month following these calories/macros?")
-            
             HStack(spacing: 2) {
                 Spacer()
+                
+                Text("Weight Change In Past Month:")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .bold()
                 
                 if viewModel.user.inputWeightChange > 0 {
                     Text("+")
@@ -225,11 +218,11 @@ extension CurrentMacrosView {
                 Text(String(format: "%.1f", abs(viewModel.user.inputWeightChange)))
                     .bold()
                 
-                Text("lbs")
+                Text(viewModel.user.weightInPounds ? "lbs" : "kgs")
                 
                 Spacer()
             }
-            .padding(.vertical)
+            .padding(.vertical, focusedTextField == nil ? 8 : 5)
             .foregroundColor(viewModel.user.inputWeightChange > 0 ? Color.green : viewModel.user.inputWeightChange < 0 ? Color.red : Color.primary)
             
             Slider(value: $viewModel.user.inputWeightChange, in: -25.0...25.0, step: 0.5)

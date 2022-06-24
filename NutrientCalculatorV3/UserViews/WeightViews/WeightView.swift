@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WeightView: View {
-        
+            
     var body: some View {
         NavigationView {
             VStack {
@@ -17,7 +17,6 @@ struct WeightView: View {
                     .padding()
                     .padding(.bottom, 10)
                     .navigationBarHidden(true)
-                
                 WeightMeasurementTypeView()
                 WeightTextFieldView()
                 Spacer()

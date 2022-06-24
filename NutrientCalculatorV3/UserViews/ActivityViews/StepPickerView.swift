@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct StepPicker: View {
+struct StepPickerView: View {
     
     @EnvironmentObject private var viewModel: GlobalUserViewModel
         
     var body: some View {
         VStack {
-            Picker(selection: $viewModel.user.stepsPerDayIntensityScore) {
+            Picker(selection: $viewModel.user.stepsPerDay) {
                 ForEach(StepAmounts.allCases, id: \.self) { item in
                     Text(item.rawValue)
-                        .tag(item.stepIntensityScore())
+                        .tag(item)
                 }
             } label: {
                 Text("Step Amounts")
@@ -32,7 +32,7 @@ struct StepPicker: View {
 
 struct StepPicker_Previews: PreviewProvider {
     static var previews: some View {
-        StepPicker()
+        StepPickerView()
             .environmentObject(dev.globalViewModel)
     }
 }

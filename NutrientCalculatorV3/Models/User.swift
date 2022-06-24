@@ -31,14 +31,14 @@ final class User: ObservableObject, Codable {
     // MARK: Weight
     // We show the user an option to list their weight in imperial or metric, but the startingWeight variable is calculated in kgs regardless
     var weightInPounds: Bool = true
-    var weightKgs: String = ""
-    var weightLbs: String = ""
+    var inputWeight: String = ""
+    var updateInputWeight: String = ""
     var startingWeight: Double {
         let poundsToKgs = 0.453592
         if weightInPounds {
-            return (Double(weightLbs) ?? 1) * poundsToKgs
+            return (Double(inputWeight) ?? 0.0) * poundsToKgs
         } else {
-            return Double(weightKgs) ?? 1
+            return Double(inputWeight) ?? 0.0
         }
     }
 
@@ -56,11 +56,13 @@ final class User: ObservableObject, Codable {
     
     
     // MARK: Activity
-    var stepsPerDayIntensityScore: Int = StepAmounts.moderate.stepIntensityScore() // Possiblities: 1,2,3,4,5 (none, low, moderate, high, extreme)
-    var trainingSessionsPerWeekIntensityScore: Int = WorkoutsPerWeek.moderate.workoutIntensityScore() // Possibilites: 1,3,5,8,10 (none, low, moderate, high, extreme)
+    var stepsPerDay: StepAmounts = .moderate // Possiblities: 1,2,3,4,5 (none, low, moderate, high, extreme)
+    var trainingSessionsPerWeek: WorkoutsPerWeek = .moderate // Possibilites: 1,3,5,8,10 (none, low, moderate, high, extreme)
+
     var totalIntensityScore: Int {
-        return (stepsPerDayIntensityScore + trainingSessionsPerWeekIntensityScore) // 15 is the heighest possible intensity score
+        return (stepsPerDay.stepIntensityScore() + trainingSessionsPerWeek.workoutIntensityScore()) // 15 is the heighest possible intensity score
     }
+    
     var activityLevel: ActivityLevel {
         switch totalIntensityScore {
         case 2..<5:
@@ -83,8 +85,11 @@ final class User: ObservableObject, Codable {
     var goalWeightLbs: String = ""
     var goalWeightKgs: String = ""
     var goalWeight: Double {
-        let poundsToKgs = 0.453592
+        if goalType == .maintenance {
+            return startingWeight
+        }
         if weightInPounds {
+            let poundsToKgs = 0.453592
             return (Double(goalWeightLbs) ?? 1) * poundsToKgs
         } else {
             return Double(goalWeightKgs) ?? 1.0
@@ -97,7 +102,6 @@ final class User: ObservableObject, Codable {
     var inputCarbs: String = ""
     var inputProtein: String = ""
     var inputCalories: String = ""
-    var calculatedCalories: Double?
     var inputWeightChange: Double = 0.0
     
 }

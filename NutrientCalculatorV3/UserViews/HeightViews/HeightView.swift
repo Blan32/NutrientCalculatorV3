@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HeightView: View {
     
+    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    
     var body: some View {
         VStack {
             Text("Select your height.")

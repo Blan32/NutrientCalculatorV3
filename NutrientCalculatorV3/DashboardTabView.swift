@@ -10,12 +10,12 @@ import SwiftUI
 struct DashboardTabView: View {
     
     @StateObject var viewModel = GlobalUserViewModel()
-    @State var newUser: Bool = true
+    @AppStorage("new_user") var newUser: Bool = true
     
     var body: some View {
         ZStack {
             TabView {
-                Text("hi")
+                AccountView()
             }
             .fullScreenCover(isPresented: $newUser) {
                 OnboardingView(newUser: $newUser)
