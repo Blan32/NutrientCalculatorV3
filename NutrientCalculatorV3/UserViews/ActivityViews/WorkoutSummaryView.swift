@@ -15,8 +15,10 @@ struct WorkoutSummaryView: View {
         HStack {
             Text("Workouts Per Week: ")
                 .bold()
+            Spacer()
             Text(viewModel.user.trainingSessionsPerWeek.rawValue)
                 .foregroundColor(viewModel.user.trainingSessionsPerWeek.workoutIntensityColor())
+                .padding(.trailing, 50)
         }
         .modifier(UserInfoViewModifier())
     }

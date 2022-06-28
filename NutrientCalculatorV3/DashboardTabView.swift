@@ -20,6 +20,11 @@ struct DashboardTabView: View {
             .fullScreenCover(isPresented: $newUser) {
                 OnboardingView(newUser: $newUser)
             }
+            .alert(item: $viewModel.alertItem) { alertItem in
+                Alert(title: alertItem.title,
+                      message: alertItem.message,
+                      dismissButton: alertItem.dismissButton)
+            }
         }
         .environmentObject(viewModel)
     }

@@ -15,7 +15,16 @@ struct GoalWeightSummaryView: View {
         HStack {
             Text("Goal Weight: ")
                 .bold()
-            Text(viewModel.user.weightInPounds ? viewModel.user.goalWeightLbs + " lbs" : viewModel.user.goalWeightKgs + " kgs")
+            Spacer()
+            
+            if viewModel.user.updateGoalWeight == "" {
+                Text(viewModel.user.weightInPounds ? viewModel.user.inputGoalWeight + " lbs" : viewModel.user.inputGoalWeight + " kgs")
+                    .padding(.trailing, 50)
+            } else {
+                Text(viewModel.user.weightInPounds ? viewModel.user.updateGoalWeight + " lbs" : viewModel.user.updateGoalWeight + " kgs")
+                    .padding(.trailing, 50)
+            }
+            
         }
         .modifier(UserInfoViewModifier())
     }

@@ -10,8 +10,10 @@ import SwiftUI
 struct SexPickerView: View {
     
     @EnvironmentObject private var viewModel: GlobalUserViewModel
+    var updateSex: Bool
     
-    init() {
+    init(updateSex: Bool) {
+        self.updateSex = updateSex
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor) //changes selected background
         
         let attributes: [NSAttributedString.Key:Any] = [
@@ -21,26 +23,40 @@ struct SexPickerView: View {
     }
     
     var body: some View {
-        
-        if viewModel.user.sex == "Male" {
-            Image("MaleSymbol")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 220)
-        } else if viewModel.user.sex == "Female" {
-            Image("FemaleSymbol")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 220)
-        } else {
-            Image("MaleSymbol")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 220)
-                .opacity(0)
+        VStack {
+            sexSymbolImage
+            sexPicker
         }
-        
-        Picker(selection: $viewModel.user.sex) {
+    }
+}
+
+struct SexPicker_Previews: PreviewProvider {
+    static var previews: some View {
+        SexPickerView(updateSex: true)
+            .environmentObject(dev.globalViewModel)
+    }
+}
+
+extension SexPickerView {
+    
+    private var sexSymbolImage: some View {
+        VStack {
+            if updateSex {
+                Image(viewModel.user.updateSex == "Male" ? "MaleSymbol" : "FemaleSymbol")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 220)
+            } else {
+                Image(viewModel.user.sex == "Male" ? "MaleSymbol" : "FemaleSymbol")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 220)
+            }
+        }
+    }
+    
+    private var sexPicker: some View {
+        Picker(selection: updateSex ? $viewModel.user.updateSex : $viewModel.user.sex) {
             Text("Male")
                 .tag("Male")
             Text("Female")
@@ -52,12 +68,5 @@ struct SexPickerView: View {
         .padding()
         .padding(.top, 20)
         .padding(.bottom, 80)
-    }
-}
-
-struct SexPicker_Previews: PreviewProvider {
-    static var previews: some View {
-        SexPickerView()
-            .environmentObject(dev.globalViewModel)
     }
 }

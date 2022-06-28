@@ -15,8 +15,10 @@ struct StepSummaryView: View {
         HStack {
             Text("Steps Per Day: ")
                 .bold()
+            Spacer()
             Text(viewModel.user.stepsPerDay.rawValue)
                 .foregroundColor(viewModel.user.stepsPerDay.stepIntensityColor())
+                .padding(.trailing, 50)
         }
         .modifier(UserInfoViewModifier())
     }

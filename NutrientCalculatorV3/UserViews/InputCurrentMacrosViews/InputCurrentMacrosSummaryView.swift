@@ -20,40 +20,32 @@ struct InputCurrentMacrosSummaryView: View {
             
             VStack {
                 Text("F")
-                    .bold()
                 Text(viewModel.user.inputFats == "" ? "n/a" : viewModel.user.inputFats)
-                    .bold()
             }
             .foregroundColor(Color.green)
             .frame(width: 35, height: 30)
             
             VStack {
                 Text("C")
-                    .bold()
                 Text(viewModel.user.inputCarbs == "" ? "n/a" : viewModel.user.inputCarbs)
-                    .bold()
             }
             .foregroundColor(Color.blue)
             .frame(width: 35, height: 30)
             
             VStack {
                 Text("P")
-                    .bold()
                 Text(viewModel.user.inputProtein == "" ? "n/a" : viewModel.user.inputProtein)
-                    .bold()
             }
             .foregroundColor(Color.red)
             .frame(width: 35, height: 30)
             
             VStack {
                 Text("Cal")
-                    .bold()
                 Text(viewModel.user.inputCalories == "" ? "n/a" : viewModel.user.inputCalories)
-                    .bold()
             }
             .frame(width: 55, height: 30)
         }
-        .padding(.trailing, 40)
+        .padding(.trailing, 45)
         .modifier(UserInfoViewModifier())
     }
 }

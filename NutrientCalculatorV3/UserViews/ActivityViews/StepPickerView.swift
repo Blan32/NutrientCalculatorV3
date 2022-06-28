@@ -10,10 +10,11 @@ import SwiftUI
 struct StepPickerView: View {
     
     @EnvironmentObject private var viewModel: GlobalUserViewModel
+    var updateActivity: Bool
         
     var body: some View {
         VStack {
-            Picker(selection: $viewModel.user.stepsPerDay) {
+            Picker(selection: updateActivity ? $viewModel.user.updateStepsPerDay : $viewModel.user.stepsPerDay) {
                 ForEach(StepAmounts.allCases, id: \.self) { item in
                     Text(item.rawValue)
                         .tag(item)
@@ -32,7 +33,7 @@ struct StepPickerView: View {
 
 struct StepPicker_Previews: PreviewProvider {
     static var previews: some View {
-        StepPickerView()
+        StepPickerView(updateActivity: true)
             .environmentObject(dev.globalViewModel)
     }
 }

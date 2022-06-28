@@ -27,7 +27,7 @@ struct OnboardingView: View {
                         .transition(transition)
                         .navigationTitle("Welcome")
                 case 1:
-                    HeightView()
+                    HeightView(updateHeight: false)
                         .transition(transition)
                         .navigationTitle("Height")
                 case 2:
@@ -35,19 +35,19 @@ struct OnboardingView: View {
                         .transition(transition)
                         .navigationTitle("Weight")
                 case 3:
-                    AgeView()
+                    AgeView(updateAge: false)
                         .transition(transition)
                         .navigationTitle("Birthday")
                 case 4:
-                    SexView()
+                    SexView(updateSex: false)
                         .transition(transition)
                         .navigationTitle("Sex")
                 case 5:
-                    ActivityView()
+                    ActivityView(updateActivity: false)
                         .transition(transition)
                         .navigationTitle("Activity")
                 case 6:
-                    GoalView()
+                    GoalView(updateGoalWeight: false)
                         .transition(transition)
                         .navigationTitle("Goal")
                 case 7:
@@ -137,7 +137,7 @@ extension OnboardingView {
                         .frame(maxWidth: .infinity)
                 }
             }
-            .modifier(UserInfoBottomButtonModifier())
+            .modifier(UserInfoSubmitButtonModifier())
         }
     }
     
@@ -148,8 +148,7 @@ extension OnboardingView {
         } else if onboardingState == 6 && !viewModel.isValidGoalWeight() {
             // Shows invalidGoalWeight Alert from viewModel
         } else if onboardingState == 6 && viewModel.user.goalType == .maintenance {
-            viewModel.user.goalWeightLbs = ""
-            viewModel.user.goalWeightKgs = ""
+            viewModel.user.inputGoalWeight = ""
             withAnimation(.easeInOut) {
                 onboardingState += 1
             }
@@ -160,7 +159,7 @@ extension OnboardingView {
                 onboardingState += 1
             }
         } else {
-            newUser.toggle()
+            viewModel.saveProfile()
         }
     }
 }

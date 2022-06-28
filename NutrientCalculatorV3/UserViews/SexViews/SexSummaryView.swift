@@ -15,6 +15,7 @@ struct SexSummaryView: View {
         HStack {
             Text("Biological Sex: ")
                 .bold()
+            Spacer()
             HStack {
                 Text(viewModel.user.sex)
                 if viewModel.user.sex == "Male" {
@@ -24,6 +25,7 @@ struct SexSummaryView: View {
                 }
             }
             .foregroundColor(viewModel.user.sex == "Male" ? .blue : .pink)
+            .padding(.trailing, 50)
         }
         .modifier(UserInfoViewModifier())
     }

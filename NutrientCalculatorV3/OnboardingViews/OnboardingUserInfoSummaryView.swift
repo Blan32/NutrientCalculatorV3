@@ -15,12 +15,10 @@ struct OnboardingUserInfoSummaryView: View {
     
     var body: some View {
         ScrollView {
-            userHeight
-            userWeight
-            userAge
-            userSex
-            userSteps
-            userWorkouts
+            HeightSummaryView()
+            WeightSummaryView()
+            AgeSummaryView()
+            SexSummaryView()
             userActivity
             userGoal
             userInputMacrosAndCalories
@@ -42,72 +40,11 @@ struct OnboardingSummaryView_Previews: PreviewProvider {
 
 extension OnboardingUserInfoSummaryView {
     
-    // MARK: User Height
-    private var userHeight: some View {
-        NavigationLink {
-            HeightView()
-                .navigationTitle("Height")
-        } label: {
-            HeightSummaryView()
-        }
-    }
-    
-    // MARK: User Weight
-    private var userWeight: some View {
-        NavigationLink {
-            UpdateWeightView()
-                .navigationTitle("Weight")
-        } label: {
-            WeightSummaryView()
-        }
-    }
-    
-    // MARK: User Age
-    private var userAge: some View {
-        NavigationLink {
-            AgeView()
-                .navigationTitle("Birthday")
-        } label: {
-            AgeSummaryView()
-        }
-    }
-    
-    // MARK: User Sex
-    private var userSex: some View {
-        NavigationLink {
-            SexView()
-                .navigationTitle("Sex")
-        } label: {
-            SexSummaryView()
-        }
-    }
-    
-    // MARK: User Steps
-    private var userSteps: some View {
-        NavigationLink {
-            ActivityView()
-                .navigationTitle("Activity")
-        } label: {
-            StepSummaryView()
-        }
-    }
-    
-    // MARK: User Workouts
-    private var userWorkouts: some View {
-        NavigationLink {
-            ActivityView()
-                .navigationTitle("Activity")
-        } label: {
-            WorkoutSummaryView()
-        }
-    }
-    
     // MARK: User Activity Level
     private var userActivity: some View {
-        NavigationLink {
-            ActivityView()
-                .navigationTitle("Activity")
-        } label: {
+        VStack {
+            StepSummaryView()
+            WorkoutSummaryView()
             ActivitySummaryView()
         }
     }
@@ -115,20 +52,9 @@ extension OnboardingUserInfoSummaryView {
     // MARK: User Goal / Goal Weight
     private var userGoal: some View {
         VStack {
-            NavigationLink {
-                GoalView()
-                    .navigationTitle("Goal")
-            } label: {
-                GoalSummaryView()
-            }
-            
+            GoalSummaryView()
             if viewModel.user.goalType == .fatloss || viewModel.user.goalType == .muscleGrowth {
-                NavigationLink {
-                    GoalView()
-                        .navigationTitle("Goal")
-                } label: {
-                    GoalWeightSummaryView()
-                }
+                GoalWeightSummaryView()
             }
         }
     }

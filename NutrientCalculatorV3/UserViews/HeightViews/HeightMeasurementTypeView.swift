@@ -10,9 +10,11 @@ import SwiftUI
 struct HeightMeasurementTypeView: View {
     
     @EnvironmentObject var viewModel: GlobalUserViewModel
+    var updateHeight: Bool
     
     // Purely for changing the color of the selected Metrics Buttons as a picker
-    init() {
+    init(updateHeight: Bool) {
+        self.updateHeight = updateHeight
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor) //changes selected background
         
         let attributes: [NSAttributedString.Key:Any] = [
@@ -22,6 +24,26 @@ struct HeightMeasurementTypeView: View {
     }
     
     var body: some View {
+        if updateHeight {
+            profileHeightPicker
+        } else {
+            onboardingHeightPicker
+        }
+    }
+}
+
+struct HeightMeasurementTypeView_Previews: PreviewProvider {
+    static var previews: some View {
+        ZStack {
+            HeightMeasurementTypeView(updateHeight: true)
+        }
+        .environmentObject(dev.globalViewModel)
+    }
+}
+
+extension HeightMeasurementTypeView {
+    
+    private var onboardingHeightPicker: some View {
         Picker(selection: $viewModel.user.heightInFeetAndInches) {
             Text("Feet and Inches")
                 .tag(true)
@@ -33,56 +55,19 @@ struct HeightMeasurementTypeView: View {
         .pickerStyle(SegmentedPickerStyle())
         .foregroundColor(Color.buttonColor)
         .padding()
-        .padding(.bottom, 80)
-        
-        //Custom buttons for metrics that don't work
-        /*
-//        VStack {
-//            HStack {
-//                Button {
-//                    if viewModel.user.measurementsInImperialSystem == false {
-//                        viewModel.user.measurementsInImperialSystem.toggle()
-//                    }
-//                    viewModel.user.heightIn = 68
-//                    viewModel.user.heightCm = 0
-//                } label: {
-//                    Text("Feet and Inches")
-//                        .frame(maxWidth: .infinity)
-//                }
-//                .frame(width: UIScreen.main.bounds.width * 0.45)
-//                .buttonStyle(.bordered)
-//                .buttonBorderShape(.capsule)
-//                .tint(viewModel.user.measurementsInImperialSystem ? .buttonColor : .accentColor)
-//
-//                Button {
-//                    if viewModel.user.measurementsInImperialSystem == true {
-//                        viewModel.user.measurementsInImperialSystem.toggle()
-//                    }
-//                    viewModel.user.heightIn = 0
-//                    viewModel.user.heightCm = 173
-//                } label: {
-//                    Text("Centimeters")
-//                        .frame(maxWidth: .infinity)
-//                }
-//                .frame(width: UIScreen.main.bounds.width * 0.45)
-//                .buttonStyle(.bordered)
-//                .buttonBorderShape(.capsule)
-//                .tint(!viewModel.user.measurementsInImperialSystem ? .buttonColor : .accentColor)
-//
-//            }
-//            .padding(.horizontal)
-//
-//            Spacer()
-//        }
-        */
     }
-}
-
-struct HeightMeasurementTypeView_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            HeightMeasurementTypeView()
+    
+    private var profileHeightPicker: some View {
+        Picker(selection: $viewModel.user.updateHeightInFeetAndInches) {
+            Text("Feet and Inches")
+                .tag(true)
+            Text("Centimeters")
+                .tag(false)
+        } label: {
+            Text("Imperial vs. Metric System")
         }
-        .environmentObject(dev.globalViewModel)
+        .pickerStyle(SegmentedPickerStyle())
+        .foregroundColor(Color.buttonColor)
+        .padding()
     }
 }

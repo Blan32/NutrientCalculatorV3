@@ -5,14 +5,44 @@
 //  Created by Kyle Blandford on 6/13/22.
 //
 
-import Foundation
-
+import SwiftUI
 
 class GlobalUserViewModel: ObservableObject {
+    
+    @AppStorage("user") private var userData: Data?
+    @AppStorage("new_user") var newUser: Bool = true
     
     @Published var user = User()
     @Published var alertItem: AlertItem?
     
+    //MARK: Save Profile / Sign In
+    func saveProfile() {
+        do {
+            let data = try JSONEncoder().encode(user)
+            userData = data
+            signIn()
+        } catch {
+            alertItem = AlertContext.invalidUserData
+        }
+    }
+    
+    func signIn() {
+        newUser = false
+    }
+    
+    
+    // MARK: Retrieve User
+    func retrieveUser() {
+        guard let userData = userData else {
+            return
+        }
+        
+        do {
+            user = try JSONDecoder().decode(User.self, from: userData)
+        } catch {
+            alertItem = AlertContext.invalidUserData
+        }
+    }
     
     //MARK: Validate Forms ----------
     let fiftyPounds = 22.6796
@@ -29,46 +59,63 @@ class GlobalUserViewModel: ObservableObject {
         return true
     }
     
-    func isValidUpdateWeight() -> Bool {
-        if user.updateInputWeight.isEmpty {
+    //MARK: * validate goal weight
+    func isValidGoalWeight() -> Bool {
+        if user.goalWeight < fiftyPounds || user.goalWeight > oneThousandPounds {
             alertItem = AlertContext.invalidWeight
             return false
         }
-        
-        if user.weightInPounds {
-            if (Double(user.updateInputWeight) ?? 0) * poundsToKgs < fiftyPounds || (Double(user.updateInputWeight) ?? 0) * poundsToKgs > oneThousandPounds {
-                alertItem = AlertContext.invalidWeight
-                return false
-            }
+        if user.goalType == .fatloss && Double(user.goalWeight) > user.currentWeight - 0.1 {
+            alertItem = AlertContext.invalidFatLossGoal
+            return false
         }
-        
-        if !user.weightInPounds {
-            if (Double(user.updateInputWeight) ?? 0) < fiftyPounds || (Double(user.updateInputWeight) ?? 0) > oneThousandPounds {
-                alertItem = AlertContext.invalidWeight
-                return false
-            }
+
+        if user.goalType == .muscleGrowth && Double(user.goalWeight) < user.currentWeight + 0.1 {
+            alertItem = AlertContext.invalidMuscleGrowthGoal
+            return false
         }
         
         return true
     }
     
-    //MARK: * validate goal weight
-    func isValidGoalWeight() -> Bool {
-        if user.goalType == .fatloss && user.goalWeight < fiftyPounds {
-            alertItem = AlertContext.invalidFatLossGoal
+    //MARK: * validate new goal weight
+    func isValidUpdateGoalWeight() -> Bool {
+        // Check if textfield is empty
+        if user.updateGoalWeight.isEmpty {
+            alertItem = AlertContext.invalidWeight
             return false
         }
-        if user.goalType == .fatloss && Double(user.goalWeight) > user.startingWeight - 0.1 {
-            alertItem = AlertContext.invalidFatLossGoal
-            return false
+        
+        // Check if updateGoalWeight is less than 50lbs or greater than 1000lbs (which would be invalid)
+        if user.weightInPounds {
+            if (Double(user.updateGoalWeight) ?? 0) * poundsToKgs < fiftyPounds || (Double(user.updateGoalWeight) ?? 0) * poundsToKgs > oneThousandPounds {
+                alertItem = AlertContext.invalidWeight
+                return false
+            }
+        } else if !user.weightInPounds {
+            if (Double(user.updateGoalWeight) ?? 0) < fiftyPounds || (Double(user.updateGoalWeight) ?? 0) > oneThousandPounds {
+                alertItem = AlertContext.invalidWeight
+                return false
+            }
         }
-        if user.goalType == .muscleGrowth && user.goalWeight < fiftyPounds {
-            alertItem = AlertContext.invalidMuscleGrowthGoal
-            return false
-        }
-        if user.goalType == .muscleGrowth && Double(user.goalWeight) < user.startingWeight + 0.1 {
-            alertItem = AlertContext.invalidMuscleGrowthGoal
-            return false
+        
+        // Check if updateGoalWeight makes sense based on goalType (less for fatloss, more for muscle growth) if weightInPounds convert updateGoalWeight to Kg before comparison
+        if user.weightInPounds {
+            if user.goalType == .fatloss && (Double(user.updateGoalWeight) ?? 0.0) * poundsToKgs > user.currentWeight - 0.1 {
+                alertItem = AlertContext.invalidFatLossGoal
+                return false
+            } else if user.goalType == .muscleGrowth && (Double(user.updateGoalWeight) ?? 0.0) * poundsToKgs < user.currentWeight + 0.1 {
+                alertItem = AlertContext.invalidMuscleGrowthGoal
+                return false
+            }
+        } else {
+            if user.goalType == .fatloss && (Double(user.updateGoalWeight) ?? 0.0) > user.currentWeight - 0.1 {
+                alertItem = AlertContext.invalidFatLossGoal
+                return false
+            } else if user.goalType == .muscleGrowth && (Double(user.updateGoalWeight) ?? 0.0) < user.currentWeight + 0.1 {
+                alertItem = AlertContext.invalidMuscleGrowthGoal
+                return false
+            }
         }
         
         return true

@@ -20,19 +20,6 @@ struct WeightTextFieldView: View {
                     .keyboardType(.decimalPad)
                     .focused($focusedTextField)
                 Text(viewModel.user.weightInPounds ? "lbs" : "kgs")
-//                if viewModel.user.weightInPounds {
-//                    TextField("Current Weight", text: $viewModel.user.weightLbs)
-//                        .keyboardType(.decimalPad)
-//                        .focused($focusedTextField)
-//                    Text("lbs")
-//
-//                } else {
-//                    TextField("Current Weight", text: $viewModel.user.weightKgs)
-//                        .keyboardType(.decimalPad)
-//                        .focused($focusedTextField)
-//                    Text("kgs")
-//                
-//                }
             }
             .font(.body)
             .padding()

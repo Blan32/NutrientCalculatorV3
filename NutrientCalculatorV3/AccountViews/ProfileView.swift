@@ -19,12 +19,10 @@ struct ProfileView: View {
             userSteps
             userWorkouts
             userActivity
-            if viewModel.user.inputCalories != "" {
-                userInputMacrosAndCalories
-            }
-            Rectangle()
-                .opacity(0.0)
-                .frame(height: 80)
+            userGoal
+        }
+        .onAppear {
+            viewModel.retrieveUser()
         }
     }
 }
@@ -43,7 +41,7 @@ extension ProfileView {
     // MARK: User Height
     private var userHeight: some View {
         NavigationLink {
-            HeightView()
+            HeightView(updateHeight: true)
                 .navigationTitle("Height")
         } label: {
             HeightSummaryView()
@@ -53,7 +51,7 @@ extension ProfileView {
     // MARK: User Age
     private var userAge: some View {
         NavigationLink {
-            AgeView()
+            AgeView(updateAge: true)
                 .navigationTitle("Birthday")
         } label: {
             AgeSummaryView()
@@ -63,7 +61,7 @@ extension ProfileView {
     // MARK: User Sex
     private var userSex: some View {
         NavigationLink {
-            SexView()
+            SexView(updateSex: true)
                 .navigationTitle("Sex")
         } label: {
             SexSummaryView()
@@ -73,7 +71,7 @@ extension ProfileView {
     // MARK: User Steps
     private var userSteps: some View {
         NavigationLink {
-            ActivityView()
+            ActivityView(updateActivity: true)
                 .navigationTitle("Activity")
         } label: {
             StepSummaryView()
@@ -83,7 +81,7 @@ extension ProfileView {
     // MARK: User Workouts
     private var userWorkouts: some View {
         NavigationLink {
-            ActivityView()
+            ActivityView(updateActivity: true)
                 .navigationTitle("Activity")
         } label: {
             WorkoutSummaryView()
@@ -93,10 +91,31 @@ extension ProfileView {
     // MARK: User Activity Level
     private var userActivity: some View {
         NavigationLink {
-            ActivityView()
+            ActivityView(updateActivity: true)
                 .navigationTitle("Activity")
         } label: {
             ActivitySummaryView()
+        }
+    }
+    
+    // MARK: User Goal / Goal Weight
+    private var userGoal: some View {
+        VStack {
+            NavigationLink {
+                GoalView(updateGoalWeight: true)
+                    .navigationTitle("Goal")
+            } label: {
+                GoalSummaryView()
+            }
+            
+            if viewModel.user.goalType == .fatloss || viewModel.user.goalType == .muscleGrowth {
+                NavigationLink {
+                    GoalView(updateGoalWeight: true)
+                        .navigationTitle("Goal")
+                } label: {
+                    GoalWeightSummaryView()
+                }
+            }
         }
     }
     

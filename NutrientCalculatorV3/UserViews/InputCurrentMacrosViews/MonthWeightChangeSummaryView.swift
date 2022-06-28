@@ -13,8 +13,9 @@ struct MonthWeightChangeSummaryView: View {
 
     var body: some View {
         HStack{
-            Text("Prior 30-Day Weight Change: ")
+            Text("Prior Weight Change: ")
                 .bold()
+            Spacer()
             HStack(spacing: 3) {
                 if viewModel.user.inputWeightChange > 0 {
                     Text("+")
@@ -33,6 +34,7 @@ struct MonthWeightChangeSummaryView: View {
             }
             Text(viewModel.user.weightInPounds ? "lbs" : "kgs")
                 .foregroundColor(viewModel.user.inputWeightChange > 0 ? Color.green : viewModel.user.inputWeightChange < 0 ? Color.red : Color.primary)
+                .padding(.trailing, 50)
         }
         .modifier(UserInfoViewModifier())
     }

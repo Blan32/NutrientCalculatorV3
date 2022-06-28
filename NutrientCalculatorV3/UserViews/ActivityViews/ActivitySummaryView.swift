@@ -15,8 +15,10 @@ struct ActivitySummaryView: View {
         HStack {
             Text("Overall Activity Level: ")
                 .bold()
+            Spacer()
             Text(viewModel.user.activityLevel.rawValue)
-                .foregroundColor(viewModel.user.trainingSessionsPerWeek.workoutIntensityColor())
+                .foregroundColor(viewModel.user.activityLevel.intensityColor())
+                .padding(.trailing, 50)
         }
         .modifier(UserInfoViewModifier())
     }

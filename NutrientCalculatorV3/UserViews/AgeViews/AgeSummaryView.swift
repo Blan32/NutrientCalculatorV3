@@ -15,7 +15,9 @@ struct AgeSummaryView: View {
         HStack {
             Text("Age: ")
                 .bold()
+            Spacer()
             Text("\(viewModel.user.age ?? 0) years old")
+                .padding(.trailing, 50)
         }
         .modifier(UserInfoViewModifier())
     }

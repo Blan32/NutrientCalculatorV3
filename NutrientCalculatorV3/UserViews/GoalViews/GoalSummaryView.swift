@@ -15,7 +15,9 @@ struct GoalSummaryView: View {
         HStack {
             Text("Goal: ")
                 .bold()
+            Spacer()
             Text(viewModel.user.goalType.rawValue)
+                .padding(.trailing, 50)
         }
         .modifier(UserInfoViewModifier())
     }

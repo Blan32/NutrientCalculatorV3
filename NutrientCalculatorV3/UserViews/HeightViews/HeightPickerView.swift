@@ -10,35 +10,32 @@ import SwiftUI
 struct HeightPickerView: View {
     
     @EnvironmentObject var viewModel: GlobalUserViewModel
+    @State var updateHeight: Bool
     
     var body: some View {
-        VStack {
-            Text(viewModel.user.heightInFeetAndInches ? "Height: \(viewModel.user.heightIn / 12) ft \(viewModel.user.heightIn % 12) in" : "Height: \(viewModel.user.heightCm) cm")
-                .bold()
-                .font(.title2)
-
-            if viewModel.user.heightInFeetAndInches {
-                Picker(selection: $viewModel.user.heightIn) {
-                    ForEach(0..<97) { inch in
-                        Text("\(inch / 12)' \(inch % 12)\"")
-                            .bold()
-                            .tag("\(inch)")
-                    }
-                } label: {
-                    Text("Height in inches")
+        VStack {            
+            if updateHeight {
+                // MARK: Profile View
+                Text(viewModel.user.updateHeightInFeetAndInches ? "Height: \(viewModel.user.updateHeightIn / 12) ft \(viewModel.user.updateHeightIn % 12) in" : "Height: \(viewModel.user.updateHeightCm) cm")
+                    .bold()
+                    .font(.title2)
+                
+                if viewModel.user.updateHeightInFeetAndInches {
+                    updateHeightInFeetPicker
+                } else {
+                    updateHeightInCmPicker
                 }
-                .pickerStyle(WheelPickerStyle())
             } else {
-                Picker(selection: $viewModel.user.heightCm) {
-                    ForEach(0..<245) { cm in
-                        Text("\(cm) cm")
-                            .bold()
-                            .tag("\(cm)")
-                    }
-                } label: {
-                    Text("Height in inches")
+                // MARK: Onboarding View
+                Text(viewModel.user.heightInFeetAndInches ? "Height: \(viewModel.user.heightIn / 12) ft \(viewModel.user.heightIn % 12) in" : "Height: \(viewModel.user.heightCm) cm")
+                    .bold()
+                    .font(.title2)
+                
+                if viewModel.user.heightInFeetAndInches {
+                    heightInFeetPicker
+                } else {
+                    heightInCmPicker
                 }
-                .pickerStyle(WheelPickerStyle())
             }
         }
     }
@@ -47,8 +44,67 @@ struct HeightPickerView: View {
 struct HeightPickerView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            HeightPickerView()
+            HeightPickerView(updateHeight: true)
         }
         .environmentObject(dev.globalViewModel)
+    }
+}
+
+
+extension HeightPickerView {
+    
+    // MARK: heightInFeetPicker
+    private var heightInFeetPicker: some View {
+        Picker(selection: $viewModel.user.heightIn) {
+            ForEach(0..<97) { inch in
+                Text("\(inch / 12)' \(inch % 12)\"")
+                    .bold()
+                    .tag("\(inch)")
+            }
+        } label: {
+            Text("Height in inches")
+        }
+        .pickerStyle(WheelPickerStyle())
+    }
+    
+    // MARK: heightInCmPicker
+    private var heightInCmPicker: some View {
+        Picker(selection: $viewModel.user.heightCm) {
+            ForEach(0..<245) { cm in
+                Text("\(cm) cm")
+                    .bold()
+                    .tag("\(cm)")
+            }
+        } label: {
+            Text("Height in inches")
+        }
+        .pickerStyle(WheelPickerStyle())
+    }
+    
+    private var updateHeightInFeetPicker: some View {
+        Picker(selection: $viewModel.user.updateHeightIn) {
+            ForEach(0..<97) { inch in
+                Text("\(inch / 12)' \(inch % 12)\"")
+                    .bold()
+                    .tag("\(inch)")
+            }
+        } label: {
+            Text("Height in inches")
+        }
+        .pickerStyle(WheelPickerStyle())
+    }
+    
+    // MARK: heightInCmPicker
+    private var updateHeightInCmPicker: some View {
+        Picker(selection: $viewModel.user.updateHeightCm) {
+            ForEach(0..<245) { cm in
+                Text("\(cm) cm")
+                    .bold()
+                    .tag("\(cm)")
+            }
+        } label: {
+            Text("Height in inches")
+        }
+        .pickerStyle(WheelPickerStyle())
     }
 }

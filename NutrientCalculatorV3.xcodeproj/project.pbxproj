@@ -20,12 +20,13 @@
 		270CDD382857630000D32953 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD372857630000D32953 /* User.swift */; };
 		270CDD3C285767EC00D32953 /* WeighIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD3B285767EC00D32953 /* WeighIn.swift */; };
 		270CDD402857719300D32953 /* GlobalUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD3F2857719300D32953 /* GlobalUserViewModel.swift */; };
-		270CDD45285783E600D32953 /* UserInfoBottomButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD44285783E600D32953 /* UserInfoBottomButtonModifier.swift */; };
+		270CDD45285783E600D32953 /* UserInfoSubmitButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD44285783E600D32953 /* UserInfoSubmitButtonModifier.swift */; };
 		270CDD472857933900D32953 /* HeightMeasurementTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD462857933900D32953 /* HeightMeasurementTypeView.swift */; };
 		270CDD49285793B700D32953 /* HeightPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD48285793B700D32953 /* HeightPickerView.swift */; };
 		270CDD4D2857B4FF00D32953 /* WeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD4C2857B4FE00D32953 /* WeightView.swift */; };
 		270CDD4F2857B80100D32953 /* WeightMeasurementTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD4E2857B80100D32953 /* WeightMeasurementTypeView.swift */; };
 		270CDD512857BA6000D32953 /* WeightTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD502857BA6000D32953 /* WeightTextFieldView.swift */; };
+		27199BBD286B5EBB002978E3 /* UserInfoBackButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27199BBC286B5EBB002978E3 /* UserInfoBackButtonModifier.swift */; };
 		274FBBDF2860AD02001CB004 /* InputCurrentMacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FBBDE2860AD02001CB004 /* InputCurrentMacrosView.swift */; };
 		274FBBE62861D6F8001CB004 /* KeyboardDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FBBE52861D6F8001CB004 /* KeyboardDismissButton.swift */; };
 		274FBBE828621490001CB004 /* OnboardingUserInfoSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FBBE728621490001CB004 /* OnboardingUserInfoSummaryView.swift */; };
@@ -54,8 +55,6 @@
 		27FC680528661CB40033DEBC /* MonthWeightChangeSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC680428661CB40033DEBC /* MonthWeightChangeSummaryView.swift */; };
 		27FC6809286630A60033DEBC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC6808286630A60033DEBC /* ProfileView.swift */; };
 		27FC680B286633E50033DEBC /* AccountInfoViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC680A286633E50033DEBC /* AccountInfoViewModifier.swift */; };
-		27FC680F286646BD0033DEBC /* UpdateWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC680E286646BD0033DEBC /* UpdateWeightView.swift */; };
-		27FC681128664E4D0033DEBC /* UpdateWeightTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC681028664E4D0033DEBC /* UpdateWeightTextFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,12 +71,13 @@
 		270CDD372857630000D32953 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		270CDD3B285767EC00D32953 /* WeighIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeighIn.swift; sourceTree = "<group>"; };
 		270CDD3F2857719300D32953 /* GlobalUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUserViewModel.swift; sourceTree = "<group>"; };
-		270CDD44285783E600D32953 /* UserInfoBottomButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoBottomButtonModifier.swift; sourceTree = "<group>"; };
+		270CDD44285783E600D32953 /* UserInfoSubmitButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoSubmitButtonModifier.swift; sourceTree = "<group>"; };
 		270CDD462857933900D32953 /* HeightMeasurementTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightMeasurementTypeView.swift; sourceTree = "<group>"; };
 		270CDD48285793B700D32953 /* HeightPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightPickerView.swift; sourceTree = "<group>"; };
 		270CDD4C2857B4FE00D32953 /* WeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightView.swift; sourceTree = "<group>"; };
 		270CDD4E2857B80100D32953 /* WeightMeasurementTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightMeasurementTypeView.swift; sourceTree = "<group>"; };
 		270CDD502857BA6000D32953 /* WeightTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTextFieldView.swift; sourceTree = "<group>"; };
+		27199BBC286B5EBB002978E3 /* UserInfoBackButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoBackButtonModifier.swift; sourceTree = "<group>"; };
 		274FBBDE2860AD02001CB004 /* InputCurrentMacrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCurrentMacrosView.swift; sourceTree = "<group>"; };
 		274FBBE52861D6F8001CB004 /* KeyboardDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissButton.swift; sourceTree = "<group>"; };
 		274FBBE728621490001CB004 /* OnboardingUserInfoSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUserInfoSummaryView.swift; sourceTree = "<group>"; };
@@ -107,8 +107,6 @@
 		27FC680428661CB40033DEBC /* MonthWeightChangeSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthWeightChangeSummaryView.swift; sourceTree = "<group>"; };
 		27FC6808286630A60033DEBC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		27FC680A286633E50033DEBC /* AccountInfoViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewModifier.swift; sourceTree = "<group>"; };
-		27FC680E286646BD0033DEBC /* UpdateWeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWeightView.swift; sourceTree = "<group>"; };
-		27FC681028664E4D0033DEBC /* UpdateWeightTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateWeightTextFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,8 +238,6 @@
 				270CDD4E2857B80100D32953 /* WeightMeasurementTypeView.swift */,
 				270CDD502857BA6000D32953 /* WeightTextFieldView.swift */,
 				27FC67F12866180A0033DEBC /* WeightSummaryView.swift */,
-				27FC680E286646BD0033DEBC /* UpdateWeightView.swift */,
-				27FC681028664E4D0033DEBC /* UpdateWeightTextFieldView.swift */,
 			);
 			path = WeightViews;
 			sourceTree = "<group>";
@@ -313,7 +309,8 @@
 			isa = PBXGroup;
 			children = (
 				27EE30DF2864F6EE00929406 /* UserInfoViewModifier.swift */,
-				270CDD44285783E600D32953 /* UserInfoBottomButtonModifier.swift */,
+				270CDD44285783E600D32953 /* UserInfoSubmitButtonModifier.swift */,
+				27199BBC286B5EBB002978E3 /* UserInfoBackButtonModifier.swift */,
 				27FC680A286633E50033DEBC /* AccountInfoViewModifier.swift */,
 			);
 			path = ViewModifiers;
@@ -416,7 +413,6 @@
 				27FC680028661B2F0033DEBC /* GoalWeightSummaryView.swift in Sources */,
 				270CDD512857BA6000D32953 /* WeightTextFieldView.swift in Sources */,
 				274FBBDF2860AD02001CB004 /* InputCurrentMacrosView.swift in Sources */,
-				27FC680F286646BD0033DEBC /* UpdateWeightView.swift in Sources */,
 				27FC680528661CB40033DEBC /* MonthWeightChangeSummaryView.swift in Sources */,
 				2709AA0B2858C17400655C19 /* SexView.swift in Sources */,
 				27FC67F22866180A0033DEBC /* WeightSummaryView.swift in Sources */,
@@ -428,12 +424,11 @@
 				270CDD402857719300D32953 /* GlobalUserViewModel.swift in Sources */,
 				274FBBE62861D6F8001CB004 /* KeyboardDismissButton.swift in Sources */,
 				2709AA082858AF1500655C19 /* BirthdayPickerView.swift in Sources */,
-				270CDD45285783E600D32953 /* UserInfoBottomButtonModifier.swift in Sources */,
+				270CDD45285783E600D32953 /* UserInfoSubmitButtonModifier.swift in Sources */,
 				27FC6809286630A60033DEBC /* ProfileView.swift in Sources */,
 				274FBBE828621490001CB004 /* OnboardingUserInfoSummaryView.swift in Sources */,
 				2709AA032858A7B300655C19 /* AgeView.swift in Sources */,
 				27FC67F4286618F40033DEBC /* AgeSummaryView.swift in Sources */,
-				27FC681128664E4D0033DEBC /* UpdateWeightTextFieldView.swift in Sources */,
 				27D5191B28537ADE004F4C9C /* Color.swift in Sources */,
 				27E82422285BE91C00A7FE96 /* GoalEnum.swift in Sources */,
 				27FC67F8286619A90033DEBC /* StepSummaryView.swift in Sources */,
@@ -450,6 +445,7 @@
 				27D5191D28537CDB004F4C9C /* HeightView.swift in Sources */,
 				27FC67FA28661A260033DEBC /* WorkoutSummaryView.swift in Sources */,
 				270CDD4F2857B80100D32953 /* WeightMeasurementTypeView.swift in Sources */,
+				27199BBD286B5EBB002978E3 /* UserInfoBackButtonModifier.swift in Sources */,
 				2709AA052858A80A00655C19 /* PreviewProvider.swift in Sources */,
 				27FC67F62866195F0033DEBC /* SexSummaryView.swift in Sources */,
 				270CDD472857933900D32953 /* HeightMeasurementTypeView.swift in Sources */,

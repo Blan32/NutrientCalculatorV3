@@ -15,7 +15,9 @@ struct HeightSummaryView: View {
         HStack {
             Text("Height: ")
                 .bold()
+            Spacer()
             Text(viewModel.user.heightInFeetAndInches ? "\(viewModel.user.heightIn / 12) ft \(viewModel.user.heightIn % 12) in" : "\(viewModel.user.heightCm) cm")
+                .padding(.trailing, 50)
         }
         .modifier(UserInfoViewModifier())
     }

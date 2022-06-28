@@ -12,8 +12,10 @@ struct GoalPickerView: View {
     @EnvironmentObject private var viewModel: GlobalUserViewModel
     @Environment(\.colorScheme) var colorScheme
     @FocusState private var focusedTextField: Bool
-    
-    init() {
+    var updateGoalWeight: Bool
+
+    init(updateGoalWeight: Bool) {
+        self.updateGoalWeight = updateGoalWeight
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor) //changes selected background
         
         let attributes: [NSAttributedString.Key:Any] = [
@@ -50,7 +52,7 @@ struct GoalPickerView: View {
 
 struct GoalPicker_Previews: PreviewProvider {
     static var previews: some View {
-        GoalPickerView()
+        GoalPickerView(updateGoalWeight: true)
             .environmentObject(dev.globalViewModel)
     }
 }
@@ -106,38 +108,20 @@ extension GoalPickerView {
     private var goalWeight: some View {
         VStack {
             Text("Goal Weight:")
-                
-            if viewModel.user.weightInPounds {
-                HStack {
-                    TextField("Goal Weight", text: $viewModel.user.goalWeightLbs)
-                        .keyboardType(.decimalPad)
-                        .focused($focusedTextField)
-                    Text("lbs")
-                }
-                .font(.body)
-                .padding()
-                .padding(.horizontal, 20)
-                .background(
-                    Capsule()
-                        .fill(colorScheme == .light ? Color.black.opacity(0.1) : Color.white.opacity(0.1))
-                        .padding(.horizontal)
-                )
-            } else {
-                HStack {
-                    TextField("Goal Weight", text: $viewModel.user.goalWeightKgs)
-                        .keyboardType(.decimalPad)
-                        .focused($focusedTextField)
-                    Text("kgs")
-                }
-                .font(.body)
-                .padding()
-                .padding(.horizontal, 20)
-                .background(
-                    Capsule()
-                        .fill(colorScheme == .light ? Color.black.opacity(0.1) : Color.white.opacity(0.1))
-                        .padding(.horizontal)
-                )
+            HStack {
+                TextField(viewModel.user.inputGoalWeight == "" ? "Goal Weight" : viewModel.user.inputGoalWeight, text: updateGoalWeight ? $viewModel.user.updateGoalWeight : $viewModel.user.inputGoalWeight)
+                    .keyboardType(.decimalPad)
+                    .focused($focusedTextField)
+                Text(viewModel.user.weightInPounds ? "lbs" : "kgs")
             }
+            .font(.body)
+            .padding()
+            .padding(.horizontal, 20)
+            .background(
+                Capsule()
+                    .fill(colorScheme == .light ? Color.black.opacity(0.1) : Color.white.opacity(0.1))
+                    .padding(.horizontal)
+            )
         }
         .opacity(viewModel.user.goalType == .fatloss || viewModel.user.goalType == .muscleGrowth ? 1.0 : 0.0)
     }
