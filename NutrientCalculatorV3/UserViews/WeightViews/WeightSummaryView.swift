@@ -15,33 +15,9 @@ struct WeightSummaryView: View {
         HStack {
             Text("Starting Weight: ")
                 .bold()
-            if viewModel.user.weightInPounds {
-                if viewModel.user.updateInputWeight == "" {
-                    Text(viewModel.user.inputWeight + " lbs")
-                } else {
-                    Text(viewModel.user.updateInputWeight + " lbs")
-                }
-            } else {
-                if viewModel.user.updateInputWeight == "" {
-                    Text(viewModel.user.inputWeight + " kgs")
-                } else {
-                    Text(viewModel.user.updateInputWeight + " kgs")
-                }
-            }
-            
-//            if viewModel.user.weightInPounds {
-//                if viewModel.user.updateInputWeight == "" {
-//                    Text("\(Double(viewModel.user.inputWeight) ?? 0)" + " lbs")
-//                } else {
-//                    Text("\(Double(viewModel.user.updateInputWeight) ?? 0)" + " lbs")
-//                }
-//            } else {
-//                if viewModel.user.updateInputWeight == "" {
-//                    Text("\(Double(viewModel.user.inputWeight) ?? 0)" + " kgs")
-//                } else {
-//                    Text("\(Double(viewModel.user.updateInputWeight) ?? 0)" + " kgs")
-//                }
-//            }
+            Spacer()
+            Text(viewModel.user.weightInPounds ? viewModel.user.inputWeight + " lbs" : viewModel.user.inputWeight + " kgs")
+                .padding(.trailing, 50)
         }
         .modifier(UserInfoViewModifier())
     }

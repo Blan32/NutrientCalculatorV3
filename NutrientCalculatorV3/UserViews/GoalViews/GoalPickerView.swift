@@ -64,15 +64,29 @@ extension GoalPickerView {
     private var goalImage: some View {
         VStack {
             if viewModel.user.goalType == .fatloss {
-                Image(colorScheme == .light ? "FatlossBlack" : "FatlossWhite")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 220)
+                if viewModel.user.sex == "Male" {
+                    Image(colorScheme == .light ? "FatlossBlack" : "FatlossWhite")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 220)
+                } else {
+                    Image(colorScheme == .light ? "FemaleFatlossBlack" : "FemaleFatlossWhite")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 220)
+                }
             } else if viewModel.user.goalType == .muscleGrowth {
-                Image(colorScheme == .light ? "MuscleGrowthGraphicBlack" : "MuscleGrowthGraphicWhite")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 220)
+                if viewModel.user.sex == "Male" {
+                    Image(colorScheme == .light ? "MuscleGrowthGraphicBlack" : "MuscleGrowthGraphicWhite")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 220)
+                } else {
+                    Image(colorScheme == .light ? "FemaleMuscleGrowthBlack" : "FemaleMuscleGrowthWhite")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 220)
+                }
             } else if viewModel.user.goalType == .maintenance {
                 Image(colorScheme == .light ? "BalanceScaleDetailWhite" : "BalanceScaleDetailBlack")
                     .resizable()
