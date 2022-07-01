@@ -1,42 +1,47 @@
 //
-//  HeightView.swift
+//  TrainingDaysView.swift
 //  NutrientCalculatorV3
 //
-//  Created by Kyle Blandford on 6/10/22.
+//  Created by Kyle Blandford on 6/30/22.
 //
 
 import SwiftUI
 
-struct HeightView: View {
+struct TrainingDaysView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var viewModel: GlobalUserViewModel
-    @State var updateHeight: Bool
+    var updateTrainingDays: Bool
     
     var body: some View {
         VStack {
-            Text("Select your height.")
-                .frame(maxWidth: .infinity, alignment: .leading)
+            Text("Select the days of the week you workout.")
                 .padding()
-                .padding(.bottom, 20)
             
-            HeightMeasurementTypeView(updateHeight: updateHeight)
-                .padding(.bottom)
-            HeightPickerView(updateHeight: updateHeight)
+            TrainingDaysPickerView(
+                updateTrainingDays: updateTrainingDays,
+                toggleOnMonday: viewModel.user.monday,
+                toggleOnTuesday: viewModel.user.tuesday,
+                toggleOnWednesday: viewModel.user.wednesday,
+                toggleOnThursday: viewModel.user.thursday,
+                toggleOnFriday: viewModel.user.friday,
+                toggleOnSaturday: viewModel.user.saturday,
+                toggleOnSunday: viewModel.user.sunday
+            )
             Spacer()
             
-            if updateHeight {
+            if updateTrainingDays {
                 HStack {
                     backButton
                     submitButton
                 }
             }
         }
-        .navigationBarBackButtonHidden(updateHeight ? true : false)
+        .navigationBarBackButtonHidden(updateTrainingDays ? true : false)
         .navigationBarItems(
             leading:
                 Image(systemName: "chevron.left")
-                    .opacity(updateHeight ? 1.0 : 0.0)
+                    .opacity(updateTrainingDays ? 1.0 : 0.0)
                     .onTapGesture {
                         backButtonPressed()
                     }
@@ -44,16 +49,14 @@ struct HeightView: View {
     }
 }
 
-struct HeightView_Previews: PreviewProvider {
-
+struct TrainingDaysView_Previews: PreviewProvider {
     static var previews: some View {
-        HeightView(updateHeight: true)
-            .preferredColorScheme(.dark)
+        TrainingDaysView(updateTrainingDays: true)
             .environmentObject(dev.globalViewModel)
     }
 }
 
-extension HeightView {
+extension TrainingDaysView {
     
     // MARK: Back Button
     private var backButton: some View {
@@ -84,11 +87,16 @@ extension HeightView {
         presentationMode.wrappedValue.dismiss()
     }
     
+    
     // MARK: func SubmitButtonPressed
     private func submitButtonPressed() {
-        viewModel.user.heightCm = viewModel.user.updateHeightCm
-        viewModel.user.heightIn = viewModel.user.updateHeightIn
-        viewModel.user.heightInFeetAndInches = viewModel.user.updateHeightInFeetAndInches
+        viewModel.user.monday = viewModel.user.updateMonday
+        viewModel.user.tuesday = viewModel.user.updateTuesday
+        viewModel.user.wednesday = viewModel.user.updateWednesday
+        viewModel.user.thursday = viewModel.user.updateThursday
+        viewModel.user.friday = viewModel.user.updateFriday
+        viewModel.user.saturday = viewModel.user.updateSaturday
+        viewModel.user.sunday = viewModel.user.updateSunday
         viewModel.saveProfile()
         presentationMode.wrappedValue.dismiss()
     }

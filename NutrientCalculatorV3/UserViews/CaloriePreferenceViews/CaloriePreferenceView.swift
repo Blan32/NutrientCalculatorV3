@@ -1,42 +1,39 @@
 //
-//  HeightView.swift
+//  CaloriePreferenceView.swift
 //  NutrientCalculatorV3
 //
-//  Created by Kyle Blandford on 6/10/22.
+//  Created by Kyle Blandford on 6/30/22.
 //
 
 import SwiftUI
 
-struct HeightView: View {
+struct CaloriePreferenceView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var viewModel: GlobalUserViewModel
-    @State var updateHeight: Bool
+    var updateCaloriePreference: Bool
     
     var body: some View {
         VStack {
-            Text("Select your height.")
-                .frame(maxWidth: .infinity, alignment: .leading)
+            Text("How would you prefer we set up your calories?")
                 .padding()
-                .padding(.bottom, 20)
+                .padding(.bottom, 100)
             
-            HeightMeasurementTypeView(updateHeight: updateHeight)
-                .padding(.bottom)
-            HeightPickerView(updateHeight: updateHeight)
+            CaloriePreferencePickerView(updateCaloriePreference: updateCaloriePreference)
             Spacer()
             
-            if updateHeight {
+            if updateCaloriePreference {
                 HStack {
                     backButton
                     submitButton
                 }
             }
         }
-        .navigationBarBackButtonHidden(updateHeight ? true : false)
+        .navigationBarBackButtonHidden(updateCaloriePreference ? true : false)
         .navigationBarItems(
             leading:
                 Image(systemName: "chevron.left")
-                    .opacity(updateHeight ? 1.0 : 0.0)
+                    .opacity(updateCaloriePreference ? 1.0 : 0.0)
                     .onTapGesture {
                         backButtonPressed()
                     }
@@ -44,16 +41,16 @@ struct HeightView: View {
     }
 }
 
-struct HeightView_Previews: PreviewProvider {
-
+struct CaloriePreferenceView_Previews: PreviewProvider {
     static var previews: some View {
-        HeightView(updateHeight: true)
-            .preferredColorScheme(.dark)
+        CaloriePreferenceView(updateCaloriePreference: true)
             .environmentObject(dev.globalViewModel)
     }
 }
 
-extension HeightView {
+
+extension CaloriePreferenceView {
+    
     
     // MARK: Back Button
     private var backButton: some View {
@@ -86,9 +83,7 @@ extension HeightView {
     
     // MARK: func SubmitButtonPressed
     private func submitButtonPressed() {
-        viewModel.user.heightCm = viewModel.user.updateHeightCm
-        viewModel.user.heightIn = viewModel.user.updateHeightIn
-        viewModel.user.heightInFeetAndInches = viewModel.user.updateHeightInFeetAndInches
+        viewModel.user.dynamicCalories = viewModel.user.updateDynamicCalories
         viewModel.saveProfile()
         presentationMode.wrappedValue.dismiss()
     }

@@ -81,7 +81,7 @@ class GlobalUserViewModel: ObservableObject {
     //MARK: * validate new goal weight
     func isValidUpdateGoalWeight() -> Bool {
         // Check if textfield is empty
-        if user.updateGoalWeight.isEmpty {
+        if user.updateGoalWeight.isEmpty && user.goalType != .maintenance {
             alertItem = AlertContext.invalidWeight
             return false
         }

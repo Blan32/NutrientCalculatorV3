@@ -22,6 +22,8 @@ struct OnboardingUserInfoSummaryView: View {
             userActivity
             userGoal
             userInputMacrosAndCalories
+            CaloriePreferenceSummaryView()
+            TrainingDaysSummaryView()
             Rectangle()
                 .opacity(0.0)
                 .frame(height: 80)

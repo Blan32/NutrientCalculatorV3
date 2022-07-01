@@ -54,6 +54,14 @@ struct OnboardingView: View {
                     InputCurrentMacrosView()
                         .transition(transition)
                         .navigationTitle("Current Macros")
+                case 8:
+                    CaloriePreferenceView(updateCaloriePreference: false)
+                        .transition(transition)
+                        .navigationTitle("Calorie Preference")
+                case 9:
+                    TrainingDaysView(updateTrainingDays: false)
+                        .transition(transition)
+                        .navigationTitle("Training Days")
                 default:
                     OnboardingUserInfoSummaryView()
                         .transition(transition)
@@ -127,8 +135,8 @@ extension OnboardingView {
             Button {
                 buttonPressed()
             } label: {
-                if onboardingState <= 7 {
-                    Text("Proceed to Step \(onboardingState + 1)/8")
+                if onboardingState <= 9 {
+                    Text("Proceed to Step \(onboardingState + 1)/10")
                         .frame(height: 30)
                         .frame(maxWidth: .infinity)
                 } else {
@@ -154,7 +162,7 @@ extension OnboardingView {
             }
         } else if onboardingState == 7 && !viewModel.isValidCurrentMacros() {
             // Shows invalidMacros Alert from viewModel
-        } else if onboardingState <= 7 {
+        } else if onboardingState <= 9 {
             withAnimation(.easeInOut) {
                 onboardingState += 1
             }

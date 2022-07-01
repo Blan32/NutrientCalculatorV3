@@ -30,6 +30,13 @@
 		274FBBDF2860AD02001CB004 /* InputCurrentMacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FBBDE2860AD02001CB004 /* InputCurrentMacrosView.swift */; };
 		274FBBE62861D6F8001CB004 /* KeyboardDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FBBE52861D6F8001CB004 /* KeyboardDismissButton.swift */; };
 		274FBBE828621490001CB004 /* OnboardingUserInfoSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FBBE728621490001CB004 /* OnboardingUserInfoSummaryView.swift */; };
+		276CBC0E286DDF2D00EEC775 /* CaloriePreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC0D286DDF2D00EEC775 /* CaloriePreferenceView.swift */; };
+		276CBC10286DE18600EEC775 /* CaloriePreferencePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC0F286DE18600EEC775 /* CaloriePreferencePickerView.swift */; };
+		276CBC12286DEF7B00EEC775 /* CaloriePreferenceSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC11286DEF7B00EEC775 /* CaloriePreferenceSummaryView.swift */; };
+		276CBC15286E062400EEC775 /* TrainingDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC14286E062400EEC775 /* TrainingDaysView.swift */; };
+		276CBC17286E070200EEC775 /* TrainingDaysPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC16286E070200EEC775 /* TrainingDaysPickerView.swift */; };
+		276CBC19286E0A1D00EEC775 /* TrainingDayViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC18286E0A1D00EEC775 /* TrainingDayViewModifier.swift */; };
+		276CBC1B286E476500EEC775 /* TrainingDaysSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC1A286E476500EEC775 /* TrainingDaysSummaryView.swift */; };
 		27D51909285375C5004F4C9C /* NutrientCalculatorV3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D51908285375C5004F4C9C /* NutrientCalculatorV3App.swift */; };
 		27D5190D285375C6004F4C9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D5190C285375C6004F4C9C /* Assets.xcassets */; };
 		27D51910285375C6004F4C9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D5190F285375C6004F4C9C /* Preview Assets.xcassets */; };
@@ -81,6 +88,13 @@
 		274FBBDE2860AD02001CB004 /* InputCurrentMacrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCurrentMacrosView.swift; sourceTree = "<group>"; };
 		274FBBE52861D6F8001CB004 /* KeyboardDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissButton.swift; sourceTree = "<group>"; };
 		274FBBE728621490001CB004 /* OnboardingUserInfoSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUserInfoSummaryView.swift; sourceTree = "<group>"; };
+		276CBC0D286DDF2D00EEC775 /* CaloriePreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriePreferenceView.swift; sourceTree = "<group>"; };
+		276CBC0F286DE18600EEC775 /* CaloriePreferencePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriePreferencePickerView.swift; sourceTree = "<group>"; };
+		276CBC11286DEF7B00EEC775 /* CaloriePreferenceSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriePreferenceSummaryView.swift; sourceTree = "<group>"; };
+		276CBC14286E062400EEC775 /* TrainingDaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDaysView.swift; sourceTree = "<group>"; };
+		276CBC16286E070200EEC775 /* TrainingDaysPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDaysPickerView.swift; sourceTree = "<group>"; };
+		276CBC18286E0A1D00EEC775 /* TrainingDayViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDayViewModifier.swift; sourceTree = "<group>"; };
+		276CBC1A286E476500EEC775 /* TrainingDaysSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDaysSummaryView.swift; sourceTree = "<group>"; };
 		27D51905285375C5004F4C9C /* NutrientCalculatorV3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutrientCalculatorV3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D51908285375C5004F4C9C /* NutrientCalculatorV3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientCalculatorV3App.swift; sourceTree = "<group>"; };
 		27D5190C285375C6004F4C9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,6 +172,8 @@
 				2709AA1A2858EA6000655C19 /* ActivityViews */,
 				27E8241A285B9FEE00A7FE96 /* GoalViews */,
 				27FC680128661C0A0033DEBC /* InputCurrentMacrosViews */,
+				276CBC0C286DDF1400EEC775 /* CaloriePreferenceViews */,
+				276CBC13286E060A00EEC775 /* TrainingDaysViews */,
 			);
 			path = UserViews;
 			sourceTree = "<group>";
@@ -249,6 +265,27 @@
 				274FBBE52861D6F8001CB004 /* KeyboardDismissButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		276CBC0C286DDF1400EEC775 /* CaloriePreferenceViews */ = {
+			isa = PBXGroup;
+			children = (
+				276CBC0D286DDF2D00EEC775 /* CaloriePreferenceView.swift */,
+				276CBC0F286DE18600EEC775 /* CaloriePreferencePickerView.swift */,
+				276CBC11286DEF7B00EEC775 /* CaloriePreferenceSummaryView.swift */,
+			);
+			path = CaloriePreferenceViews;
+			sourceTree = "<group>";
+		};
+		276CBC13286E060A00EEC775 /* TrainingDaysViews */ = {
+			isa = PBXGroup;
+			children = (
+				276CBC14286E062400EEC775 /* TrainingDaysView.swift */,
+				276CBC16286E070200EEC775 /* TrainingDaysPickerView.swift */,
+				276CBC18286E0A1D00EEC775 /* TrainingDayViewModifier.swift */,
+				276CBC1A286E476500EEC775 /* TrainingDaysSummaryView.swift */,
+			);
+			path = TrainingDaysViews;
 			sourceTree = "<group>";
 		};
 		27D518FC285375C5004F4C9C = {
@@ -405,6 +442,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				276CBC19286E0A1D00EEC775 /* TrainingDayViewModifier.swift in Sources */,
 				27FC67FC28661A720033DEBC /* ActivitySummaryView.swift in Sources */,
 				27E8241E285BA4FD00A7FE96 /* GoalPickerView.swift in Sources */,
 				2709AA2028591AA100655C19 /* ActivityEnums.swift in Sources */,
@@ -432,19 +470,25 @@
 				27D5191B28537ADE004F4C9C /* Color.swift in Sources */,
 				27E82422285BE91C00A7FE96 /* GoalEnum.swift in Sources */,
 				27FC67F8286619A90033DEBC /* StepSummaryView.swift in Sources */,
+				276CBC12286DEF7B00EEC775 /* CaloriePreferenceSummaryView.swift in Sources */,
 				270CDD3C285767EC00D32953 /* WeighIn.swift in Sources */,
 				2709AA1C2858EAEA00655C19 /* StepPickerView.swift in Sources */,
 				2709AA192858EA5900655C19 /* ActivityView.swift in Sources */,
 				27FC67F0286601620033DEBC /* HeightSummaryView.swift in Sources */,
 				270CDD4D2857B4FF00D32953 /* WeightView.swift in Sources */,
 				270CDD382857630000D32953 /* User.swift in Sources */,
+				276CBC1B286E476500EEC775 /* TrainingDaysSummaryView.swift in Sources */,
+				276CBC0E286DDF2D00EEC775 /* CaloriePreferenceView.swift in Sources */,
+				276CBC17286E070200EEC775 /* TrainingDaysPickerView.swift in Sources */,
 				27FC680328661C4B0033DEBC /* InputCurrentMacrosSummaryView.swift in Sources */,
 				27D5191728537608004F4C9C /* DashboardTabView.swift in Sources */,
+				276CBC15286E062400EEC775 /* TrainingDaysView.swift in Sources */,
 				27FC680B286633E50033DEBC /* AccountInfoViewModifier.swift in Sources */,
 				27FC67EE2865FBF00033DEBC /* AccountView.swift in Sources */,
 				27D5191D28537CDB004F4C9C /* HeightView.swift in Sources */,
 				27FC67FA28661A260033DEBC /* WorkoutSummaryView.swift in Sources */,
 				270CDD4F2857B80100D32953 /* WeightMeasurementTypeView.swift in Sources */,
+				276CBC10286DE18600EEC775 /* CaloriePreferencePickerView.swift in Sources */,
 				27199BBD286B5EBB002978E3 /* UserInfoBackButtonModifier.swift in Sources */,
 				2709AA052858A80A00655C19 /* PreviewProvider.swift in Sources */,
 				27FC67F62866195F0033DEBC /* SexSummaryView.swift in Sources */,

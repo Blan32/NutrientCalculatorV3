@@ -67,6 +67,5 @@ extension SexPickerView {
         .pickerStyle(SegmentedPickerStyle())
         .padding()
         .padding(.top, 20)
-        .padding(.bottom, 80)
     }
 }

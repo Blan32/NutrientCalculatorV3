@@ -20,6 +20,8 @@ struct ProfileView: View {
             userWorkouts
             userActivity
             userGoal
+            userCaloriePreference
+            userTrainingDays
         }
         .onAppear {
             viewModel.retrieveUser()
@@ -119,11 +121,23 @@ extension ProfileView {
         }
     }
     
-    // MARK: User Input Macros / Calories
-    private var userInputMacrosAndCalories: some View {
-        VStack {
-            InputCurrentMacrosSummaryView()
-            MonthWeightChangeSummaryView()
+    // MARK: User Calorie Preference
+    private var userCaloriePreference: some View {
+        NavigationLink {
+            CaloriePreferenceView(updateCaloriePreference: true)
+                .navigationTitle("Calorie Preference")
+        } label: {
+            CaloriePreferenceSummaryView()
+        }
+    }
+
+    // MARK: User Training Days
+    private var userTrainingDays: some View {
+        NavigationLink {
+            TrainingDaysView(updateTrainingDays: true)
+                .navigationTitle("Calorie Preference")
+        } label: {
+            TrainingDaysSummaryView()
         }
     }
 }

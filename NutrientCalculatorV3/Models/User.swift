@@ -62,7 +62,10 @@ final class User: ObservableObject, Codable {
         let ageComponents = calendar.dateComponents([.year], from: birthday, to: Date())
         return ageComponents.year
     }
-    var updateBirthday: Date = Calendar.current.date(byAdding: .year, value: -30, to: Date()) ?? Date()
+    var updateBirthday: Date {
+        get { birthday }
+        set { birthday = newValue }
+    }
     
     // MARK: Sex
     var sex: String = "Male"
@@ -136,7 +139,14 @@ final class User: ObservableObject, Codable {
             return Double(inputGoalWeight) ?? 0.0
         }
     }
-    var updateGoalWeight: String = ""
+    var updateGoalType: Goal {
+        get { goalType }
+        set { goalType = newValue }
+    }
+    var updateGoalWeight: String {
+        get { inputGoalWeight }
+        set { inputGoalWeight = newValue }
+    }
     
     // MARK: Current Macros
     // Used in onboarding screens
@@ -146,4 +156,47 @@ final class User: ObservableObject, Codable {
     var inputCalories: String = ""
     var inputWeightChange: Double = 0.0
     
+    // MARK: Calorie Preference
+    var dynamicCalories: Bool = true
+    var updateDynamicCalories: Bool {
+        get { dynamicCalories }
+        set { dynamicCalories = newValue }
+    }
+    
+    // MARK: Training Days
+    var monday: Bool = false
+    var tuesday: Bool = false
+    var wednesday: Bool = false
+    var thursday: Bool = false
+    var friday: Bool = false
+    var saturday: Bool = false
+    var sunday: Bool = false
+    var updateMonday: Bool {
+        get { monday }
+        set { monday = newValue }
+    }
+    var updateTuesday: Bool {
+        get { tuesday }
+        set { tuesday = newValue }
+    }
+    var updateWednesday: Bool {
+        get { wednesday }
+        set { wednesday = newValue }
+    }
+    var updateThursday: Bool {
+        get { thursday }
+        set { thursday = newValue }
+    }
+    var updateFriday: Bool {
+        get { friday }
+        set { friday = newValue }
+    }
+    var updateSaturday: Bool {
+        get { saturday }
+        set { saturday = newValue }
+    }
+    var updateSunday: Bool {
+        get { sunday }
+        set { sunday = newValue }
+    }
 }

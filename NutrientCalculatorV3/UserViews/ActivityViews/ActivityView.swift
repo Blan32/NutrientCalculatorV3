@@ -84,12 +84,7 @@ extension ActivityView {
         }
     }
     
-    // MARK: func Back Button Pressed
-    private func backButtonPressed() {
-        presentationMode.wrappedValue.dismiss()
-    }
-    
-    // MARK: Back Button View
+    // MARK: Back Button
     private var backButton: some View {
         Button {
             backButtonPressed()
@@ -101,18 +96,28 @@ extension ActivityView {
         .modifier(UserInfoBackButtonModifier())
     }
     
-    // MARK: Submit Button View
+    // MARK: Submit Button
     private var submitButton: some View {
         Button {
-            viewModel.user.stepsPerDay = viewModel.user.updateStepsPerDay
-            viewModel.user.trainingSessionsPerWeek = viewModel.user.updateTrainingSessionsPerWeek
-            viewModel.saveProfile()
-            presentationMode.wrappedValue.dismiss()
+            submitButtonPressed()
         } label: {
             Text("Update")
                 .frame(height: 30)
                 .frame(maxWidth: .infinity)
         }
         .modifier(UserInfoSubmitButtonModifier())
+    }
+    
+    // MARK: func BackButtonPressed
+    private func backButtonPressed() {
+        presentationMode.wrappedValue.dismiss()
+    }
+    
+    // MARK: func SubmitButtonPressed
+    private func submitButtonPressed() {
+        viewModel.user.stepsPerDay = viewModel.user.updateStepsPerDay
+        viewModel.user.trainingSessionsPerWeek = viewModel.user.updateTrainingSessionsPerWeek
+        viewModel.saveProfile()
+        presentationMode.wrappedValue.dismiss()
     }
 }

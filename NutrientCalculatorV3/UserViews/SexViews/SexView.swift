@@ -52,10 +52,8 @@ struct SexView_Previews: PreviewProvider {
 
 extension SexView {
     
-    private func backButtonPressed() {
-        presentationMode.wrappedValue.dismiss()
-    }
     
+    // MARK: Back Button
     private var backButton: some View {
         Button {
             backButtonPressed()
@@ -67,16 +65,27 @@ extension SexView {
         .modifier(UserInfoBackButtonModifier())
     }
     
+    // MARK: Submit Button
     private var submitButton: some View {
         Button {
-            viewModel.user.sex = viewModel.user.updateSex
-            viewModel.saveProfile()
-            presentationMode.wrappedValue.dismiss()
+            submitButtonPressed()
         } label: {
             Text("Update")
                 .frame(height: 30)
                 .frame(maxWidth: .infinity)
         }
         .modifier(UserInfoSubmitButtonModifier())
+    }
+    
+    // MARK: func BackButtonPressed
+    private func backButtonPressed() {
+        presentationMode.wrappedValue.dismiss()
+    }
+    
+    // MARK: func SubmitButtonPressed
+    private func submitButtonPressed() {
+        viewModel.user.sex = viewModel.user.updateSex
+        viewModel.saveProfile()
+        presentationMode.wrappedValue.dismiss()
     }
 }

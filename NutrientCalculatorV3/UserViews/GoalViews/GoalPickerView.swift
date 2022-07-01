@@ -90,7 +90,7 @@ extension GoalPickerView {
     
     //MARK: Goal Picker
     private var goalPicker: some View {
-        Picker(selection: $viewModel.user.goalType) {
+        Picker(selection: updateGoalWeight ? $viewModel.user.updateGoalType : $viewModel.user.goalType) {
             ForEach(Goal.allCases, id: \.self) { item in
                 Text(item.rawValue)
                     .tag(item)

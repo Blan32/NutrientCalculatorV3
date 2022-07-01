@@ -51,11 +51,7 @@ struct GoalView_Previews: PreviewProvider {
 
 extension GoalView {
     
-    private func backButtonPressed() {
-        viewModel.user.updateGoalWeight = ""
-        presentationMode.wrappedValue.dismiss()
-    }
-    
+    // MARK: Back Button
     private var backButton: some View {
         Button {
             backButtonPressed()
@@ -67,18 +63,30 @@ extension GoalView {
         .modifier(UserInfoBackButtonModifier())
     }
     
+    // MARK: Submit Button
     private var submitButton: some View {
         Button {
-            if viewModel.isValidUpdateGoalWeight() {
-                viewModel.user.inputGoalWeight = viewModel.user.updateGoalWeight
-                viewModel.saveProfile()
-                presentationMode.wrappedValue.dismiss()
-            }
+            submitButtonPressed()
         } label: {
             Text("Update")
                 .frame(height: 30)
                 .frame(maxWidth: .infinity)
         }
         .modifier(UserInfoSubmitButtonModifier())
+    }
+    
+    // MARK: func BackButtonPressed
+    private func backButtonPressed() {
+        viewModel.user.updateGoalWeight = ""
+        presentationMode.wrappedValue.dismiss()
+    }
+    
+    // MARK: func SubmitButtonPressed
+    private func submitButtonPressed() {
+        guard viewModel.isValidUpdateGoalWeight() else { return }
+        viewModel.user.goalType = viewModel.user.updateGoalType
+        viewModel.user.inputGoalWeight = viewModel.user.updateGoalWeight
+        viewModel.saveProfile()
+        presentationMode.wrappedValue.dismiss()
     }
 }
