@@ -22,7 +22,20 @@ struct ProfileView: View {
             userGoal
             userCaloriePreference
             userTrainingDays
+                .padding(.bottom)
+            
+            Button {
+                viewModel.signOut()
+            } label: {
+                Text("Sign Out")
+                    .frame(height: 30)
+                    .frame(maxWidth: .infinity)
+            }
+            .modifier(UserInfoBackButtonModifier())
+            
+                
         }
+        .padding(.top, 8)
         .onAppear {
             viewModel.retrieveUser()
         }

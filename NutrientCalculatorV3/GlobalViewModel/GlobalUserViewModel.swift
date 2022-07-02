@@ -30,6 +30,9 @@ class GlobalUserViewModel: ObservableObject {
         newUser = false
     }
     
+    func signOut() {
+        newUser = true
+    }
     
     // MARK: Retrieve User
     func retrieveUser() {
