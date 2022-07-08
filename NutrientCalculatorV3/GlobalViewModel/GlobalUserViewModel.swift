@@ -8,7 +8,7 @@
 import SwiftUI
 
 class GlobalUserViewModel: ObservableObject {
-    
+        
     @AppStorage("user") private var userData: Data?
     @AppStorage("new_user") var newUser: Bool = true
     

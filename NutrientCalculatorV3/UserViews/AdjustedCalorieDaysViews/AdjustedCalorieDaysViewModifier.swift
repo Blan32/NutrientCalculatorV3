@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TrainingDayViewModifier: ViewModifier {
+struct AdjustedCalorieDaysViewModifier: ViewModifier {
     
     @Environment(\.colorScheme) var colorScheme
     @Binding var toggleOn: Bool
@@ -18,7 +18,7 @@ struct TrainingDayViewModifier: ViewModifier {
             .font(.body)
             .padding(.leading, 40)
             .frame(width: UIScreen.main.bounds.width + 20, alignment: .leading)
-            .frame(height: 60)
+            .frame(height: UIScreen.main.bounds.height * 0.064) // scaled to screen size, primarily for iPhone mini
             .background(
                 Capsule()
                     .fill(

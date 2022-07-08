@@ -18,7 +18,6 @@
 		2709AA1E2858FA8200655C19 /* WorkoutAmountPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA1D2858FA8200655C19 /* WorkoutAmountPickerView.swift */; };
 		2709AA2028591AA100655C19 /* ActivityEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA1F28591AA100655C19 /* ActivityEnums.swift */; };
 		270CDD382857630000D32953 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD372857630000D32953 /* User.swift */; };
-		270CDD3C285767EC00D32953 /* WeighIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD3B285767EC00D32953 /* WeighIn.swift */; };
 		270CDD402857719300D32953 /* GlobalUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD3F2857719300D32953 /* GlobalUserViewModel.swift */; };
 		270CDD45285783E600D32953 /* UserInfoSubmitButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD44285783E600D32953 /* UserInfoSubmitButtonModifier.swift */; };
 		270CDD472857933900D32953 /* HeightMeasurementTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD462857933900D32953 /* HeightMeasurementTypeView.swift */; };
@@ -33,10 +32,10 @@
 		276CBC0E286DDF2D00EEC775 /* CaloriePreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC0D286DDF2D00EEC775 /* CaloriePreferenceView.swift */; };
 		276CBC10286DE18600EEC775 /* CaloriePreferencePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC0F286DE18600EEC775 /* CaloriePreferencePickerView.swift */; };
 		276CBC12286DEF7B00EEC775 /* CaloriePreferenceSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC11286DEF7B00EEC775 /* CaloriePreferenceSummaryView.swift */; };
-		276CBC15286E062400EEC775 /* TrainingDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC14286E062400EEC775 /* TrainingDaysView.swift */; };
-		276CBC17286E070200EEC775 /* TrainingDaysPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC16286E070200EEC775 /* TrainingDaysPickerView.swift */; };
-		276CBC19286E0A1D00EEC775 /* TrainingDayViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC18286E0A1D00EEC775 /* TrainingDayViewModifier.swift */; };
-		276CBC1B286E476500EEC775 /* TrainingDaysSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC1A286E476500EEC775 /* TrainingDaysSummaryView.swift */; };
+		276CBC15286E062400EEC775 /* AdjustedCalorieDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC14286E062400EEC775 /* AdjustedCalorieDaysView.swift */; };
+		276CBC17286E070200EEC775 /* AdjustedCalorieDaysPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC16286E070200EEC775 /* AdjustedCalorieDaysPickerView.swift */; };
+		276CBC19286E0A1D00EEC775 /* AdjustedCalorieDaysViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC18286E0A1D00EEC775 /* AdjustedCalorieDaysViewModifier.swift */; };
+		276CBC1B286E476500EEC775 /* AdjustedCalorieDaysSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC1A286E476500EEC775 /* AdjustedCalorieDaysSummaryView.swift */; };
 		27D51909285375C5004F4C9C /* NutrientCalculatorV3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D51908285375C5004F4C9C /* NutrientCalculatorV3App.swift */; };
 		27D5190D285375C6004F4C9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D5190C285375C6004F4C9C /* Assets.xcassets */; };
 		27D51910285375C6004F4C9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D5190F285375C6004F4C9C /* Preview Assets.xcassets */; };
@@ -44,6 +43,12 @@
 		27D5191928537717004F4C9C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D5191828537717004F4C9C /* OnboardingView.swift */; };
 		27D5191B28537ADE004F4C9C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D5191A28537ADE004F4C9C /* Color.swift */; };
 		27D5191D28537CDB004F4C9C /* HeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D5191C28537CDB004F4C9C /* HeightView.swift */; };
+		27E112B328731F8800F4C8DA /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E112B228731F8800F4C8DA /* DashboardView.swift */; };
+		27E112B62873211300F4C8DA /* TodaysMacroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E112B52873211300F4C8DA /* TodaysMacroView.swift */; };
+		27E112B8287321A100F4C8DA /* IndividualMacroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E112B7287321A100F4C8DA /* IndividualMacroView.swift */; };
+		27E112BD287357AF00F4C8DA /* CheckInDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E112BC287357AF00F4C8DA /* CheckInDataService.swift */; };
+		27E112C02873647500F4C8DA /* NutrientCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27E112BE2873647500F4C8DA /* NutrientCalculator.xcdatamodeld */; };
+		27E112C328747CD700F4C8DA /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E112C228747CD700F4C8DA /* TimeFormatting.swift */; };
 		27E8241C285B9FFD00A7FE96 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8241B285B9FFD00A7FE96 /* GoalView.swift */; };
 		27E8241E285BA4FD00A7FE96 /* GoalPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8241D285BA4FD00A7FE96 /* GoalPickerView.swift */; };
 		27E82422285BE91C00A7FE96 /* GoalEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E82421285BE91C00A7FE96 /* GoalEnum.swift */; };
@@ -76,7 +81,6 @@
 		2709AA1D2858FA8200655C19 /* WorkoutAmountPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutAmountPickerView.swift; sourceTree = "<group>"; };
 		2709AA1F28591AA100655C19 /* ActivityEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityEnums.swift; sourceTree = "<group>"; };
 		270CDD372857630000D32953 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		270CDD3B285767EC00D32953 /* WeighIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeighIn.swift; sourceTree = "<group>"; };
 		270CDD3F2857719300D32953 /* GlobalUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUserViewModel.swift; sourceTree = "<group>"; };
 		270CDD44285783E600D32953 /* UserInfoSubmitButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoSubmitButtonModifier.swift; sourceTree = "<group>"; };
 		270CDD462857933900D32953 /* HeightMeasurementTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightMeasurementTypeView.swift; sourceTree = "<group>"; };
@@ -91,10 +95,10 @@
 		276CBC0D286DDF2D00EEC775 /* CaloriePreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriePreferenceView.swift; sourceTree = "<group>"; };
 		276CBC0F286DE18600EEC775 /* CaloriePreferencePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriePreferencePickerView.swift; sourceTree = "<group>"; };
 		276CBC11286DEF7B00EEC775 /* CaloriePreferenceSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriePreferenceSummaryView.swift; sourceTree = "<group>"; };
-		276CBC14286E062400EEC775 /* TrainingDaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDaysView.swift; sourceTree = "<group>"; };
-		276CBC16286E070200EEC775 /* TrainingDaysPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDaysPickerView.swift; sourceTree = "<group>"; };
-		276CBC18286E0A1D00EEC775 /* TrainingDayViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDayViewModifier.swift; sourceTree = "<group>"; };
-		276CBC1A286E476500EEC775 /* TrainingDaysSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDaysSummaryView.swift; sourceTree = "<group>"; };
+		276CBC14286E062400EEC775 /* AdjustedCalorieDaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustedCalorieDaysView.swift; sourceTree = "<group>"; };
+		276CBC16286E070200EEC775 /* AdjustedCalorieDaysPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustedCalorieDaysPickerView.swift; sourceTree = "<group>"; };
+		276CBC18286E0A1D00EEC775 /* AdjustedCalorieDaysViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustedCalorieDaysViewModifier.swift; sourceTree = "<group>"; };
+		276CBC1A286E476500EEC775 /* AdjustedCalorieDaysSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustedCalorieDaysSummaryView.swift; sourceTree = "<group>"; };
 		27D51905285375C5004F4C9C /* NutrientCalculatorV3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutrientCalculatorV3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D51908285375C5004F4C9C /* NutrientCalculatorV3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientCalculatorV3App.swift; sourceTree = "<group>"; };
 		27D5190C285375C6004F4C9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,6 +107,12 @@
 		27D5191828537717004F4C9C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		27D5191A28537ADE004F4C9C /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		27D5191C28537CDB004F4C9C /* HeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightView.swift; sourceTree = "<group>"; };
+		27E112B228731F8800F4C8DA /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		27E112B52873211300F4C8DA /* TodaysMacroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysMacroView.swift; sourceTree = "<group>"; };
+		27E112B7287321A100F4C8DA /* IndividualMacroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualMacroView.swift; sourceTree = "<group>"; };
+		27E112BC287357AF00F4C8DA /* CheckInDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInDataService.swift; sourceTree = "<group>"; };
+		27E112BF2873647500F4C8DA /* NutrientCalculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NutrientCalculator.xcdatamodel; sourceTree = "<group>"; };
+		27E112C228747CD700F4C8DA /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
 		27E8241B285B9FFD00A7FE96 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
 		27E8241D285BA4FD00A7FE96 /* GoalPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalPickerView.swift; sourceTree = "<group>"; };
 		27E82421285BE91C00A7FE96 /* GoalEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalEnum.swift; sourceTree = "<group>"; };
@@ -173,7 +183,7 @@
 				27E8241A285B9FEE00A7FE96 /* GoalViews */,
 				27FC680128661C0A0033DEBC /* InputCurrentMacrosViews */,
 				276CBC0C286DDF1400EEC775 /* CaloriePreferenceViews */,
-				276CBC13286E060A00EEC775 /* TrainingDaysViews */,
+				276CBC13286E060A00EEC775 /* AdjustedCalorieDaysViews */,
 			);
 			path = UserViews;
 			sourceTree = "<group>";
@@ -196,7 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				270CDD372857630000D32953 /* User.swift */,
-				270CDD3B285767EC00D32953 /* WeighIn.swift */,
+				27E112BE2873647500F4C8DA /* NutrientCalculator.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -263,6 +273,7 @@
 			children = (
 				27EE30E12864F98C00929406 /* ViewModifiers */,
 				274FBBE52861D6F8001CB004 /* KeyboardDismissButton.swift */,
+				27E112C228747CD700F4C8DA /* TimeFormatting.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -277,15 +288,15 @@
 			path = CaloriePreferenceViews;
 			sourceTree = "<group>";
 		};
-		276CBC13286E060A00EEC775 /* TrainingDaysViews */ = {
+		276CBC13286E060A00EEC775 /* AdjustedCalorieDaysViews */ = {
 			isa = PBXGroup;
 			children = (
-				276CBC14286E062400EEC775 /* TrainingDaysView.swift */,
-				276CBC16286E070200EEC775 /* TrainingDaysPickerView.swift */,
-				276CBC18286E0A1D00EEC775 /* TrainingDayViewModifier.swift */,
-				276CBC1A286E476500EEC775 /* TrainingDaysSummaryView.swift */,
+				276CBC14286E062400EEC775 /* AdjustedCalorieDaysView.swift */,
+				276CBC16286E070200EEC775 /* AdjustedCalorieDaysPickerView.swift */,
+				276CBC18286E0A1D00EEC775 /* AdjustedCalorieDaysViewModifier.swift */,
+				276CBC1A286E476500EEC775 /* AdjustedCalorieDaysSummaryView.swift */,
 			);
-			path = TrainingDaysViews;
+			path = AdjustedCalorieDaysViews;
 			sourceTree = "<group>";
 		};
 		27D518FC285375C5004F4C9C = {
@@ -307,16 +318,18 @@
 		27D51907285375C5004F4C9C /* NutrientCalculatorV3 */ = {
 			isa = PBXGroup;
 			children = (
+				27D51908285375C5004F4C9C /* NutrientCalculatorV3App.swift */,
+				27D5191628537608004F4C9C /* DashboardTabView.swift */,
 				274FBBE32861D6BB001CB004 /* Components */,
 				270CDD422857736900D32953 /* Utilities */,
+				27E112C128737A9600F4C8DA /* Services */,
 				270CDD3A285765ED00D32953 /* GlobalViewModel */,
 				270CDD39285765E400D32953 /* Models */,
 				270CDD412857735500D32953 /* OnboardingViews */,
+				27E112B128731F6200F4C8DA /* DashboardViews */,
 				27FC67EC2865FBDF0033DEBC /* AccountViews */,
 				2709AA172858EA0000655C19 /* UserViews */,
-				27D5191628537608004F4C9C /* DashboardTabView.swift */,
 				27D5190C285375C6004F4C9C /* Assets.xcassets */,
-				27D51908285375C5004F4C9C /* NutrientCalculatorV3App.swift */,
 				27D5190E285375C6004F4C9C /* Preview Content */,
 			);
 			path = NutrientCalculatorV3;
@@ -328,6 +341,32 @@
 				27D5190F285375C6004F4C9C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		27E112B128731F6200F4C8DA /* DashboardViews */ = {
+			isa = PBXGroup;
+			children = (
+				27E112B228731F8800F4C8DA /* DashboardView.swift */,
+				27E112B4287320BA00F4C8DA /* MacroViews */,
+			);
+			path = DashboardViews;
+			sourceTree = "<group>";
+		};
+		27E112B4287320BA00F4C8DA /* MacroViews */ = {
+			isa = PBXGroup;
+			children = (
+				27E112B52873211300F4C8DA /* TodaysMacroView.swift */,
+				27E112B7287321A100F4C8DA /* IndividualMacroView.swift */,
+			);
+			path = MacroViews;
+			sourceTree = "<group>";
+		};
+		27E112C128737A9600F4C8DA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				27E112BC287357AF00F4C8DA /* CheckInDataService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		27E8241A285B9FEE00A7FE96 /* GoalViews */ = {
@@ -442,7 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				276CBC19286E0A1D00EEC775 /* TrainingDayViewModifier.swift in Sources */,
+				276CBC19286E0A1D00EEC775 /* AdjustedCalorieDaysViewModifier.swift in Sources */,
 				27FC67FC28661A720033DEBC /* ActivitySummaryView.swift in Sources */,
 				27E8241E285BA4FD00A7FE96 /* GoalPickerView.swift in Sources */,
 				2709AA2028591AA100655C19 /* ActivityEnums.swift in Sources */,
@@ -452,6 +491,7 @@
 				270CDD512857BA6000D32953 /* WeightTextFieldView.swift in Sources */,
 				274FBBDF2860AD02001CB004 /* InputCurrentMacrosView.swift in Sources */,
 				27FC680528661CB40033DEBC /* MonthWeightChangeSummaryView.swift in Sources */,
+				27E112BD287357AF00F4C8DA /* CheckInDataService.swift in Sources */,
 				2709AA0B2858C17400655C19 /* SexView.swift in Sources */,
 				27FC67F22866180A0033DEBC /* WeightSummaryView.swift in Sources */,
 				270CDD49285793B700D32953 /* HeightPickerView.swift in Sources */,
@@ -471,18 +511,21 @@
 				27E82422285BE91C00A7FE96 /* GoalEnum.swift in Sources */,
 				27FC67F8286619A90033DEBC /* StepSummaryView.swift in Sources */,
 				276CBC12286DEF7B00EEC775 /* CaloriePreferenceSummaryView.swift in Sources */,
-				270CDD3C285767EC00D32953 /* WeighIn.swift in Sources */,
 				2709AA1C2858EAEA00655C19 /* StepPickerView.swift in Sources */,
 				2709AA192858EA5900655C19 /* ActivityView.swift in Sources */,
 				27FC67F0286601620033DEBC /* HeightSummaryView.swift in Sources */,
+				27E112C328747CD700F4C8DA /* TimeFormatting.swift in Sources */,
 				270CDD4D2857B4FF00D32953 /* WeightView.swift in Sources */,
 				270CDD382857630000D32953 /* User.swift in Sources */,
-				276CBC1B286E476500EEC775 /* TrainingDaysSummaryView.swift in Sources */,
+				27E112C02873647500F4C8DA /* NutrientCalculator.xcdatamodeld in Sources */,
+				276CBC1B286E476500EEC775 /* AdjustedCalorieDaysSummaryView.swift in Sources */,
 				276CBC0E286DDF2D00EEC775 /* CaloriePreferenceView.swift in Sources */,
-				276CBC17286E070200EEC775 /* TrainingDaysPickerView.swift in Sources */,
+				276CBC17286E070200EEC775 /* AdjustedCalorieDaysPickerView.swift in Sources */,
+				27E112B62873211300F4C8DA /* TodaysMacroView.swift in Sources */,
 				27FC680328661C4B0033DEBC /* InputCurrentMacrosSummaryView.swift in Sources */,
 				27D5191728537608004F4C9C /* DashboardTabView.swift in Sources */,
-				276CBC15286E062400EEC775 /* TrainingDaysView.swift in Sources */,
+				276CBC15286E062400EEC775 /* AdjustedCalorieDaysView.swift in Sources */,
+				27E112B8287321A100F4C8DA /* IndividualMacroView.swift in Sources */,
 				27FC680B286633E50033DEBC /* AccountInfoViewModifier.swift in Sources */,
 				27FC67EE2865FBF00033DEBC /* AccountView.swift in Sources */,
 				27D5191D28537CDB004F4C9C /* HeightView.swift in Sources */,
@@ -491,6 +534,7 @@
 				276CBC10286DE18600EEC775 /* CaloriePreferencePickerView.swift in Sources */,
 				27199BBD286B5EBB002978E3 /* UserInfoBackButtonModifier.swift in Sources */,
 				2709AA052858A80A00655C19 /* PreviewProvider.swift in Sources */,
+				27E112B328731F8800F4C8DA /* DashboardView.swift in Sources */,
 				27FC67F62866195F0033DEBC /* SexSummaryView.swift in Sources */,
 				270CDD472857933900D32953 /* HeightMeasurementTypeView.swift in Sources */,
 				2709AA142858D23100655C19 /* Alert.swift in Sources */,
@@ -697,6 +741,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		27E112BE2873647500F4C8DA /* NutrientCalculator.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				27E112BF2873647500F4C8DA /* NutrientCalculator.xcdatamodel */,
+			);
+			currentVersion = 27E112BF2873647500F4C8DA /* NutrientCalculator.xcdatamodel */;
+			path = NutrientCalculator.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 27D518FD285375C5004F4C9C /* Project object */;
 }

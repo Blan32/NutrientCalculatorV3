@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct OnboardingView: View {
 
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @Environment(\.managedObjectContext) var moc
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    
     @State var onboardingState: Int = 0
     @Binding var newUser: Bool
     @FocusState private var focusedTextField: Bool
@@ -59,9 +62,9 @@ struct OnboardingView: View {
                         .transition(transition)
                         .navigationTitle("Calorie Preference")
                 case 9:
-                    TrainingDaysView(updateTrainingDays: false)
+                    AdjustedCalorieDaysView(updateTrainingDays: false)
                         .transition(transition)
-                        .navigationTitle("Training Days")
+                        .navigationTitle("High Calorie Days")
                 default:
                     OnboardingUserInfoSummaryView()
                         .transition(transition)
@@ -87,8 +90,10 @@ struct OnboardingView: View {
                     Image(systemName: "chevron.left")
                         .opacity(onboardingState > 0 ? 1.0 : 0.0)
                         .onTapGesture {
-                            if onboardingState > 0 {
-                                    onboardingState -= 1
+                            if onboardingState == 10 && !viewModel.user.dynamicCalories {
+                                onboardingState -= 2
+                            } else if onboardingState > 0 {
+                                onboardingState -= 1
                             }
                         }
             )
@@ -135,8 +140,20 @@ extension OnboardingView {
             Button {
                 buttonPressed()
             } label: {
-                if onboardingState <= 9 {
-                    Text("Proceed to Step \(onboardingState + 1)/10")
+                if onboardingState == 7 {
+                    Text("Proceed to Step \(onboardingState + 1)/9")
+                        .frame(height: 30)
+                        .frame(maxWidth: .infinity)
+                } else if onboardingState == 8 && viewModel.user.dynamicCalories {
+                    Text("Proceed to Step \(onboardingState)b/9")
+                        .frame(height: 30)
+                        .frame(maxWidth: .infinity)
+                } else if onboardingState <= 8 {
+                    Text("Proceed to Step \(onboardingState + 1)/9")
+                        .frame(height: 30)
+                        .frame(maxWidth: .infinity)
+                } else if onboardingState == 9 {
+                    Text("Proceed to Step \(onboardingState)/9")
                         .frame(height: 30)
                         .frame(maxWidth: .infinity)
                 } else {
@@ -149,7 +166,7 @@ extension OnboardingView {
         }
     }
     
-    //MARK: Button Pressed Func
+    //MARK: func buttonPressed
     private func buttonPressed() {
         if onboardingState == 2 && !viewModel.isValidWeight() {
             // Shows invalidWeight Alert from viewModel
@@ -162,13 +179,35 @@ extension OnboardingView {
             }
         } else if onboardingState == 7 && !viewModel.isValidCurrentMacros() {
             // Shows invalidMacros Alert from viewModel
+        } else if onboardingState == 8 && !viewModel.user.dynamicCalories {
+            withAnimation(.easeInOut) {
+                onboardingState += 2
+            }
         } else if onboardingState <= 9 {
             withAnimation(.easeInOut) {
                 onboardingState += 1
             }
         } else {
-            viewModel.saveProfile()
+            completeAccountCreation()
         }
+    }
+    
+    // MARK: func completeAccount
+    private func completeAccountCreation() {
+        CheckInDataService().addWeighIn(
+            date: Date(),
+            weight: viewModel.user.startingWeight,
+            context: moc)
+        
+        CheckInDataService().addCheckIn(
+            averageWeight: viewModel.user.startingWeight,
+            calories: 2500,
+            fats: 90,
+            carbs: 200,
+            protein: 200,
+            context: moc)
+        
+        viewModel.saveProfile()
     }
 }
 

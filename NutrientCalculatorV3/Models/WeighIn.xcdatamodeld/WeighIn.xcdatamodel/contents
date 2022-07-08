@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CheckIn" representedClassName="CheckIn" syncable="YES" codeGenerationType="class">
+        <attribute name="averageWeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="calories" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="carbs" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="fats" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="protein" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="weighIns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WeighIn" inverseName="checkin" inverseEntity="WeighIn"/>
+    </entity>
+    <entity name="WeighIn" representedClassName="WeighIn" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="checkin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CheckIn" inverseName="weighIns" inverseEntity="CheckIn"/>
+    </entity>
+    <elements>
+        <element name="WeighIn" positionX="-46.890625" positionY="240.45703125" width="128" height="88"/>
+        <element name="CheckIn" positionX="-18" positionY="45" width="128" height="148"/>
+    </elements>
+</model>

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TrainingDaysView: View {
+struct AdjustedCalorieDaysView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var viewModel: GlobalUserViewModel
@@ -15,10 +15,11 @@ struct TrainingDaysView: View {
     
     var body: some View {
         VStack {
-            Text("Select the days of the week you workout.")
+            Text("Select your higher calorie days (such as training/social days).")
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
             
-            TrainingDaysPickerView(
+            AdjustedCalorieDaysPickerView(
                 updateTrainingDays: updateTrainingDays,
                 toggleOnMonday: viewModel.user.monday,
                 toggleOnTuesday: viewModel.user.tuesday,
@@ -51,12 +52,12 @@ struct TrainingDaysView: View {
 
 struct TrainingDaysView_Previews: PreviewProvider {
     static var previews: some View {
-        TrainingDaysView(updateTrainingDays: true)
+        AdjustedCalorieDaysView(updateTrainingDays: true)
             .environmentObject(dev.globalViewModel)
     }
 }
 
-extension TrainingDaysView {
+extension AdjustedCalorieDaysView {
     
     // MARK: Back Button
     private var backButton: some View {

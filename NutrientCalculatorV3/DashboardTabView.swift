@@ -9,13 +9,24 @@ import SwiftUI
 
 struct DashboardTabView: View {
     
-    @StateObject var viewModel = GlobalUserViewModel()
+    @EnvironmentObject private var viewModel: GlobalUserViewModel
     @AppStorage("new_user") var newUser: Bool = true
     
     var body: some View {
         ZStack {
             TabView {
+                DashboardView()
+                    .tabItem {
+                        Label("", systemImage: "house")
+                    }
+                Text("Weigh-Ins")
+                    .tabItem {
+                        Label("", systemImage: "square.and.pencil")
+                    }
                 AccountView()
+                    .tabItem {
+                        Label("", systemImage: "person")
+                    }
             }
             .fullScreenCover(isPresented: $newUser) {
                 OnboardingView(newUser: $newUser)
@@ -26,7 +37,6 @@ struct DashboardTabView: View {
                       dismissButton: alertItem.dismissButton)
             }
         }
-        .environmentObject(viewModel)
     }
 }
 

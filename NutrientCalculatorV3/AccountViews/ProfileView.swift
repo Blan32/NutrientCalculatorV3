@@ -21,8 +21,12 @@ struct ProfileView: View {
             userActivity
             userGoal
             userCaloriePreference
-            userTrainingDays
-                .padding(.bottom)
+                .padding(.bottom, viewModel.user.dynamicCalories ? 0 : 10)
+            if viewModel.user.dynamicCalories {
+                userHighCalDays
+                    .padding(.bottom)
+            }
+            
             
             Button {
                 viewModel.signOut()
@@ -145,12 +149,12 @@ extension ProfileView {
     }
 
     // MARK: User Training Days
-    private var userTrainingDays: some View {
+    private var userHighCalDays: some View {
         NavigationLink {
-            TrainingDaysView(updateTrainingDays: true)
-                .navigationTitle("Calorie Preference")
+            AdjustedCalorieDaysView(updateTrainingDays: true)
+                .navigationTitle("High Calorie Days")
         } label: {
-            TrainingDaysSummaryView()
+            AdjustedCalorieDaysSummaryView()
         }
     }
 }

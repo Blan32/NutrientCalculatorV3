@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TrainingDaysPickerView: View {
+struct AdjustedCalorieDaysPickerView: View {
     
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject private var viewModel: GlobalUserViewModel
@@ -37,7 +37,7 @@ struct TrainingDaysPickerView: View {
 
 struct TrainingDaysPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        TrainingDaysPickerView(
+        AdjustedCalorieDaysPickerView(
             updateTrainingDays: true,
             toggleOnMonday: dev.globalViewModel.user.monday,
             toggleOnTuesday: dev.globalViewModel.user.tuesday,
@@ -53,12 +53,12 @@ struct TrainingDaysPickerView_Previews: PreviewProvider {
 }
 
 
-extension TrainingDaysPickerView {
+extension AdjustedCalorieDaysPickerView {
     
     // MARK: Monday
     private var monday: some View {
         Text("Monday")
-            .modifier(TrainingDayViewModifier(toggleOn: $toggleOnMonday))
+            .modifier(AdjustedCalorieDaysViewModifier(toggleOn: $toggleOnMonday))
             .onTapGesture {
                 withAnimation(.spring()) {
                     updateTrainingDays ? viewModel.user.updateMonday.toggle() : viewModel.user.monday.toggle()
@@ -70,7 +70,7 @@ extension TrainingDaysPickerView {
     // MARK: Tuesday
     private var tuesday: some View {
         Text("Tuesday")
-            .modifier(TrainingDayViewModifier(toggleOn: $toggleOnTuesday))
+            .modifier(AdjustedCalorieDaysViewModifier(toggleOn: $toggleOnTuesday))
             .onTapGesture {
                 withAnimation(.spring()) {
                     updateTrainingDays ? viewModel.user.updateTuesday.toggle() : viewModel.user.tuesday.toggle()
@@ -82,7 +82,7 @@ extension TrainingDaysPickerView {
     // MARK: Wednesday
     private var wednesday: some View {
         Text("Wednesday")
-            .modifier(TrainingDayViewModifier(toggleOn: $toggleOnWednesday))
+            .modifier(AdjustedCalorieDaysViewModifier(toggleOn: $toggleOnWednesday))
             .onTapGesture {
                 withAnimation(.spring()) {
                     updateTrainingDays ? viewModel.user.updateWednesday.toggle() : viewModel.user.wednesday.toggle()
@@ -94,7 +94,7 @@ extension TrainingDaysPickerView {
     // MARK: Thursday
     private var thursday: some View {
         Text("Thursday")
-            .modifier(TrainingDayViewModifier(toggleOn: $toggleOnThursday))
+            .modifier(AdjustedCalorieDaysViewModifier(toggleOn: $toggleOnThursday))
             .onTapGesture {
                 withAnimation(.spring()) {
                     updateTrainingDays ? viewModel.user.updateThursday.toggle() : viewModel.user.thursday.toggle()
@@ -106,7 +106,7 @@ extension TrainingDaysPickerView {
     // MARK: Friday
     private var friday: some View {
         Text("Friday")
-            .modifier(TrainingDayViewModifier(toggleOn: $toggleOnFriday))
+            .modifier(AdjustedCalorieDaysViewModifier(toggleOn: $toggleOnFriday))
             .onTapGesture {
                 withAnimation(.spring()) {
                     updateTrainingDays ? viewModel.user.updateFriday.toggle() : viewModel.user.friday.toggle()
@@ -118,7 +118,7 @@ extension TrainingDaysPickerView {
     // MARK: Saturday
     private var saturday: some View {
         Text("Saturday")
-            .modifier(TrainingDayViewModifier(toggleOn: $toggleOnSaturday))
+            .modifier(AdjustedCalorieDaysViewModifier(toggleOn: $toggleOnSaturday))
             .onTapGesture {
                 withAnimation(.spring()) {
                     updateTrainingDays ? viewModel.user.updateSaturday.toggle() : viewModel.user.saturday.toggle()
@@ -130,7 +130,7 @@ extension TrainingDaysPickerView {
     // MARK: Sunday
     private var sunday: some View {
         Text("Sunday")
-            .modifier(TrainingDayViewModifier(toggleOn: $toggleOnSunday))
+            .modifier(AdjustedCalorieDaysViewModifier(toggleOn: $toggleOnSunday))
             .onTapGesture {
                 withAnimation(.spring()) {
                     updateTrainingDays ? viewModel.user.updateSunday.toggle() : viewModel.user.sunday.toggle()

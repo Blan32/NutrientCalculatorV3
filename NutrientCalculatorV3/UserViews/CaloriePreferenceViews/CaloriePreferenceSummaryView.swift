@@ -18,8 +18,12 @@ struct CaloriePreferenceSummaryView: View {
             Spacer()
 
             Text(viewModel.user.dynamicCalories ? "Dynamic" : "Static")
-                .padding(.trailing, 50)
+            
+            if viewModel.user.dynamicCalories {
+                Text("(\(viewModel.user.dynamicCalorieVariance * 100, specifier: "%.f")%)")
+            }
         }
+        .padding(.trailing, 50)
         .modifier(UserInfoViewModifier())
     }
 }

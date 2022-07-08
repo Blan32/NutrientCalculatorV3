@@ -10,7 +10,6 @@ import SwiftUI
 
 final class User: ObservableObject, Codable {
     
-    
     var name: String = ""
     var email: String = ""
 
@@ -162,8 +161,13 @@ final class User: ObservableObject, Codable {
         get { dynamicCalories }
         set { dynamicCalories = newValue }
     }
+    var dynamicCalorieVariance: Double = 0.1
+    var updateDynamicCalorieVariance: Double {
+        get { dynamicCalorieVariance }
+        set { dynamicCalorieVariance = newValue }
+    }
     
-    // MARK: Training Days
+    // MARK: High Calorie Days
     var monday: Bool = false
     var tuesday: Bool = false
     var wednesday: Bool = false

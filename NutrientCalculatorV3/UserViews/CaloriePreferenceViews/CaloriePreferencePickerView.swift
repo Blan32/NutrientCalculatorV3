@@ -26,6 +26,7 @@ struct CaloriePreferencePickerView: View {
         VStack {
             calorieDescription
             caloriePreferencePicker
+            dynamicCalorieVarianceSlider
         }
     }
 }
@@ -113,7 +114,6 @@ extension CaloriePreferencePickerView {
     private var calorieDescriptionBackground: some View {
         RoundedRectangle(cornerRadius: 25)
             .stroke(
-//                Color.accentColor.opacity(0.3)
                 LinearGradient(
                     colors: [Color.accentColor, Color.inverseAccentColor],
                     startPoint: viewModel.user.dynamicCalories ? .topLeading : .topTrailing,
@@ -134,5 +134,41 @@ extension CaloriePreferencePickerView {
         }
         .pickerStyle(SegmentedPickerStyle())
         .padding()
+    }
+    
+    // MARK: Variance
+    private var dynamicCalorieVarianceSlider: some View {
+        VStack {
+            HStack {
+                Text("Variance:")
+                    .bold()
+                if updateCaloriePreference {
+                    Text("\(viewModel.user.updateDynamicCalorieVariance * 100, specifier: "%.f")%")
+                } else {
+                    Text("\(viewModel.user.dynamicCalorieVariance * 100, specifier: "%.f")%")
+                }
+            }
+            .opacity(viewModel.user.dynamicCalories ? 1.0 : 0.0)
+            
+            if updateCaloriePreference {
+                Slider(value: $viewModel.user.updateDynamicCalorieVariance, in: 0.01...0.20, step: 0.01)
+                    .padding()
+                    .opacity(viewModel.user.dynamicCalories ? 1.0 : 0.0)
+            } else {
+                Slider(value: $viewModel.user.dynamicCalorieVariance, in: 0.01...0.20, step: 0.01)
+                    .padding()
+                    .opacity(viewModel.user.dynamicCalories ? 1.0 : 0.0)
+            }
+            
+            Text("Variance refers to how much higher your calories will be on high calorie days relative to the average for the week.")
+                .padding(.top)
+                .padding(.horizontal)
+                .frame(height: 100, alignment: .top)
+                .frame(maxWidth: .infinity)
+                .background(calorieDescriptionBackground)
+                .padding(.horizontal)
+                .opacity(viewModel.user.dynamicCalories ? 1.0 : 0.0)
+        }
+        .padding(.top)
     }
 }
