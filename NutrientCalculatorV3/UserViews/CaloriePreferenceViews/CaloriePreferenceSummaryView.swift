@@ -20,7 +20,8 @@ struct CaloriePreferenceSummaryView: View {
             Text(viewModel.user.dynamicCalories ? "Dynamic" : "Static")
             
             if viewModel.user.dynamicCalories {
-                Text("(\(viewModel.user.dynamicCalorieVariance * 100, specifier: "%.f")%)")
+                Text("(+\(viewModel.user.dynamicCalorieVariance, specifier: "%.f")%)")
+                    .foregroundColor(viewModel.user.dynamicCalorieVarianceDescriptionTextColor)
             }
         }
         .padding(.trailing, 50)

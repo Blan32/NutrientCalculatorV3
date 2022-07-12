@@ -147,13 +147,24 @@ final class User: ObservableObject, Codable {
         set { inputGoalWeight = newValue }
     }
     
-    // MARK: Current Macros
-    // Used in onboarding screens
+    // MARK: Input Macros (Onboarding)
     var inputFats: String = ""
     var inputCarbs: String = ""
     var inputProtein: String = ""
     var inputCalories: String = ""
     var inputWeightChange: Double = 0.0
+    var weeklyInputWeightChange: Double {
+        if inputWeightChange == 0.0 {
+            return 0.0
+        } else {
+            if weightInPounds {
+                let poundsToKgs = 0.453592
+                return inputWeightChange * poundsToKgs / 4           // Divide by 4 to get weight change per week from the month weight change
+            } else {
+                return inputWeightChange / 4
+            }
+        }
+    }
     
     // MARK: Calorie Preference
     var dynamicCalories: Bool = true
@@ -161,7 +172,29 @@ final class User: ObservableObject, Codable {
         get { dynamicCalories }
         set { dynamicCalories = newValue }
     }
-    var dynamicCalorieVariance: Double = 0.1
+    var dynamicCalorieVariance: Double = 15
+    var dynamicCalorieVarianceDescription: String {
+        if dynamicCalorieVariance <= 11 {
+            return "Low"
+        } else if dynamicCalorieVariance <= 18 {
+            return "Moderate"
+        } else if dynamicCalorieVariance <= 25 {
+            return "High"
+        } else {
+            return "n/a"
+        }
+    }
+    var dynamicCalorieVarianceDescriptionTextColor: Color {
+        if dynamicCalorieVarianceDescription == "Low" {
+            return Color.blue
+        } else if dynamicCalorieVarianceDescription == "Moderate" {
+            return Color.green
+        } else if dynamicCalorieVarianceDescription == "High" {
+            return Color.red
+        } else {
+            return Color.accentColor
+        }
+    }
     var updateDynamicCalorieVariance: Double {
         get { dynamicCalorieVariance }
         set { dynamicCalorieVariance = newValue }
@@ -203,4 +236,80 @@ final class User: ObservableObject, Codable {
         get { sunday }
         set { sunday = newValue }
     }
+    
+    //MARK: BMR, TDEE, Macros
+    var maleBMR: Double {
+        let weight = startingWeight * 10
+        let height = Double(height) * 6.25
+        let age = Double(age ?? 0) * 5
+        return weight + height - age + 5
+    }
+    
+    var femaleBMR: Double {
+        let weight = startingWeight * 10
+        let height = Double(height) * 6.25
+        let age = Double(age ?? 0) * 5
+        return weight + height - age - 161
+    }
+    
+    var activityMultiplier: Double {
+        switch activityLevel {
+        case .none:
+            return 1.2
+        case .low:
+            return 1.375
+        case .moderate:
+            return 1.55
+        case .high:
+            return 1.725
+        case .extreme:
+            return 1.9
+        }
+    }
+    
+    var inputCalorieMultiplier: Double {
+        switch goalType {
+        case .fatloss:
+            switch weeklyInputWeightChange {
+            case 3.0 ... 1000: // gaining 3+ lbs per week - reduce by 15%, will be reduced further in calorie calc
+                return 0.8
+            case 1.0 ..< 3.0: // gaining 1-3lbs per week - reduce by 7.5%, will be reduced further in calorie calc
+                return 0.9
+            case -1.0 ..< 1.0: // losing/gaining 0-1lb per week - effectively maintenance
+                return 1.0
+            case -3.0 ..< -1.0: // calories are where they should be to start (so we increase them here to account for fat loss multiplier)
+                return 1.15
+            default: // calories are too low - losing more than 4lbs per week (increase by 10%)
+                return 1.3
+            }
+        case .muscleGrowth:
+            <#code#>
+        case .maintenance:
+            <#code#>
+        }
+        
+        
+        case "Fat Loss":
+            
+        //Add Maintenance
+        //Add Muscle Growth
+        default:
+            return 1.0
+        }
+    }
+    
+    var maintenanceCalories: Double { //switch on inputCalories
+        switch inputCalories {
+        case "": // if no input calories are entered, use regular calculations
+            if sex == "Male" {
+                return maleBMR * activityMultiplier
+            } else {
+                return femaleBMR * activityMultiplier
+            }
+        default: // if input calories are entered calculate off of those
+            return inputCalorieMultiplier * (Double(inputCalories) ?? 0)
+        }
+    }
+    // MARK: Starting Calories/Macros
+    var startingCalories: Double
 }

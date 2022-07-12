@@ -15,7 +15,7 @@ struct SexView: View {
     
     var body: some View {
         VStack {
-            Text("We need to know your sex in order to accurately calculate calorie and macronutrient requirements for your specific goal.")
+            Text("We need to know your biological sex in order to accurately calculate calorie and macronutrient requirements for your specific goal.")
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
             .padding(.bottom, 20)
