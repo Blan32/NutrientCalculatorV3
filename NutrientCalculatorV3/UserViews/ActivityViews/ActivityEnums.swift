@@ -116,6 +116,6 @@ enum ActivityLevel: String {
 // Total intensity score ranges (steps + workouts)
 // 2 - 4 = none
 // 5 - 6 = low
-// 7 - 10 = moderate
-// 11 - 13 = High
-// 14 - 15 = extreme
+// 7 - 9 = moderate
+// 10 - 12 = High
+// 13 - 15 = extreme

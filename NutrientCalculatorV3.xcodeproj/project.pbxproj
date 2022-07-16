@@ -25,6 +25,7 @@
 		270CDD4D2857B4FF00D32953 /* WeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD4C2857B4FE00D32953 /* WeightView.swift */; };
 		270CDD4F2857B80100D32953 /* WeightMeasurementTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD4E2857B80100D32953 /* WeightMeasurementTypeView.swift */; };
 		270CDD512857BA6000D32953 /* WeightTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD502857BA6000D32953 /* WeightTextFieldView.swift */; };
+		27150298287DB655008C84DA /* WeightMeasurementTypeSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27150297287DB655008C84DA /* WeightMeasurementTypeSummaryView.swift */; };
 		27199BBD286B5EBB002978E3 /* UserInfoBackButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27199BBC286B5EBB002978E3 /* UserInfoBackButtonModifier.swift */; };
 		274FBBDF2860AD02001CB004 /* InputCurrentMacrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FBBDE2860AD02001CB004 /* InputCurrentMacrosView.swift */; };
 		274FBBE62861D6F8001CB004 /* KeyboardDismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274FBBE52861D6F8001CB004 /* KeyboardDismissButton.swift */; };
@@ -46,7 +47,7 @@
 		27E112B328731F8800F4C8DA /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E112B228731F8800F4C8DA /* DashboardView.swift */; };
 		27E112B62873211300F4C8DA /* TodaysMacroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E112B52873211300F4C8DA /* TodaysMacroView.swift */; };
 		27E112B8287321A100F4C8DA /* IndividualMacroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E112B7287321A100F4C8DA /* IndividualMacroView.swift */; };
-		27E112BD287357AF00F4C8DA /* CheckInDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E112BC287357AF00F4C8DA /* CheckInDataService.swift */; };
+		27E112BD287357AF00F4C8DA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E112BC287357AF00F4C8DA /* CoreDataManager.swift */; };
 		27E112C02873647500F4C8DA /* NutrientCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27E112BE2873647500F4C8DA /* NutrientCalculator.xcdatamodeld */; };
 		27E112C328747CD700F4C8DA /* TimeFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E112C228747CD700F4C8DA /* TimeFormatting.swift */; };
 		27E8241C285B9FFD00A7FE96 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E8241B285B9FFD00A7FE96 /* GoalView.swift */; };
@@ -88,6 +89,7 @@
 		270CDD4C2857B4FE00D32953 /* WeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightView.swift; sourceTree = "<group>"; };
 		270CDD4E2857B80100D32953 /* WeightMeasurementTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightMeasurementTypeView.swift; sourceTree = "<group>"; };
 		270CDD502857BA6000D32953 /* WeightTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTextFieldView.swift; sourceTree = "<group>"; };
+		27150297287DB655008C84DA /* WeightMeasurementTypeSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightMeasurementTypeSummaryView.swift; sourceTree = "<group>"; };
 		27199BBC286B5EBB002978E3 /* UserInfoBackButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoBackButtonModifier.swift; sourceTree = "<group>"; };
 		274FBBDE2860AD02001CB004 /* InputCurrentMacrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCurrentMacrosView.swift; sourceTree = "<group>"; };
 		274FBBE52861D6F8001CB004 /* KeyboardDismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissButton.swift; sourceTree = "<group>"; };
@@ -110,7 +112,7 @@
 		27E112B228731F8800F4C8DA /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		27E112B52873211300F4C8DA /* TodaysMacroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysMacroView.swift; sourceTree = "<group>"; };
 		27E112B7287321A100F4C8DA /* IndividualMacroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualMacroView.swift; sourceTree = "<group>"; };
-		27E112BC287357AF00F4C8DA /* CheckInDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInDataService.swift; sourceTree = "<group>"; };
+		27E112BC287357AF00F4C8DA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		27E112BF2873647500F4C8DA /* NutrientCalculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NutrientCalculator.xcdatamodel; sourceTree = "<group>"; };
 		27E112C228747CD700F4C8DA /* TimeFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatting.swift; sourceTree = "<group>"; };
 		27E8241B285B9FFD00A7FE96 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				270CDD4E2857B80100D32953 /* WeightMeasurementTypeView.swift */,
 				270CDD502857BA6000D32953 /* WeightTextFieldView.swift */,
 				27FC67F12866180A0033DEBC /* WeightSummaryView.swift */,
+				27150297287DB655008C84DA /* WeightMeasurementTypeSummaryView.swift */,
 			);
 			path = WeightViews;
 			sourceTree = "<group>";
@@ -364,7 +367,7 @@
 		27E112C128737A9600F4C8DA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				27E112BC287357AF00F4C8DA /* CheckInDataService.swift */,
+				27E112BC287357AF00F4C8DA /* CoreDataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -491,7 +494,7 @@
 				270CDD512857BA6000D32953 /* WeightTextFieldView.swift in Sources */,
 				274FBBDF2860AD02001CB004 /* InputCurrentMacrosView.swift in Sources */,
 				27FC680528661CB40033DEBC /* MonthWeightChangeSummaryView.swift in Sources */,
-				27E112BD287357AF00F4C8DA /* CheckInDataService.swift in Sources */,
+				27E112BD287357AF00F4C8DA /* CoreDataManager.swift in Sources */,
 				2709AA0B2858C17400655C19 /* SexView.swift in Sources */,
 				27FC67F22866180A0033DEBC /* WeightSummaryView.swift in Sources */,
 				270CDD49285793B700D32953 /* HeightPickerView.swift in Sources */,
@@ -508,6 +511,7 @@
 				2709AA032858A7B300655C19 /* AgeView.swift in Sources */,
 				27FC67F4286618F40033DEBC /* AgeSummaryView.swift in Sources */,
 				27D5191B28537ADE004F4C9C /* Color.swift in Sources */,
+				27150298287DB655008C84DA /* WeightMeasurementTypeSummaryView.swift in Sources */,
 				27E82422285BE91C00A7FE96 /* GoalEnum.swift in Sources */,
 				27FC67F8286619A90033DEBC /* StepSummaryView.swift in Sources */,
 				276CBC12286DEF7B00EEC775 /* CaloriePreferenceSummaryView.swift in Sources */,

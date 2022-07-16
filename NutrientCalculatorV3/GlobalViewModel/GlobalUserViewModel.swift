@@ -5,6 +5,7 @@
 //  Created by Kyle Blandford on 6/13/22.
 //
 
+import CoreData
 import SwiftUI
 
 class GlobalUserViewModel: ObservableObject {
@@ -12,8 +13,83 @@ class GlobalUserViewModel: ObservableObject {
     @AppStorage("user") private var userData: Data?
     @AppStorage("new_user") var newUser: Bool = true
     
+    let manager = CoreDataManager.instance
+    @Published var checkIns: [CheckIn] = []
+    @Published var weighIns: [WeighIn] = []
+    
     @Published var user = User()
     @Published var alertItem: AlertItem?
+    
+    private let poundsToKg = 0.453592
+    private let kgsToPounds = 2.20462
+    private let inchesToCm = 2.54
+    private let cmToInches = 0.393701
+    
+    init() {
+        fetchWeighIns()
+        fetchCheckIns()
+    }
+    
+    func fetchCheckIns() {
+        let request = NSFetchRequest<CheckIn>(entityName: "CheckIn")
+        
+        do {
+            checkIns = try manager.context.fetch(request)
+        } catch let error {
+            print("Error fetching CheckIns. \(error)")
+        }
+    }
+    
+    func fetchWeighIns() {
+        let request = NSFetchRequest<WeighIn>(entityName: "WeighIn")
+        
+        do {
+            weighIns = try manager.context.fetch(request)
+        } catch let error {
+            print("Error fetching WeighIns. \(error)")
+        }
+    }
+    
+    func addWeighIn(date: Date, weight: Double) {
+        let newWeighIn = WeighIn(context: manager.context)
+        newWeighIn.id = UUID()
+        newWeighIn.date = date
+        newWeighIn.weight = weight
+        
+        save()
+    }
+    
+    func deleteWeighIn(indexSet: IndexSet) {
+        guard let index = indexSet.first else { return }
+        let entity = weighIns[index]
+        manager.context.delete(entity)
+        save()
+    }
+    
+    //    func updateWeighIn(entity: WeighIn) {
+    //        let currentWeight = entity.weight ?? 0.0
+    //        let currentDate = entity.date ?? Date()
+    //        entity.weight =
+    //    }
+    
+    func addCheckIn(averageWeight: Double, calories: Double, fats: Double, carbs: Double, protein: Double) {
+        let newCheckIn = CheckIn(context: manager.context)
+        newCheckIn.id = UUID()
+        newCheckIn.date = Date()
+        newCheckIn.averageWeight = averageWeight
+        newCheckIn.calories = calories
+        newCheckIn.fats = fats
+        newCheckIn.carbs = carbs
+        newCheckIn.protein = protein
+        
+        save()
+    }
+    
+    func save() {
+        manager.save()
+        fetchCheckIns()
+        fetchWeighIns()
+    }
     
     //MARK: Save Profile / Sign In
     func saveProfile() {
@@ -48,23 +124,28 @@ class GlobalUserViewModel: ObservableObject {
     }
     
     //MARK: Validate Forms ----------
-    let fiftyPounds = 22.6796
-    let oneThousandPounds = 453.592
-    let poundsToKgs = 0.453592
     
     //MARK: * validate weight
-    // Checking to make sure user entered a valid weight between 55.0 and 1000.0 pounds on WeightView (453.592kg = 1000lbs)
+    // Checking to make sure user entered a valid weight between 50.0 and 1000.0 pounds on WeightView (226.796kg = 500lbs)
     func isValidWeight() -> Bool {
-        if user.inputWeight.isEmpty || user.startingWeight < fiftyPounds || user.startingWeight > oneThousandPounds {
-            alertItem = AlertContext.invalidWeight
-            return false
+        if user.weightInPounds {
+            if user.inputWeightLbs.isEmpty || user.startingWeight < 50 || user.startingWeight > 500 {
+                alertItem = AlertContext.invalidWeight
+                return false
+            }
+        } else {
+            if user.inputWeightKgs.isEmpty || user.startingWeight < 23 || user.startingWeight > 226 {
+                alertItem = AlertContext.invalidWeight
+                return false
+            }
         }
+        
         return true
     }
     
     //MARK: * validate goal weight
     func isValidGoalWeight() -> Bool {
-        if user.goalWeight < fiftyPounds || user.goalWeight > oneThousandPounds {
+        if user.goalWeight < 50 || user.goalWeight > 500 {
             alertItem = AlertContext.invalidWeight
             return false
         }
@@ -83,44 +164,45 @@ class GlobalUserViewModel: ObservableObject {
     
     //MARK: * validate new goal weight
     func isValidUpdateGoalWeight() -> Bool {
-        // Check if textfield is empty
-        if user.updateGoalWeight.isEmpty && user.goalType != .maintenance {
-            alertItem = AlertContext.invalidWeight
-            return false
-        }
-        
-        // Check if updateGoalWeight is less than 50lbs or greater than 1000lbs (which would be invalid)
         if user.weightInPounds {
-            if (Double(user.updateGoalWeight) ?? 0) * poundsToKgs < fiftyPounds || (Double(user.updateGoalWeight) ?? 0) * poundsToKgs > oneThousandPounds {
+            // Check if textfield is empty
+            if user.inputGoalWeightLbs.isEmpty && user.goalType != .maintenance {
                 alertItem = AlertContext.invalidWeight
                 return false
-            }
-        } else if !user.weightInPounds {
-            if (Double(user.updateGoalWeight) ?? 0) < fiftyPounds || (Double(user.updateGoalWeight) ?? 0) > oneThousandPounds {
+            
+            // Check if updateGoalWeight is less than 50lbs or greater than 500lbs (which would be invalid)
+            } else if (Double(user.inputGoalWeightLbs) ?? 0) < 50 || (Double(user.inputGoalWeightLbs) ?? 0) > 500 {
                 alertItem = AlertContext.invalidWeight
                 return false
-            }
-        }
-        
-        // Check if updateGoalWeight makes sense based on goalType (less for fatloss, more for muscle growth) if weightInPounds convert updateGoalWeight to Kg before comparison
-        if user.weightInPounds {
-            if user.goalType == .fatloss && (Double(user.updateGoalWeight) ?? 0.0) * poundsToKgs > user.currentWeight - 0.1 {
+            
+            // Check if updateGoalWeight makes sense based on goalType (less for fatloss, more for muscle growth) if weightInPounds convert updateGoalWeight to Kg before comparison
+            } else if user.goalType == .fatloss && (Double(user.inputGoalWeightLbs) ?? 0.0) > user.currentWeight - 0.1 {
                 alertItem = AlertContext.invalidFatLossGoal
                 return false
-            } else if user.goalType == .muscleGrowth && (Double(user.updateGoalWeight) ?? 0.0) * poundsToKgs < user.currentWeight + 0.1 {
+            } else if user.goalType == .muscleGrowth && (Double(user.inputGoalWeightLbs) ?? 0.0) < user.currentWeight + 0.1 {
                 alertItem = AlertContext.invalidMuscleGrowthGoal
                 return false
             }
         } else {
-            if user.goalType == .fatloss && (Double(user.updateGoalWeight) ?? 0.0) > user.currentWeight - 0.1 {
+            // Check if textfield is empty
+            if user.inputGoalWeightLbs.isEmpty && user.goalType != .maintenance {
+                alertItem = AlertContext.invalidWeight
+                return false
+                
+            // Check if updateGoalWeight is less than 50lbs or greater than 500lbs (which would be invalid)
+            } else if (Double(user.inputGoalWeightKgs) ?? 0) * kgsToPounds < 50 || (Double(user.inputGoalWeightKgs) ?? 0) * kgsToPounds > 500 {
+                alertItem = AlertContext.invalidWeight
+                return false
+            
+            // Check if updateGoalWeight makes sense based on goalType (less for fatloss, more for muscle growth) if weightInPounds convert updateGoalWeight to Kg before comparison
+            } else if user.goalType == .fatloss && (Double(user.inputGoalWeightKgs) ?? 0.0) * kgsToPounds > user.currentWeight - 0.1 {
                 alertItem = AlertContext.invalidFatLossGoal
                 return false
-            } else if user.goalType == .muscleGrowth && (Double(user.updateGoalWeight) ?? 0.0) < user.currentWeight + 0.1 {
+            } else if user.goalType == .muscleGrowth && (Double(user.inputGoalWeightKgs) ?? 0.0) * kgsToPounds < user.currentWeight + 0.1 {
                 alertItem = AlertContext.invalidMuscleGrowthGoal
                 return false
             }
         }
-        
         return true
     }
     
@@ -161,5 +243,24 @@ class GlobalUserViewModel: ObservableObject {
     private func calculateInputProteinCalories() -> Double {
         let protein = Double(user.inputProtein) ?? 0
         return 4 * protein
+    }
+    
+    // MARK: Input Weights
+    // Rounding is done to the 10ths place for all inputWeights / inputGoalWeights
+    func setInputWeightKgs() {
+        user.inputWeightKgs = String((((Double(user.inputWeightLbs) ?? 0) * poundsToKg) * 10).rounded() / 10)
+    }
+    
+    func setInputWeightLbs() {
+        user.inputWeightLbs = String((((Double(user.inputWeightKgs) ?? 0) * kgsToPounds) * 10).rounded() / 10)
+    }
+    
+    // MARK: Input Goal Weights
+    func setInputGoalWeightKgs() {
+        user.inputGoalWeightKgs = String((((Double(user.inputGoalWeightLbs) ?? 0) * poundsToKg) * 10).rounded() / 10)
+    }
+    
+    func setInputGoalWeightLbs() {
+        user.inputGoalWeightLbs = String((((Double(user.inputGoalWeightKgs) ?? 0) * kgsToPounds) * 10).rounded() / 10)
     }
 }

@@ -52,7 +52,6 @@ struct SexView_Previews: PreviewProvider {
 
 extension SexView {
     
-    
     // MARK: Back Button
     private var backButton: some View {
         Button {
@@ -84,7 +83,6 @@ extension SexView {
     
     // MARK: func SubmitButtonPressed
     private func submitButtonPressed() {
-        viewModel.user.sex = viewModel.user.updateSex
         viewModel.saveProfile()
         presentationMode.wrappedValue.dismiss()
     }

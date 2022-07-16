@@ -38,7 +38,7 @@ struct AlertContext {
                                               dismissButton: .default(Text("OK")))
     
     static let invalidWeight =        AlertItem(title: Text("Invalid Weight"),
-                                              message: Text("Please input a valid weight: \n\n (50-1000 lbs) \n or \n (23-453 kgs)"),
+                                              message: Text("Please input a valid weight: \n\n (50-500 lbs) \n or \n (23-226 kgs)"),
                                               dismissButton: .default(Text("OK")))
     
     static let invalidFatLossGoal =        AlertItem(title: Text("Invalid Fat Loss Goal"),
@@ -46,7 +46,7 @@ struct AlertContext {
                                               dismissButton: .default(Text("OK")))
     
     static let invalidMuscleGrowthGoal =        AlertItem(title: Text("Invalid Muscle Growth Goal"),
-                                              message: Text("For a muscle growth goal, please input a goal weight that is higher than your current weight and under 1000 lbs or 453 kgs."),
+                                              message: Text("For a muscle growth goal, please input a goal weight that is higher than your current weight and under 500 lbs or 226 kgs."),
                                               dismissButton: .default(Text("OK")))
     
     static let invalidEmail =       AlertItem(title: Text("Invalid Email"),

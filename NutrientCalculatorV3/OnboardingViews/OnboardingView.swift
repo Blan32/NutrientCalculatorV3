@@ -10,7 +10,6 @@ import CoreData
 
 struct OnboardingView: View {
 
-    @Environment(\.managedObjectContext) var moc
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject private var viewModel: GlobalUserViewModel
     
@@ -34,7 +33,7 @@ struct OnboardingView: View {
                         .transition(transition)
                         .navigationTitle("Height")
                 case 2:
-                    WeightView()
+                    WeightView(updateWeight: false)
                         .transition(transition)
                         .navigationTitle("Weight")
                 case 3:
@@ -170,10 +169,32 @@ extension OnboardingView {
     private func buttonPressed() {
         if onboardingState == 2 && !viewModel.isValidWeight() {
             // Shows invalidWeight Alert from viewModel
+            
+        } else if onboardingState == 2 && viewModel.user.weightInPounds {
+            viewModel.setInputWeightKgs()
+            withAnimation(.easeInOut) {
+                onboardingState += 1
+            }
+        } else if onboardingState == 2 && !viewModel.user.weightInPounds {
+            viewModel.setInputWeightLbs()
+            withAnimation(.easeInOut) {
+                onboardingState += 1
+            }
         } else if onboardingState == 6 && !viewModel.isValidGoalWeight() {
             // Shows invalidGoalWeight Alert from viewModel
+        } else if onboardingState == 6 && viewModel.user.weightInPounds {
+            viewModel.setInputGoalWeightKgs()
+            withAnimation(.easeInOut) {
+                onboardingState += 1
+            }
+        } else if onboardingState == 6 && !viewModel.user.weightInPounds {
+            viewModel.setInputGoalWeightLbs()
+            withAnimation(.easeInOut) {
+                onboardingState += 1
+            }
         } else if onboardingState == 6 && viewModel.user.goalType == .maintenance {
-            viewModel.user.inputGoalWeight = ""
+            viewModel.user.inputGoalWeightLbs = ""
+            viewModel.user.inputGoalWeightKgs = ""
             withAnimation(.easeInOut) {
                 onboardingState += 1
             }
@@ -194,18 +215,18 @@ extension OnboardingView {
     
     // MARK: func completeAccount
     private func completeAccountCreation() {
-        CheckInDataService().addWeighIn(
+        viewModel.addWeighIn(
             date: Date(),
-            weight: viewModel.user.startingWeight,
-            context: moc)
+            weight: viewModel.user.startingWeight
+        )
         
-        CheckInDataService().addCheckIn(
+        viewModel.addCheckIn(
             averageWeight: viewModel.user.startingWeight,
-            calories: 2500,
-            fats: 90,
-            carbs: 200,
-            protein: 200,
-            context: moc)
+            calories: viewModel.user.startingCalories,
+            fats: viewModel.user.fats,
+            carbs: viewModel.user.carbs,
+            protein: viewModel.user.protein
+        )
         
         viewModel.saveProfile()
     }

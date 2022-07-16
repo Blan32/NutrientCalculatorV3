@@ -10,10 +10,9 @@ import SwiftUI
 struct WorkoutAmountPickerView: View {
     
     @EnvironmentObject private var viewModel: GlobalUserViewModel
-    var updateActivity: Bool
     
     var body: some View {
-        Picker(selection: updateActivity ? $viewModel.user.updateTrainingSessionsPerWeek : $viewModel.user.trainingSessionsPerWeek) {
+        Picker(selection: $viewModel.user.trainingSessionsPerWeek) {
             ForEach(WorkoutsPerWeek.allCases, id: \.self) { workout in
                 Text(workout.rawValue)
                     .tag(workout)
@@ -30,7 +29,7 @@ struct WorkoutAmountPickerView: View {
 
 struct WorkoutAmountPicker_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutAmountPickerView(updateActivity: true)
+        WorkoutAmountPickerView()
             .environmentObject(dev.globalViewModel)
     }
 }

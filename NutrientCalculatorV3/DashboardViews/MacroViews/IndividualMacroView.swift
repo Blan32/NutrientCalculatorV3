@@ -45,7 +45,7 @@ struct IndividualMacroView: View {
         .background(
             ZStack(alignment: .leading) {
                 Capsule()
-                    .fill(fillColor.opacity(0.3))
+                    .fill(fillColor.opacity(0.5))
                     .padding(.horizontal)
                 
                 Capsule()

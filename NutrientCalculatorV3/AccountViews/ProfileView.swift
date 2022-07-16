@@ -13,11 +13,10 @@ struct ProfileView: View {
     
     var body: some View {
         ScrollView {
+            userWeightMeasurementType
             userHeight
             userAge
             userSex
-            userSteps
-            userWorkouts
             userActivity
             userGoal
             userCaloriePreference
@@ -26,7 +25,6 @@ struct ProfileView: View {
                 userHighCalDays
                     .padding(.bottom)
             }
-            
             
             Button {
                 viewModel.signOut()
@@ -57,6 +55,17 @@ struct ProfileView_Previews: PreviewProvider {
 
 extension ProfileView {
     
+    
+    // MARK: Weight Measurement Type
+    private var userWeightMeasurementType: some View {
+        NavigationLink {
+            WeightView(updateWeight: true)
+            .navigationTitle("Weight Type")
+        } label: {
+            WeightMeasurementTypeSummaryView()
+        }
+    }
+
     // MARK: User Height
     private var userHeight: some View {
         NavigationLink {
@@ -87,33 +96,34 @@ extension ProfileView {
         }
     }
     
-    // MARK: User Steps
-    private var userSteps: some View {
-        NavigationLink {
-            ActivityView(updateActivity: true)
-                .navigationTitle("Activity")
-        } label: {
-            StepSummaryView()
-        }
-    }
-    
-    // MARK: User Workouts
-    private var userWorkouts: some View {
-        NavigationLink {
-            ActivityView(updateActivity: true)
-                .navigationTitle("Activity")
-        } label: {
-            WorkoutSummaryView()
-        }
-    }
-    
-    // MARK: User Activity Level
+    // MARK: Activity
     private var userActivity: some View {
-        NavigationLink {
-            ActivityView(updateActivity: true)
-                .navigationTitle("Activity")
-        } label: {
-            ActivitySummaryView()
+        
+        VStack {
+            // MARK: User Steps
+            NavigationLink {
+                ActivityView(updateActivity: true)
+                    .navigationTitle("Activity")
+            } label: {
+                StepSummaryView()
+            }
+            
+            // MARK: User Workouts
+            NavigationLink {
+                ActivityView(updateActivity: true)
+                    .navigationTitle("Activity")
+            } label: {
+                WorkoutSummaryView()
+            }
+            
+            // MARK: User Activity Level
+            NavigationLink {
+                ActivityView(updateActivity: true)
+                    .navigationTitle("Activity")
+            } label: {
+                ActivitySummaryView()
+            }
+            
         }
     }
     

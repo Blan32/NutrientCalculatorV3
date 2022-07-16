@@ -23,10 +23,10 @@ struct DashboardTabView: View {
                     .tabItem {
                         Label("", systemImage: "square.and.pencil")
                     }
-                AccountView()
-                    .tabItem {
-                        Label("", systemImage: "person")
-                    }
+//                AccountView()
+//                    .tabItem {
+//                        Label("", systemImage: "person")
+//                    }
             }
             .fullScreenCover(isPresented: $newUser) {
                 OnboardingView(newUser: $newUser)

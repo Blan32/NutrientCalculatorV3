@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct AccountView: View {
+        
     var body: some View {
-        NavigationView {
-            ScrollView {
-                profileView
-            }
-            .padding(.top, 8)
-            .navigationTitle("Account")
+        ScrollView {
+            profileView
         }
+        .padding(.top, 8)
     }
 }
 

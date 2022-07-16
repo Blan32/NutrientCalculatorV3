@@ -11,9 +11,7 @@ struct AdjustedCalorieDaysPickerView: View {
     
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject private var viewModel: GlobalUserViewModel
-    
-    var updateTrainingDays: Bool
-    
+        
     @State var toggleOnMonday: Bool
     @State var toggleOnTuesday: Bool
     @State var toggleOnWednesday: Bool
@@ -38,7 +36,6 @@ struct AdjustedCalorieDaysPickerView: View {
 struct TrainingDaysPickerView_Previews: PreviewProvider {
     static var previews: some View {
         AdjustedCalorieDaysPickerView(
-            updateTrainingDays: true,
             toggleOnMonday: dev.globalViewModel.user.monday,
             toggleOnTuesday: dev.globalViewModel.user.tuesday,
             toggleOnWednesday: dev.globalViewModel.user.wednesday,
@@ -61,7 +58,7 @@ extension AdjustedCalorieDaysPickerView {
             .modifier(AdjustedCalorieDaysViewModifier(toggleOn: $toggleOnMonday))
             .onTapGesture {
                 withAnimation(.spring()) {
-                    updateTrainingDays ? viewModel.user.updateMonday.toggle() : viewModel.user.monday.toggle()
+                    viewModel.user.monday.toggle()
                     toggleOnMonday.toggle()
                 }
             }
@@ -73,7 +70,7 @@ extension AdjustedCalorieDaysPickerView {
             .modifier(AdjustedCalorieDaysViewModifier(toggleOn: $toggleOnTuesday))
             .onTapGesture {
                 withAnimation(.spring()) {
-                    updateTrainingDays ? viewModel.user.updateTuesday.toggle() : viewModel.user.tuesday.toggle()
+                    viewModel.user.tuesday.toggle()
                     toggleOnTuesday.toggle()
                 }
             }
@@ -85,7 +82,7 @@ extension AdjustedCalorieDaysPickerView {
             .modifier(AdjustedCalorieDaysViewModifier(toggleOn: $toggleOnWednesday))
             .onTapGesture {
                 withAnimation(.spring()) {
-                    updateTrainingDays ? viewModel.user.updateWednesday.toggle() : viewModel.user.wednesday.toggle()
+                    viewModel.user.wednesday.toggle()
                     toggleOnWednesday.toggle()
                 }
             }
@@ -97,7 +94,7 @@ extension AdjustedCalorieDaysPickerView {
             .modifier(AdjustedCalorieDaysViewModifier(toggleOn: $toggleOnThursday))
             .onTapGesture {
                 withAnimation(.spring()) {
-                    updateTrainingDays ? viewModel.user.updateThursday.toggle() : viewModel.user.thursday.toggle()
+                    viewModel.user.thursday.toggle()
                     toggleOnThursday.toggle()
                 }
             }
@@ -109,7 +106,7 @@ extension AdjustedCalorieDaysPickerView {
             .modifier(AdjustedCalorieDaysViewModifier(toggleOn: $toggleOnFriday))
             .onTapGesture {
                 withAnimation(.spring()) {
-                    updateTrainingDays ? viewModel.user.updateFriday.toggle() : viewModel.user.friday.toggle()
+                    viewModel.user.friday.toggle()
                     toggleOnFriday.toggle()
                 }
             }
@@ -121,7 +118,7 @@ extension AdjustedCalorieDaysPickerView {
             .modifier(AdjustedCalorieDaysViewModifier(toggleOn: $toggleOnSaturday))
             .onTapGesture {
                 withAnimation(.spring()) {
-                    updateTrainingDays ? viewModel.user.updateSaturday.toggle() : viewModel.user.saturday.toggle()
+                    viewModel.user.saturday.toggle()
                     toggleOnSaturday.toggle()
                 }
             }
@@ -133,7 +130,7 @@ extension AdjustedCalorieDaysPickerView {
             .modifier(AdjustedCalorieDaysViewModifier(toggleOn: $toggleOnSunday))
             .onTapGesture {
                 withAnimation(.spring()) {
-                    updateTrainingDays ? viewModel.user.updateSunday.toggle() : viewModel.user.sunday.toggle()
+                    viewModel.user.sunday.toggle()
                     toggleOnSunday.toggle()
                 }
             }

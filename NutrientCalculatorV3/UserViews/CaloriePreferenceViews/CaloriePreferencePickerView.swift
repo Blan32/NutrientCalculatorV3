@@ -10,10 +10,8 @@ import SwiftUI
 struct CaloriePreferencePickerView: View {
     
     @EnvironmentObject private var viewModel: GlobalUserViewModel
-    var updateCaloriePreference: Bool
     
-    init(updateCaloriePreference: Bool) {
-        self.updateCaloriePreference = updateCaloriePreference
+    init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor) //changes selected background
         
         let attributes: [NSAttributedString.Key:Any] = [
@@ -33,7 +31,7 @@ struct CaloriePreferencePickerView: View {
 
 struct CaloriePreferencePickerView_Previews: PreviewProvider {
     static var previews: some View {
-        CaloriePreferencePickerView(updateCaloriePreference: false)
+        CaloriePreferencePickerView()
             .preferredColorScheme(.dark)
             .environmentObject(dev.globalViewModel)
     }
@@ -44,68 +42,34 @@ extension CaloriePreferencePickerView {
     // MARK: Calorie Description
     private var calorieDescription: some View {
         VStack {
-            if updateCaloriePreference {
-                // MARK: * Profile View
-                if viewModel.user.updateDynamicCalories {
-                    VStack(alignment: .leading) {
-                        Text("Dynamically adjust calorie and macronutrient amounts throughout the week based on activity levels.")
-                        Text("This will set calories higher on the days you choose.")
-                            .bold()
-                            .underline()
-                            .padding(.top)
-                    }
-                    .padding(.top)
-                    .padding(.horizontal)
-                    .frame(height: 170, alignment: .top)
-                    .frame(maxWidth: .infinity)
-                    .background(calorieDescriptionBackground)
-                    .padding(.horizontal)
-                } else {
-                    VStack(alignment: .leading) {
-                        Text("Keep calories static throughout the week.")
-                        Text("Eat the same amount of calories and macros each day.")
-                            .bold()
-                            .underline()
-                            .padding(.top)
-                    }
-                    .padding(.top)
-                    .padding(.horizontal)
-                    .frame(height: 170, alignment: .top)
-                    .frame(maxWidth: .infinity)
-                    .background(calorieDescriptionBackground)
-                    .padding(.horizontal)
+            if viewModel.user.dynamicCalories {
+                VStack(alignment: .leading) {
+                    Text("Dynamically adjust calorie and macronutrient amounts throughout the week based on activity levels.")
+                    Text("This will set calories higher on training days and lower on off days.")
+                        .bold()
+                        .underline()
+                        .padding(.top)
                 }
+                .padding(.top)
+                .padding(.horizontal)
+                .frame(height: 170, alignment: .top)
+                .frame(maxWidth: .infinity)
+                .background(calorieDescriptionBackground)
+                .padding(.horizontal)
             } else {
-                // MARK: * Onboarding View
-                if viewModel.user.dynamicCalories {
-                    VStack(alignment: .leading) {
-                        Text("Dynamically adjust calorie and macronutrient amounts throughout the week based on activity levels.")
-                        Text("This will set calories higher on training days and lower on off days.")
-                            .bold()
-                            .underline()
-                            .padding(.top)
-                    }
-                    .padding(.top)
-                    .padding(.horizontal)
-                    .frame(height: 170, alignment: .top)
-                    .frame(maxWidth: .infinity)
-                    .background(calorieDescriptionBackground)
-                    .padding(.horizontal)
-                } else {
-                    VStack(alignment: .leading) {
-                        Text("Keep calories static throughout the week.")
-                        Text("Simplify the process and eat the same amount of calories and macros each day.")
-                            .bold()
-                            .underline()
-                            .padding(.top)
-                    }
-                    .padding(.top)
-                    .padding(.horizontal)
-                    .frame(height: 170, alignment: .top)
-                    .frame(maxWidth: .infinity)
-                    .background(calorieDescriptionBackground)
-                    .padding(.horizontal)
+                VStack(alignment: .leading) {
+                    Text("Keep calories static throughout the week.")
+                    Text("Simplify the process and eat the same amount of calories and macros each day.")
+                        .bold()
+                        .underline()
+                        .padding(.top)
                 }
+                .padding(.top)
+                .padding(.horizontal)
+                .frame(height: 170, alignment: .top)
+                .frame(maxWidth: .infinity)
+                .background(calorieDescriptionBackground)
+                .padding(.horizontal)
             }
         }
     }
@@ -124,7 +88,7 @@ extension CaloriePreferencePickerView {
     
     // MARK: Calorie Preference Picker
     private var caloriePreferencePicker: some View {
-        Picker(selection: updateCaloriePreference ? $viewModel.user.updateDynamicCalories : $viewModel.user.dynamicCalories) {
+        Picker(selection: $viewModel.user.dynamicCalories) {
             Text("Dynamic")
                 .tag(true)
             Text("Static")
@@ -143,11 +107,7 @@ extension CaloriePreferencePickerView {
                 HStack {
                     Text("Variance: ")
                         .bold()
-                    if updateCaloriePreference {
-                        Text("+ \(viewModel.user.updateDynamicCalorieVariance, specifier: "%.f")%")
-                    } else {
-                        Text("+ \(viewModel.user.dynamicCalorieVariance, specifier: "%.f")%")
-                    }
+                    Text("+ \(viewModel.user.dynamicCalorieVariance, specifier: "%.f")%")
                 }
                 .opacity(viewModel.user.dynamicCalories ? 1.0 : 0.0)
                 
@@ -155,19 +115,10 @@ extension CaloriePreferencePickerView {
                     .foregroundColor(viewModel.user.dynamicCalorieVarianceDescriptionTextColor)
                     .opacity(viewModel.user.dynamicCalories ? 1.0 : 0.0)
             }
-            
-            
-            if updateCaloriePreference {
-                Slider(value: $viewModel.user.updateDynamicCalorieVariance, in: 5...25, step: 1.0)
-                    .padding(.bottom)
-                    .padding(.horizontal)
-                    .opacity(viewModel.user.dynamicCalories ? 1.0 : 0.0)
-            } else {
-                Slider(value: $viewModel.user.dynamicCalorieVariance, in: 5...25, step: 1.0)
-                    .padding(.bottom)
-                    .padding(.horizontal, 100)
-                    .opacity(viewModel.user.dynamicCalories ? 1.0 : 0.0)
-            }
+            Slider(value: $viewModel.user.dynamicCalorieVariance, in: 5...25, step: 1.0)
+                .padding(.bottom)
+                .padding(.horizontal)
+                .opacity(viewModel.user.dynamicCalories ? 1.0 : 0.0)
             
             Text("Variance refers to how much higher your calories will be on high calorie days relative to the average for the week.")
                 .padding(.top)

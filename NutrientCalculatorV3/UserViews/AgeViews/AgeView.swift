@@ -84,7 +84,6 @@ extension AgeView {
     
     // MARK: func SubmitButtonPressed
     private func submitButtonPressed() {
-        viewModel.user.birthday = viewModel.user.updateBirthday
         viewModel.saveProfile()
         presentationMode.wrappedValue.dismiss()
     }

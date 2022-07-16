@@ -16,7 +16,7 @@ struct WeightTextFieldView: View {
     var body: some View {
         VStack {
             HStack {
-                TextField("Current Weight", text: $viewModel.user.inputWeight)
+                TextField("Current Weight", text: viewModel.user.weightInPounds ? $viewModel.user.inputWeightLbs : $viewModel.user.inputWeightKgs)
                     .keyboardType(.decimalPad)
                     .focused($focusedTextField)
                 Text(viewModel.user.weightInPounds ? "lbs" : "kgs")

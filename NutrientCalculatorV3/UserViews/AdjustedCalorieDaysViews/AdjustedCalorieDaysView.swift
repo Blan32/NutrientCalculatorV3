@@ -20,7 +20,6 @@ struct AdjustedCalorieDaysView: View {
                 .padding()
             
             AdjustedCalorieDaysPickerView(
-                updateTrainingDays: updateTrainingDays,
                 toggleOnMonday: viewModel.user.monday,
                 toggleOnTuesday: viewModel.user.tuesday,
                 toggleOnWednesday: viewModel.user.wednesday,
@@ -91,13 +90,6 @@ extension AdjustedCalorieDaysView {
     
     // MARK: func SubmitButtonPressed
     private func submitButtonPressed() {
-        viewModel.user.monday = viewModel.user.updateMonday
-        viewModel.user.tuesday = viewModel.user.updateTuesday
-        viewModel.user.wednesday = viewModel.user.updateWednesday
-        viewModel.user.thursday = viewModel.user.updateThursday
-        viewModel.user.friday = viewModel.user.updateFriday
-        viewModel.user.saturday = viewModel.user.updateSaturday
-        viewModel.user.sunday = viewModel.user.updateSunday
         viewModel.saveProfile()
         presentationMode.wrappedValue.dismiss()
     }

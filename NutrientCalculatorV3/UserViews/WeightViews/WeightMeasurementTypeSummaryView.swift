@@ -1,31 +1,31 @@
 //
-//  WeightSummaryView.swift
+//  WeightMeasurementTypeSummaryView.swift
 //  NutrientCalculatorV3
 //
-//  Created by Kyle Blandford on 6/24/22.
+//  Created by Kyle Blandford on 7/12/22.
 //
 
 import SwiftUI
 
-struct WeightSummaryView: View {
+struct WeightMeasurementTypeSummaryView: View {
     
     @EnvironmentObject private var viewModel: GlobalUserViewModel
     
     var body: some View {
         HStack {
-            Text("Starting Weight: ")
+            Text("Weight Type: ")
                 .bold()
             Spacer()
-            Text(viewModel.user.weightInPounds ? viewModel.user.inputWeightLbs + " lbs" : viewModel.user.inputWeightLbs + " kgs")
+            Text(viewModel.user.weightInPounds ? "Pounds" : "Kilograms")
                 .padding(.trailing, 50)
         }
         .modifier(UserInfoViewModifier())
     }
 }
 
-struct WeightSummaryView_Previews: PreviewProvider {
+struct WeightMeasurementTypeSummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        WeightSummaryView()
+        WeightMeasurementTypeSummaryView()
             .environmentObject(dev.globalViewModel)
     }
 }

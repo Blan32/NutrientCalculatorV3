@@ -18,7 +18,7 @@ struct CaloriePreferenceView: View {
             Text("How would you prefer we set your calories?")
                 .padding()
             
-            CaloriePreferencePickerView(updateCaloriePreference: updateCaloriePreference)
+            CaloriePreferencePickerView()
             Spacer()
             
             if updateCaloriePreference {
@@ -82,8 +82,6 @@ extension CaloriePreferenceView {
     
     // MARK: func SubmitButtonPressed
     private func submitButtonPressed() {
-        viewModel.user.dynamicCalories = viewModel.user.updateDynamicCalories
-        viewModel.user.dynamicCalorieVariance = viewModel.user.updateDynamicCalorieVariance
         viewModel.saveProfile()
         presentationMode.wrappedValue.dismiss()
     }

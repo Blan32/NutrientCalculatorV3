@@ -56,7 +56,7 @@ extension ActivityView {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
             
-            StepPickerView(updateActivity: updateActivity)
+            StepPickerView()
         }
     }
     
@@ -67,7 +67,7 @@ extension ActivityView {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
             
-            WorkoutAmountPickerView(updateActivity: updateActivity)
+            WorkoutAmountPickerView()
         }
     }
     
@@ -77,9 +77,9 @@ extension ActivityView {
             Text("Total Activity Rating: ")
                 .padding(.horizontal)
                 .padding(.top)
-            Text(updateActivity ? "\(viewModel.user.updateActivityLevel.rawValue)" : "\(viewModel.user.activityLevel.rawValue)")
+            Text("\(viewModel.user.activityLevel.rawValue)")
                 .bold()
-                .foregroundColor(updateActivity ? viewModel.user.updateActivityLevel.intensityColor() : viewModel.user.activityLevel.intensityColor())
+                .foregroundColor(viewModel.user.activityLevel.intensityColor())
                 .padding(.top, 1)
         }
     }
@@ -115,8 +115,6 @@ extension ActivityView {
     
     // MARK: func SubmitButtonPressed
     private func submitButtonPressed() {
-        viewModel.user.stepsPerDay = viewModel.user.updateStepsPerDay
-        viewModel.user.trainingSessionsPerWeek = viewModel.user.updateTrainingSessionsPerWeek
         viewModel.saveProfile()
         presentationMode.wrappedValue.dismiss()
     }

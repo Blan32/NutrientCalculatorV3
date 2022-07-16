@@ -10,14 +10,12 @@ import SwiftUI
 @main
 struct NutrientCalculatorV3App: App {
     
-    @StateObject var checkInDataService = CheckInDataService()
     @StateObject var viewModel = GlobalUserViewModel()
     
     var body: some Scene {
         WindowGroup {
             DashboardTabView()
                 .environmentObject(viewModel)
-                .environment(\.managedObjectContext, checkInDataService.container.viewContext)
         }
     }
 }

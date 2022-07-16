@@ -40,23 +40,14 @@ struct SexPicker_Previews: PreviewProvider {
 extension SexPickerView {
     
     private var sexSymbolImage: some View {
-        VStack {
-            if updateSex {
-                Image(viewModel.user.updateSex == "Male" ? "MaleSymbol" : "FemaleSymbol")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 220)
-            } else {
-                Image(viewModel.user.sex == "Male" ? "MaleSymbol" : "FemaleSymbol")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 220)
-            }
-        }
+        Image(viewModel.user.sex == "Male" ? "MaleSymbol" : "FemaleSymbol")
+            .resizable()
+            .scaledToFit()
+            .frame(height: 220)
     }
     
     private var sexPicker: some View {
-        Picker(selection: updateSex ? $viewModel.user.updateSex : $viewModel.user.sex) {
+        Picker(selection: $viewModel.user.sex) {
             Text("Male")
                 .tag("Male")
             Text("Female")

@@ -17,14 +17,8 @@ struct GoalWeightSummaryView: View {
                 .bold()
             Spacer()
             
-            if viewModel.user.updateGoalWeight == "" {
-                Text(viewModel.user.weightInPounds ? viewModel.user.inputGoalWeight + " lbs" : viewModel.user.inputGoalWeight + " kgs")
-                    .padding(.trailing, 50)
-            } else {
-                Text(viewModel.user.weightInPounds ? viewModel.user.updateGoalWeight + " lbs" : viewModel.user.updateGoalWeight + " kgs")
-                    .padding(.trailing, 50)
-            }
-            
+            Text(viewModel.user.weightInPounds ? "\(viewModel.user.goalWeight)" + " lbs" : "\(viewModel.user.goalWeight)" + " kgs")
+                .padding(.trailing, 50)
         }
         .modifier(UserInfoViewModifier())
     }

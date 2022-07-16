@@ -104,7 +104,7 @@ extension GoalPickerView {
     
     //MARK: Goal Picker
     private var goalPicker: some View {
-        Picker(selection: updateGoalWeight ? $viewModel.user.updateGoalType : $viewModel.user.goalType) {
+        Picker(selection: $viewModel.user.goalType) {
             ForEach(Goal.allCases, id: \.self) { item in
                 Text(item.rawValue)
                     .tag(item)
@@ -123,9 +123,15 @@ extension GoalPickerView {
         VStack {
             Text("Goal Weight:")
             HStack {
-                TextField(viewModel.user.inputGoalWeight == "" ? "Goal Weight" : viewModel.user.inputGoalWeight, text: updateGoalWeight ? $viewModel.user.updateGoalWeight : $viewModel.user.inputGoalWeight)
-                    .keyboardType(.decimalPad)
-                    .focused($focusedTextField)
+                if viewModel.user.weightInPounds {
+                    TextField(viewModel.user.inputGoalWeightLbs == "" ? "Goal Weight" : viewModel.user.inputGoalWeightLbs, text: $viewModel.user.inputGoalWeightLbs)
+                        .keyboardType(.decimalPad)
+                        .focused($focusedTextField)
+                } else {
+                    TextField(viewModel.user.inputGoalWeightKgs == "" ? "Goal Weight" : viewModel.user.inputGoalWeightKgs, text: $viewModel.user.inputGoalWeightKgs)
+                        .keyboardType(.decimalPad)
+                        .focused($focusedTextField)
+                }
                 Text(viewModel.user.weightInPounds ? "lbs" : "kgs")
             }
             .font(.body)

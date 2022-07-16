@@ -20,9 +20,9 @@ struct HeightView: View {
                 .padding()
                 .padding(.bottom, 20)
             
-            HeightMeasurementTypeView(updateHeight: updateHeight)
+            HeightMeasurementTypeView()
                 .padding(.bottom)
-            HeightPickerView(updateHeight: updateHeight)
+            HeightPickerView()
             Spacer()
             
             if updateHeight {
@@ -86,9 +86,6 @@ extension HeightView {
     
     // MARK: func SubmitButtonPressed
     private func submitButtonPressed() {
-        viewModel.user.heightCm = viewModel.user.updateHeightCm
-        viewModel.user.heightIn = viewModel.user.updateHeightIn
-        viewModel.user.heightInFeetAndInches = viewModel.user.updateHeightInFeetAndInches
         viewModel.saveProfile()
         presentationMode.wrappedValue.dismiss()
     }

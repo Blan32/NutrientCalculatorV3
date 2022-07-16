@@ -10,43 +10,38 @@ import SwiftUI
 
 final class User: ObservableObject, Codable {
     
+    private var poundsToKgs = 0.453592
+    private var kgsToPounds = 2.20462
+    private var inchesToCm = 2.54
+    private var cmToInches = 0.393701
+    
     var name: String = ""
     var email: String = ""
 
     // MARK: Height
-    // We show the user an option to list their height in imperial or metric, but the height variable is calculated in centimeters regardless
+    // We show the user an option to list their height in imperial or metric, but the height variable is calculated in inches regardless
     var heightInFeetAndInches: Bool = true
-    var heightCm: Int = 173
     var heightIn: Int = 68
+    var heightCm: Int = 173
     var height: Int {
-        let inchesToCm = 2.54
-            if heightInFeetAndInches {
-                let cm = Int((Double(heightIn) * inchesToCm).rounded())
-                return cm
-            } else {
-                return heightCm
-            }
+        if heightInFeetAndInches {
+            return heightIn
+        } else {
+            let inches = Int((Double(heightCm) * cmToInches).rounded())
+            return inches
         }
-    var updateHeightInFeetAndInches: Bool = true
-    var updateHeightCm: Int {
-        get { heightCm }
-        set { heightCm = newValue }
-    }
-    var updateHeightIn: Int {
-        get { heightIn }
-        set { heightIn = newValue }
     }
     
     // MARK: Weight
-    // We show the user an option to list their weight in imperial or metric, but the startingWeight variable is calculated in kgs regardless
+    // We show the user an option to list their weight in imperial or metric, but the startingWeight variable is calculated in pounds regardless
     var weightInPounds: Bool = true
-    var inputWeight: String = ""
+    var inputWeightLbs: String = ""
+    var inputWeightKgs: String = ""
     var startingWeight: Double {
-        let poundsToKgs = 0.453592
         if weightInPounds {
-            return (Double(inputWeight) ?? 0.0) * poundsToKgs
+            return Double(inputWeightLbs) ?? 0.0
         } else {
-            return Double(inputWeight) ?? 0.0
+            return (Double(inputWeightKgs) ?? 0.0) * kgsToPounds
         }
     }
     var currentWeight: Double {
@@ -61,17 +56,9 @@ final class User: ObservableObject, Codable {
         let ageComponents = calendar.dateComponents([.year], from: birthday, to: Date())
         return ageComponents.year
     }
-    var updateBirthday: Date {
-        get { birthday }
-        set { birthday = newValue }
-    }
     
     // MARK: Sex
     var sex: String = "Male"
-    var updateSex: String {
-        get { sex }
-        set { sex = newValue }
-    }
     
     // MARK: Activity
     var stepsPerDay: StepAmounts = .moderate // Possiblities: 1,2,3,4,5 (none, low, moderate, high, extreme)
@@ -96,55 +83,19 @@ final class User: ObservableObject, Codable {
         }
     }
     
-    var updateStepsPerDay: StepAmounts {
-        get { stepsPerDay }
-        set { stepsPerDay = newValue }
-    }
-    var updateTrainingSessionsPerWeek: WorkoutsPerWeek {
-        get { trainingSessionsPerWeek }
-        set { trainingSessionsPerWeek = newValue }
-    }
-    var updateTotalIntensityScore: Int {
-        return (updateStepsPerDay.stepIntensityScore() + updateTrainingSessionsPerWeek.workoutIntensityScore())
-    }
-    var updateActivityLevel: ActivityLevel {
-        switch updateTotalIntensityScore {
-        case 2..<5:
-            return .none
-        case 5..<7:
-            return .low
-        case 7..<10:
-            return .moderate
-        case 10..<13:
-            return .high
-        case 13..<16:
-            return .extreme
-        default:
-            return .none
-        }
-    }
-    
     // MARK: Goal / Goal Weight
     var goalType: Goal = .fatloss
-    var inputGoalWeight: String = ""
+    var inputGoalWeightLbs: String = ""
+    var inputGoalWeightKgs: String = ""
     var goalWeight: Double {
         if goalType == .maintenance {
             return startingWeight
         }
         if weightInPounds {
-            let poundsToKgs = 0.453592
-            return (Double(inputGoalWeight) ?? 0.0) * poundsToKgs
+            return Double(inputGoalWeightLbs) ?? 0.0
         } else {
-            return Double(inputGoalWeight) ?? 0.0
+            return (Double(inputGoalWeightKgs) ?? 0.0)
         }
-    }
-    var updateGoalType: Goal {
-        get { goalType }
-        set { goalType = newValue }
-    }
-    var updateGoalWeight: String {
-        get { inputGoalWeight }
-        set { inputGoalWeight = newValue }
     }
     
     // MARK: Input Macros (Onboarding)
@@ -158,20 +109,15 @@ final class User: ObservableObject, Codable {
             return 0.0
         } else {
             if weightInPounds {
-                let poundsToKgs = 0.453592
-                return inputWeightChange * poundsToKgs / 4           // Divide by 4 to get weight change per week from the month weight change
-            } else {
                 return inputWeightChange / 4
+            } else {
+                return inputWeightChange * kgsToPounds / 4           // Divide by 4 to get weight change per week from the month weight change
             }
         }
     }
     
     // MARK: Calorie Preference
     var dynamicCalories: Bool = true
-    var updateDynamicCalories: Bool {
-        get { dynamicCalories }
-        set { dynamicCalories = newValue }
-    }
     var dynamicCalorieVariance: Double = 15
     var dynamicCalorieVarianceDescription: String {
         if dynamicCalorieVariance <= 11 {
@@ -195,10 +141,6 @@ final class User: ObservableObject, Codable {
             return Color.accentColor
         }
     }
-    var updateDynamicCalorieVariance: Double {
-        get { dynamicCalorieVariance }
-        set { dynamicCalorieVariance = newValue }
-    }
     
     // MARK: High Calorie Days
     var monday: Bool = false
@@ -208,46 +150,18 @@ final class User: ObservableObject, Codable {
     var friday: Bool = false
     var saturday: Bool = false
     var sunday: Bool = false
-    var updateMonday: Bool {
-        get { monday }
-        set { monday = newValue }
-    }
-    var updateTuesday: Bool {
-        get { tuesday }
-        set { tuesday = newValue }
-    }
-    var updateWednesday: Bool {
-        get { wednesday }
-        set { wednesday = newValue }
-    }
-    var updateThursday: Bool {
-        get { thursday }
-        set { thursday = newValue }
-    }
-    var updateFriday: Bool {
-        get { friday }
-        set { friday = newValue }
-    }
-    var updateSaturday: Bool {
-        get { saturday }
-        set { saturday = newValue }
-    }
-    var updateSunday: Bool {
-        get { sunday }
-        set { sunday = newValue }
-    }
     
     //MARK: BMR, TDEE, Macros
-    var maleBMR: Double {
-        let weight = startingWeight * 10
-        let height = Double(height) * 6.25
+    var maleBMR: Double { // height & weight must be converted to metric
+        let weight = startingWeight * poundsToKgs * 10
+        let height = Double(height) * inchesToCm * 6.25
         let age = Double(age ?? 0) * 5
         return weight + height - age + 5
     }
     
-    var femaleBMR: Double {
-        let weight = startingWeight * 10
-        let height = Double(height) * 6.25
+    var femaleBMR: Double { // height & weight must be converted to metric
+        let weight = startingWeight * poundsToKgs * 10
+        let height = Double(height) * inchesToCm * 6.25
         let age = Double(age ?? 0) * 5
         return weight + height - age - 161
     }
@@ -271,9 +185,9 @@ final class User: ObservableObject, Codable {
         switch goalType {
         case .fatloss:
             switch weeklyInputWeightChange {
-            case 3.0 ... 1000: // gaining 3+ lbs per week - reduce by 15%, will be reduced further in calorie calc
+            case 3.0 ... 500: // gaining 3+ lbs per week - reduce by 20%, will be reduced further in calorie calc
                 return 0.8
-            case 1.0 ..< 3.0: // gaining 1-3lbs per week - reduce by 7.5%, will be reduced further in calorie calc
+            case 1.0 ..< 3.0: // gaining 1-3lbs per week - reduce by 10%, will be reduced further in calorie calc
                 return 0.9
             case -1.0 ..< 1.0: // losing/gaining 0-1lb per week - effectively maintenance
                 return 1.0
@@ -282,22 +196,17 @@ final class User: ObservableObject, Codable {
             default: // calories are too low - losing more than 4lbs per week (increase by 10%)
                 return 1.3
             }
-        case .muscleGrowth:
-            <#code#>
-        case .maintenance:
-            <#code#>
-        }
-        
-        
-        case "Fat Loss":
             
-        //Add Maintenance
-        //Add Muscle Growth
-        default:
-            return 1.0
+        // MARK: NEED THESE!!!!!!!!
+        case .muscleGrowth:
+            return 0.0
+        case .maintenance:
+            return 0.0
         }
+
+
     }
-    
+
     var maintenanceCalories: Double { //switch on inputCalories
         switch inputCalories {
         case "": // if no input calories are entered, use regular calculations
@@ -311,5 +220,112 @@ final class User: ObservableObject, Codable {
         }
     }
     // MARK: Starting Calories/Macros
-    var startingCalories: Double
+    var startingCalories: Double {
+        switch goalType {
+        case .fatloss:
+            return maintenanceCalories * 0.875
+        case .muscleGrowth:
+            return maintenanceCalories * 1.125
+        case .maintenance:
+            return maintenanceCalories
+        }
+    }
+    
+    //MARK: Fats
+    var fats: Double {
+        switch inputCalories {
+        case "":
+            switch startingWeight {
+            case 0.0..<200.0:
+                return startingWeight * poundsToKgs * 1.1
+            case 200.0..<250.0:
+                return startingWeight * poundsToKgs * 1.05
+            case 250.0..<300.0:
+                return startingWeight * poundsToKgs * 0.975
+            case 300.0..<350.0:
+                return startingWeight * poundsToKgs * 0.925
+            default:
+                return startingWeight * poundsToKgs * 0.875
+            }
+        default:
+            return startingCalories * 0.25 / 9
+        }
+        
+    }
+    
+    //MARK: Carbs
+    var carbs: Double {
+        return (startingCalories - (9 * fats) - (4 * protein)) / 4
+    }
+    
+    //MARK: Protein
+    var protein: Double {
+        switch activityLevel {
+        case .none:
+            switch startingWeight {
+            case 0.0..<200.0:
+                return startingWeight * 0.95
+            case 200.0..<250.0:
+                return startingWeight * 0.9
+            case 250.0..<300.0:
+                return startingWeight * 0.8
+            case 300.0..<350.0:
+                return startingWeight * 0.7
+            default:
+                return startingWeight * 0.6
+            }
+        case .low:
+            switch startingWeight {
+            case 0.0..<200.0:
+                return startingWeight * 0.975
+            case 200.0..<250.0:
+                return startingWeight * 0.95
+            case 250.0..<300.0:
+                return startingWeight * 0.825
+            case 300.0..<350.0:
+                return startingWeight * 0.725
+            default:
+                return startingWeight * 0.625
+            }
+        case .moderate:
+            switch startingWeight {
+            case 0.0..<200.0:
+                return startingWeight * 1
+            case 200.0..<250.0:
+                return startingWeight * 1
+            case 250.0..<300.0:
+                return startingWeight * 0.875
+            case 300.0..<350.0:
+                return startingWeight * 0.75
+            default:
+                return startingWeight * 0.65
+            }
+        case .high:
+            switch startingWeight {
+            case 0.0..<200.0:
+                return startingWeight * 1.05
+            case 200.0..<250.0:
+                return startingWeight * 1.025
+            case 250.0..<300.0:
+                return startingWeight * 0.9
+            case 300.0..<350.0:
+                return startingWeight * 0.775
+            default:
+                return startingWeight * 0.675
+            }
+        case .extreme:
+            switch startingWeight {
+            case 0.0..<200.0:
+                return startingWeight * 1.1
+            case 200.0..<250.0:
+                return startingWeight * 1.05
+            case 250.0..<300.0:
+                return startingWeight * 0.925
+            case 300.0..<350.0:
+                return startingWeight * 0.8
+            default:
+                return startingWeight * 0.7
+            }
+        }
+    }
 }

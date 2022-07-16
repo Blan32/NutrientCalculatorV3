@@ -33,6 +33,7 @@ struct WeightMeasurementTypeView: View {
         .pickerStyle(SegmentedPickerStyle())
         .padding()
         .padding(.bottom, 50)
+        .labelsHidden()
     }
 }
 

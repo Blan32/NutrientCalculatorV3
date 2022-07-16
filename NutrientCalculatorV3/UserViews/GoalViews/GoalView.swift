@@ -77,15 +77,17 @@ extension GoalView {
     
     // MARK: func BackButtonPressed
     private func backButtonPressed() {
-        viewModel.user.updateGoalWeight = ""
         presentationMode.wrappedValue.dismiss()
     }
     
     // MARK: func SubmitButtonPressed
     private func submitButtonPressed() {
         guard viewModel.isValidUpdateGoalWeight() else { return }
-        viewModel.user.goalType = viewModel.user.updateGoalType
-        viewModel.user.inputGoalWeight = viewModel.user.updateGoalWeight
+        if viewModel.user.weightInPounds {
+            viewModel.setInputGoalWeightKgs()
+        } else {
+            viewModel.setInputGoalWeightLbs()
+        }
         viewModel.saveProfile()
         presentationMode.wrappedValue.dismiss()
     }
