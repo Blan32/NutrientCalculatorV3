@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WorkoutSummaryView: View {
     
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
 
     var body: some View {
         HStack {
@@ -27,6 +27,6 @@ struct WorkoutSummaryView: View {
 struct WorkoutSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         WorkoutSummaryView()
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct GoalView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     @State var updateGoalWeight: Bool
     
     var body: some View {
@@ -45,7 +45,7 @@ struct GoalView: View {
 struct GoalView_Previews: PreviewProvider {
     static var previews: some View {
         GoalView(updateGoalWeight: true)
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }
 

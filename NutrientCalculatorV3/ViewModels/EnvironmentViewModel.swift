@@ -8,88 +8,21 @@
 import CoreData
 import SwiftUI
 
-class GlobalUserViewModel: ObservableObject {
+class EnvironmentViewModel: ObservableObject {
         
     @AppStorage("user") private var userData: Data?
     @AppStorage("new_user") var newUser: Bool = true
     
-    let manager = CoreDataManager.instance
-    @Published var checkIns: [CheckIn] = []
-    @Published var weighIns: [WeighIn] = []
-    
     @Published var user = User()
     @Published var alertItem: AlertItem?
     
+    let manager = CoreDataManager.instance
+
     private let poundsToKg = 0.453592
     private let kgsToPounds = 2.20462
     private let inchesToCm = 2.54
     private let cmToInches = 0.393701
     
-    init() {
-        fetchWeighIns()
-        fetchCheckIns()
-    }
-    
-    func fetchCheckIns() {
-        let request = NSFetchRequest<CheckIn>(entityName: "CheckIn")
-        
-        do {
-            checkIns = try manager.context.fetch(request)
-        } catch let error {
-            print("Error fetching CheckIns. \(error)")
-        }
-    }
-    
-    func fetchWeighIns() {
-        let request = NSFetchRequest<WeighIn>(entityName: "WeighIn")
-        
-        do {
-            weighIns = try manager.context.fetch(request)
-        } catch let error {
-            print("Error fetching WeighIns. \(error)")
-        }
-    }
-    
-    func addWeighIn(date: Date, weight: Double) {
-        let newWeighIn = WeighIn(context: manager.context)
-        newWeighIn.id = UUID()
-        newWeighIn.date = date
-        newWeighIn.weight = weight
-        
-        save()
-    }
-    
-    func deleteWeighIn(indexSet: IndexSet) {
-        guard let index = indexSet.first else { return }
-        let entity = weighIns[index]
-        manager.context.delete(entity)
-        save()
-    }
-    
-    //    func updateWeighIn(entity: WeighIn) {
-    //        let currentWeight = entity.weight ?? 0.0
-    //        let currentDate = entity.date ?? Date()
-    //        entity.weight =
-    //    }
-    
-    func addCheckIn(averageWeight: Double, calories: Double, fats: Double, carbs: Double, protein: Double) {
-        let newCheckIn = CheckIn(context: manager.context)
-        newCheckIn.id = UUID()
-        newCheckIn.date = Date()
-        newCheckIn.averageWeight = averageWeight
-        newCheckIn.calories = calories
-        newCheckIn.fats = fats
-        newCheckIn.carbs = carbs
-        newCheckIn.protein = protein
-        
-        save()
-    }
-    
-    func save() {
-        manager.save()
-        fetchCheckIns()
-        fetchWeighIns()
-    }
     
     //MARK: Save Profile / Sign In
     func saveProfile() {

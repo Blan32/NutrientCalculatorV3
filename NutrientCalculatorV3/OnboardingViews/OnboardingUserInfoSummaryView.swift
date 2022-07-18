@@ -11,7 +11,7 @@ struct OnboardingUserInfoSummaryView: View {
     
    
 
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     
     var body: some View {
         ScrollView {
@@ -35,7 +35,7 @@ struct OnboardingSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingUserInfoSummaryView()
             .preferredColorScheme(.dark)
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }
 

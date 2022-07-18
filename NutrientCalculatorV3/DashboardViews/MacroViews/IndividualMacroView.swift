@@ -9,7 +9,7 @@ import SwiftUI
 
 struct IndividualMacroView: View {
     
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     
     // MARK: EVENTUALLY we will want to change this to show the amount of macros consumed / total day's macros instead of the ranges so that progress updates properly
     
@@ -65,6 +65,6 @@ struct IndividualMacroView_Previews: PreviewProvider {
     static var previews: some View {
         IndividualMacroView(title: "Fats", macroAmount: 222.7, showGramsG: true, fillColor: Color.fatColor, progress: 0.75, trainingDay: true)
             .preferredColorScheme(.dark)
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }

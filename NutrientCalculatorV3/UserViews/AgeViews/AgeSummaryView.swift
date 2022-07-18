@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AgeSummaryView: View {
     
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     
     var body: some View {
         HStack {
@@ -26,6 +26,6 @@ struct AgeSummaryView: View {
 struct AgeSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         AgeSummaryView()
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }

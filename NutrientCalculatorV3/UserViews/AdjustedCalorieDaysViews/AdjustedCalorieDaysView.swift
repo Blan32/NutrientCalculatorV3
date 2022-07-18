@@ -10,7 +10,7 @@ import SwiftUI
 struct AdjustedCalorieDaysView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     var updateTrainingDays: Bool
     
     var body: some View {
@@ -52,7 +52,7 @@ struct AdjustedCalorieDaysView: View {
 struct TrainingDaysView_Previews: PreviewProvider {
     static var previews: some View {
         AdjustedCalorieDaysView(updateTrainingDays: true)
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }
 

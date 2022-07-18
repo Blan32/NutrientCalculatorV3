@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CaloriePreferencePickerView: View {
     
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor) //changes selected background
@@ -33,7 +33,7 @@ struct CaloriePreferencePickerView_Previews: PreviewProvider {
     static var previews: some View {
         CaloriePreferencePickerView()
             .preferredColorScheme(.dark)
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }
 

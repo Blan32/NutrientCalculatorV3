@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WeightMeasurementTypeSummaryView: View {
     
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     
     var body: some View {
         HStack {
@@ -26,6 +26,6 @@ struct WeightMeasurementTypeSummaryView: View {
 struct WeightMeasurementTypeSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         WeightMeasurementTypeSummaryView()
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }

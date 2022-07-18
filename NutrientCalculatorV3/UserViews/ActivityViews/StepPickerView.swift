@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StepPickerView: View {
     
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
         
     var body: some View {
         VStack {
@@ -33,6 +33,6 @@ struct StepPickerView: View {
 struct StepPicker_Previews: PreviewProvider {
     static var previews: some View {
         StepPickerView()
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }

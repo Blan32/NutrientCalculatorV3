@@ -20,7 +20,7 @@ class DeveloperPreview {
     static let instance = DeveloperPreview()
     private init() { }
     
-    let globalViewModel = GlobalUserViewModel()
+    let environmentViewModel = EnvironmentViewModel()
     
     let user = User()
 }

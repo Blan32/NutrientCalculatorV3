@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InputCurrentMacrosView: View {
     
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     @FocusState private var focusedTextField: FormTextField?
 
     enum FormTextField {
@@ -57,7 +57,7 @@ struct InputCurrentMacrosView: View {
 struct PriorMacros_Previews: PreviewProvider {
     static var previews: some View {
         InputCurrentMacrosView()
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }
 

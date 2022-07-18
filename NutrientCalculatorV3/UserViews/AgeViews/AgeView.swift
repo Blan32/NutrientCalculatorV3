@@ -10,7 +10,7 @@ import SwiftUI
 struct AgeView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     @State var updateAge: Bool
     
     var body: some View {
@@ -47,7 +47,7 @@ struct OnboardingAgeView_Previews: PreviewProvider {
         ZStack {
             AgeView(updateAge: true)
         }
-        .environmentObject(dev.globalViewModel)
+        .environmentObject(dev.environmentViewModel)
     }
 }
 

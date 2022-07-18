@@ -10,7 +10,7 @@ import SwiftUI
 struct WeightTextFieldView: View {
     
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     @FocusState private var focusedTextField: Bool
     
     var body: some View {
@@ -44,7 +44,7 @@ struct WeightTextFieldView: View {
 struct WeightTextFieldView_Previews: PreviewProvider {
     static var previews: some View {
         WeightTextFieldView()
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BirthdayPickerView: View {
     
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     @State var updateAge: Bool
     
     let startDate: Date = Calendar.current.date(byAdding: .year, value: -100, to: Date()) ?? Date()
@@ -25,6 +25,6 @@ struct BirthdayPickerView: View {
 struct BirthdayPicker_Previews: PreviewProvider {
     static var previews: some View {
         BirthdayPickerView(updateAge: true)
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }

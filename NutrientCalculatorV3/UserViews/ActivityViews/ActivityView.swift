@@ -10,7 +10,7 @@ import SwiftUI
 struct ActivityView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     @State var updateActivity: Bool
     
     //MARK: View
@@ -43,7 +43,7 @@ struct ActivityView: View {
 struct ActivityView_Previews: PreviewProvider {
     static var previews: some View {
         ActivityView(updateActivity: true)
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }
 

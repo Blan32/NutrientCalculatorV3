@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GoalPickerView: View {
     
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     @Environment(\.colorScheme) var colorScheme
     @FocusState private var focusedTextField: Bool
     var updateGoalWeight: Bool
@@ -53,7 +53,7 @@ struct GoalPickerView: View {
 struct GoalPicker_Previews: PreviewProvider {
     static var previews: some View {
         GoalPickerView(updateGoalWeight: true)
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }
 

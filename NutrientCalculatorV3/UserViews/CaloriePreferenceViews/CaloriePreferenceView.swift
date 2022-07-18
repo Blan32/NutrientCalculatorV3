@@ -10,7 +10,7 @@ import SwiftUI
 struct CaloriePreferenceView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     var updateCaloriePreference: Bool
     
     var body: some View {
@@ -43,7 +43,7 @@ struct CaloriePreferenceView: View {
 struct CaloriePreferenceView_Previews: PreviewProvider {
     static var previews: some View {
         CaloriePreferenceView(updateCaloriePreference: true)
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }
 

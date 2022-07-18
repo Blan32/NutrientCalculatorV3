@@ -10,7 +10,7 @@ import SwiftUI
 struct HeightView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     @State var updateHeight: Bool
     
     var body: some View {
@@ -49,7 +49,7 @@ struct HeightView_Previews: PreviewProvider {
     static var previews: some View {
         HeightView(updateHeight: true)
             .preferredColorScheme(.dark)
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }
 

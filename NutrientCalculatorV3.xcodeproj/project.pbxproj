@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2707893828858F4B00AEDA05 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707893728858F4B00AEDA05 /* ProgressView.swift */; };
+		2707893A2885934100AEDA05 /* WeightTextFieldViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270789392885934100AEDA05 /* WeightTextFieldViewModifier.swift */; };
+		2707893D2885A39300AEDA05 /* WeighInsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707893C2885A39300AEDA05 /* WeighInsListView.swift */; };
+		2707893F2885B36700AEDA05 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707893E2885B36700AEDA05 /* DateExtension.swift */; };
 		2709AA032858A7B300655C19 /* AgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA022858A7B300655C19 /* AgeView.swift */; };
 		2709AA052858A80A00655C19 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA042858A80A00655C19 /* PreviewProvider.swift */; };
 		2709AA082858AF1500655C19 /* BirthdayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA072858AF1500655C19 /* BirthdayPickerView.swift */; };
@@ -18,7 +22,7 @@
 		2709AA1E2858FA8200655C19 /* WorkoutAmountPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA1D2858FA8200655C19 /* WorkoutAmountPickerView.swift */; };
 		2709AA2028591AA100655C19 /* ActivityEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA1F28591AA100655C19 /* ActivityEnums.swift */; };
 		270CDD382857630000D32953 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD372857630000D32953 /* User.swift */; };
-		270CDD402857719300D32953 /* GlobalUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD3F2857719300D32953 /* GlobalUserViewModel.swift */; };
+		270CDD402857719300D32953 /* EnvironmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD3F2857719300D32953 /* EnvironmentViewModel.swift */; };
 		270CDD45285783E600D32953 /* UserInfoSubmitButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD44285783E600D32953 /* UserInfoSubmitButtonModifier.swift */; };
 		270CDD472857933900D32953 /* HeightMeasurementTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD462857933900D32953 /* HeightMeasurementTypeView.swift */; };
 		270CDD49285793B700D32953 /* HeightPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD48285793B700D32953 /* HeightPickerView.swift */; };
@@ -71,6 +75,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2707893728858F4B00AEDA05 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		270789392885934100AEDA05 /* WeightTextFieldViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTextFieldViewModifier.swift; sourceTree = "<group>"; };
+		2707893C2885A39300AEDA05 /* WeighInsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeighInsListView.swift; sourceTree = "<group>"; };
+		2707893E2885B36700AEDA05 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		2709AA022858A7B300655C19 /* AgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeView.swift; sourceTree = "<group>"; };
 		2709AA042858A80A00655C19 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		2709AA072858AF1500655C19 /* BirthdayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayPickerView.swift; sourceTree = "<group>"; };
@@ -82,7 +90,7 @@
 		2709AA1D2858FA8200655C19 /* WorkoutAmountPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutAmountPickerView.swift; sourceTree = "<group>"; };
 		2709AA1F28591AA100655C19 /* ActivityEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityEnums.swift; sourceTree = "<group>"; };
 		270CDD372857630000D32953 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		270CDD3F2857719300D32953 /* GlobalUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUserViewModel.swift; sourceTree = "<group>"; };
+		270CDD3F2857719300D32953 /* EnvironmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentViewModel.swift; sourceTree = "<group>"; };
 		270CDD44285783E600D32953 /* UserInfoSubmitButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoSubmitButtonModifier.swift; sourceTree = "<group>"; };
 		270CDD462857933900D32953 /* HeightMeasurementTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightMeasurementTypeView.swift; sourceTree = "<group>"; };
 		270CDD48285793B700D32953 /* HeightPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightPickerView.swift; sourceTree = "<group>"; };
@@ -146,6 +154,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2707893B2885A37700AEDA05 /* ProgressViews */ = {
+			isa = PBXGroup;
+			children = (
+				2707893728858F4B00AEDA05 /* ProgressView.swift */,
+				2707893C2885A39300AEDA05 /* WeighInsListView.swift */,
+			);
+			path = ProgressViews;
+			sourceTree = "<group>";
+		};
 		2709AA062858AEEE00655C19 /* AgeViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,12 +230,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		270CDD3A285765ED00D32953 /* GlobalViewModel */ = {
+		270CDD3A285765ED00D32953 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				270CDD3F2857719300D32953 /* GlobalUserViewModel.swift */,
+				270CDD3F2857719300D32953 /* EnvironmentViewModel.swift */,
 			);
-			path = GlobalViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		270CDD412857735500D32953 /* OnboardingViews */ = {
@@ -244,6 +261,7 @@
 			children = (
 				27D5191A28537ADE004F4C9C /* Color.swift */,
 				2709AA042858A80A00655C19 /* PreviewProvider.swift */,
+				2707893E2885B36700AEDA05 /* DateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -326,7 +344,7 @@
 				274FBBE32861D6BB001CB004 /* Components */,
 				270CDD422857736900D32953 /* Utilities */,
 				27E112C128737A9600F4C8DA /* Services */,
-				270CDD3A285765ED00D32953 /* GlobalViewModel */,
+				270CDD3A285765ED00D32953 /* ViewModels */,
 				270CDD39285765E400D32953 /* Models */,
 				270CDD412857735500D32953 /* OnboardingViews */,
 				27E112B128731F6200F4C8DA /* DashboardViews */,
@@ -349,6 +367,7 @@
 		27E112B128731F6200F4C8DA /* DashboardViews */ = {
 			isa = PBXGroup;
 			children = (
+				2707893B2885A37700AEDA05 /* ProgressViews */,
 				27E112B228731F8800F4C8DA /* DashboardView.swift */,
 				27E112B4287320BA00F4C8DA /* MacroViews */,
 			);
@@ -391,6 +410,7 @@
 				270CDD44285783E600D32953 /* UserInfoSubmitButtonModifier.swift */,
 				27199BBC286B5EBB002978E3 /* UserInfoBackButtonModifier.swift */,
 				27FC680A286633E50033DEBC /* AccountInfoViewModifier.swift */,
+				270789392885934100AEDA05 /* WeightTextFieldViewModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -501,10 +521,12 @@
 				2709AA112858C49C00655C19 /* SexPickerView.swift in Sources */,
 				27D5191928537717004F4C9C /* OnboardingView.swift in Sources */,
 				27FC67FE28661AB70033DEBC /* GoalSummaryView.swift in Sources */,
+				2707893828858F4B00AEDA05 /* ProgressView.swift in Sources */,
 				27EE30E02864F6EE00929406 /* UserInfoViewModifier.swift in Sources */,
-				270CDD402857719300D32953 /* GlobalUserViewModel.swift in Sources */,
+				270CDD402857719300D32953 /* EnvironmentViewModel.swift in Sources */,
 				274FBBE62861D6F8001CB004 /* KeyboardDismissButton.swift in Sources */,
 				2709AA082858AF1500655C19 /* BirthdayPickerView.swift in Sources */,
+				2707893F2885B36700AEDA05 /* DateExtension.swift in Sources */,
 				270CDD45285783E600D32953 /* UserInfoSubmitButtonModifier.swift in Sources */,
 				27FC6809286630A60033DEBC /* ProfileView.swift in Sources */,
 				274FBBE828621490001CB004 /* OnboardingUserInfoSummaryView.swift in Sources */,
@@ -535,8 +557,10 @@
 				27D5191D28537CDB004F4C9C /* HeightView.swift in Sources */,
 				27FC67FA28661A260033DEBC /* WorkoutSummaryView.swift in Sources */,
 				270CDD4F2857B80100D32953 /* WeightMeasurementTypeView.swift in Sources */,
+				2707893D2885A39300AEDA05 /* WeighInsListView.swift in Sources */,
 				276CBC10286DE18600EEC775 /* CaloriePreferencePickerView.swift in Sources */,
 				27199BBD286B5EBB002978E3 /* UserInfoBackButtonModifier.swift in Sources */,
+				2707893A2885934100AEDA05 /* WeightTextFieldViewModifier.swift in Sources */,
 				2709AA052858A80A00655C19 /* PreviewProvider.swift in Sources */,
 				27E112B328731F8800F4C8DA /* DashboardView.swift in Sources */,
 				27FC67F62866195F0033DEBC /* SexSummaryView.swift in Sources */,

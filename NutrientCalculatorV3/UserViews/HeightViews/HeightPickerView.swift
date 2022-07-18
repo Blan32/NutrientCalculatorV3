@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HeightPickerView: View {
     
-    @EnvironmentObject var viewModel: GlobalUserViewModel
+    @EnvironmentObject var viewModel: EnvironmentViewModel
     
     var body: some View {
         VStack {
@@ -30,7 +30,7 @@ struct HeightPickerView_Previews: PreviewProvider {
         ZStack {
             HeightPickerView()
         }
-        .environmentObject(dev.globalViewModel)
+        .environmentObject(dev.environmentViewModel)
     }
 }
 

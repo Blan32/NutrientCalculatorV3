@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DashboardTabView: View {
     
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     @AppStorage("new_user") var newUser: Bool = true
     
     var body: some View {
@@ -19,14 +19,10 @@ struct DashboardTabView: View {
                     .tabItem {
                         Label("", systemImage: "house")
                     }
-                Text("Weigh-Ins")
+                Text("Macro Log")
                     .tabItem {
                         Label("", systemImage: "square.and.pencil")
                     }
-//                AccountView()
-//                    .tabItem {
-//                        Label("", systemImage: "person")
-//                    }
             }
             .fullScreenCover(isPresented: $newUser) {
                 OnboardingView(newUser: $newUser)
@@ -43,6 +39,6 @@ struct DashboardTabView: View {
 struct DashboardTabView_Previews: PreviewProvider {
     static var previews: some View {
         DashboardTabView()
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }

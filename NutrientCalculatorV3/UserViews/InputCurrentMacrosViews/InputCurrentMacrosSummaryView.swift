@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InputCurrentMacrosSummaryView: View {
     
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
 
     var body: some View {
         HStack(spacing: 5) {
@@ -53,6 +53,6 @@ struct InputCurrentMacrosSummaryView: View {
 struct InputCurrentMacrosSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         InputCurrentMacrosSummaryView()
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }

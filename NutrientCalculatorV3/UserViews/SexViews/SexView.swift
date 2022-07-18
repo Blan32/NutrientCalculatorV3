@@ -10,7 +10,7 @@ import SwiftUI
 struct SexView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     @State var updateSex: Bool
     
     var body: some View {
@@ -46,7 +46,7 @@ struct SexView_Previews: PreviewProvider {
     static var previews: some View {
         SexView(updateSex: true)
             .preferredColorScheme(.dark)
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }
 

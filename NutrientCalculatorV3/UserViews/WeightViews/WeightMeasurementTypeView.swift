@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WeightMeasurementTypeView: View {
     
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     
     // Purely for changing the color of the selected Metrics Buttons as a picker
     init() {
@@ -42,6 +42,6 @@ struct WeightMeasurementTypeView_Previews: PreviewProvider {
         ZStack {
             WeightMeasurementTypeView()
         }
-        .environmentObject(dev.globalViewModel)
+        .environmentObject(dev.environmentViewModel)
     }
 }

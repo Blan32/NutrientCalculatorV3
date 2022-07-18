@@ -11,7 +11,7 @@ import CoreData
 struct OnboardingView: View {
 
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     
     @State var onboardingState: Int = 0
     @Binding var newUser: Bool
@@ -104,7 +104,7 @@ struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingView(newUser: .constant(true))
             .preferredColorScheme(.dark)
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }
 
@@ -215,12 +215,12 @@ extension OnboardingView {
     
     // MARK: func completeAccount
     private func completeAccountCreation() {
-        viewModel.addWeighIn(
+        viewModel.manager.addWeighIn(
             date: Date(),
             weight: viewModel.user.startingWeight
         )
         
-        viewModel.addCheckIn(
+        viewModel.manager.addCheckIn(
             averageWeight: viewModel.user.startingWeight,
             calories: viewModel.user.startingCalories,
             fats: viewModel.user.fats,

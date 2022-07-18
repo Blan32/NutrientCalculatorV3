@@ -20,7 +20,7 @@ struct AccountView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView()
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }
 

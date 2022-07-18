@@ -10,7 +10,9 @@ import CoreData
 
 struct DashboardView: View {
     
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @Environment(\.managedObjectContext) var moc
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .reverse)]) var loggedCheckIns: FetchedResults<CheckIn>
     
     @State var calorieProgress: Double = 0.75
     @State var fatsProgress: Double = 0.6
@@ -24,6 +26,7 @@ struct DashboardView: View {
             ScrollView {
                 todaysMacros
                 progressTowardsGoal
+                
                 HStack(spacing: 1) {
                     weeklyMacroAverages
                     mealsLoggedToday
@@ -35,7 +38,6 @@ struct DashboardView: View {
                     NavigationLink {
                         AccountView()
                             .navigationTitle("Account")
-                            //.navigationBarHidden(true)
                     } label: {
                         Image(systemName: "person")
                     }
@@ -47,7 +49,7 @@ struct DashboardView: View {
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
         DashboardView()
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }
 
@@ -63,7 +65,7 @@ extension DashboardView {
             
             IndividualMacroView(
                 title: "Calories",
-                macroAmount: viewModel.checkIns.last?.calories ?? 0,
+                macroAmount: loggedCheckIns.last?.calories ?? 0,
                 showGramsG: false,
                 fillColor: Color.calorieColor,
                 progress: calorieProgress,
@@ -71,7 +73,7 @@ extension DashboardView {
             
             IndividualMacroView(
                 title: "Fats",
-                macroAmount: viewModel.checkIns.last?.fats ?? 0,
+                macroAmount: loggedCheckIns.last?.fats ?? 0,
                 showGramsG: true,
                 fillColor: Color.fatColor,
                 progress: fatsProgress,
@@ -79,7 +81,7 @@ extension DashboardView {
             
             IndividualMacroView(
                 title: "Carbs",
-                macroAmount: viewModel.checkIns.last?.carbs ?? 0,
+                macroAmount: loggedCheckIns.last?.carbs ?? 0,
                 showGramsG: true,
                 fillColor: Color.carbColor,
                 progress: carbsProgress,
@@ -87,7 +89,7 @@ extension DashboardView {
             
             IndividualMacroView(
                 title: "Protein",
-                macroAmount: viewModel.checkIns.last?.protein ?? 0,
+                macroAmount: loggedCheckIns.last?.protein ?? 0,
                 showGramsG: true,
                 fillColor: Color.proteinColor,
                 progress: proteinProgress,
@@ -98,15 +100,21 @@ extension DashboardView {
     }
     
     private var progressTowardsGoal: some View {
-        VStack {
-            Text("Progress")
-                .bold()
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .frame(height: 150)
-                .padding(.horizontal, 25)
+        NavigationLink {
+            ProgressView()
+        } label: {
+            VStack {
+                Text("Progress")
+                    .bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 25)
+                
+                Spacer()
+            }
+            .frame(height: 150)
+            .padding(.top)
+            .background(sectionBorder.padding(.horizontal, 8))
         }
-        .padding(.vertical)
-        .background(sectionBorder.padding(.horizontal, 8))
     }
     
     private var weeklyMacroAverages: some View {

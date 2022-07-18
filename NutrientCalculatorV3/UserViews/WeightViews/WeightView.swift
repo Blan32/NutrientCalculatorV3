@@ -10,7 +10,7 @@ import SwiftUI
 struct WeightView: View {
             
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     @State var updateWeight: Bool
     
     var body: some View {
@@ -62,7 +62,7 @@ struct WeightView: View {
 struct WeightView_Previews: PreviewProvider {
     static var previews: some View {
         WeightView(updateWeight: true)
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }
 

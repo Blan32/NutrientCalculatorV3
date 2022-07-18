@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WorkoutAmountPickerView: View {
     
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
     
     var body: some View {
         Picker(selection: $viewModel.user.trainingSessionsPerWeek) {
@@ -30,6 +30,6 @@ struct WorkoutAmountPickerView: View {
 struct WorkoutAmountPicker_Previews: PreviewProvider {
     static var previews: some View {
         WorkoutAmountPickerView()
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }

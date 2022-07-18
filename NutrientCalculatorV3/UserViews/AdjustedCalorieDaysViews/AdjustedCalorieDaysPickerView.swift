@@ -10,7 +10,7 @@ import SwiftUI
 struct AdjustedCalorieDaysPickerView: View {
     
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject private var viewModel: GlobalUserViewModel
+    @EnvironmentObject private var viewModel: EnvironmentViewModel
         
     @State var toggleOnMonday: Bool
     @State var toggleOnTuesday: Bool
@@ -36,16 +36,16 @@ struct AdjustedCalorieDaysPickerView: View {
 struct TrainingDaysPickerView_Previews: PreviewProvider {
     static var previews: some View {
         AdjustedCalorieDaysPickerView(
-            toggleOnMonday: dev.globalViewModel.user.monday,
-            toggleOnTuesday: dev.globalViewModel.user.tuesday,
-            toggleOnWednesday: dev.globalViewModel.user.wednesday,
-            toggleOnThursday: dev.globalViewModel.user.thursday,
-            toggleOnFriday: dev.globalViewModel.user.friday,
-            toggleOnSaturday: dev.globalViewModel.user.saturday,
-            toggleOnSunday: dev.globalViewModel.user.sunday
+            toggleOnMonday: dev.environmentViewModel.user.monday,
+            toggleOnTuesday: dev.environmentViewModel.user.tuesday,
+            toggleOnWednesday: dev.environmentViewModel.user.wednesday,
+            toggleOnThursday: dev.environmentViewModel.user.thursday,
+            toggleOnFriday: dev.environmentViewModel.user.friday,
+            toggleOnSaturday: dev.environmentViewModel.user.saturday,
+            toggleOnSunday: dev.environmentViewModel.user.sunday
         )
             .preferredColorScheme(.dark)
-            .environmentObject(dev.globalViewModel)
+            .environmentObject(dev.environmentViewModel)
     }
 }
 
