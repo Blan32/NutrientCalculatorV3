@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2707893828858F4B00AEDA05 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707893728858F4B00AEDA05 /* ProgressView.swift */; };
+		2707893828858F4B00AEDA05 /* WeightProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707893728858F4B00AEDA05 /* WeightProgressView.swift */; };
 		2707893A2885934100AEDA05 /* WeightTextFieldViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270789392885934100AEDA05 /* WeightTextFieldViewModifier.swift */; };
 		2707893D2885A39300AEDA05 /* WeighInsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707893C2885A39300AEDA05 /* WeighInsListView.swift */; };
 		270789432886DDA500AEDA05 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270789422886DDA500AEDA05 /* Date+Ext.swift */; };
@@ -75,7 +75,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2707893728858F4B00AEDA05 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		2707893728858F4B00AEDA05 /* WeightProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightProgressView.swift; sourceTree = "<group>"; };
 		270789392885934100AEDA05 /* WeightTextFieldViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTextFieldViewModifier.swift; sourceTree = "<group>"; };
 		2707893C2885A39300AEDA05 /* WeighInsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeighInsListView.swift; sourceTree = "<group>"; };
 		270789422886DDA500AEDA05 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 		2707893B2885A37700AEDA05 /* ProgressViews */ = {
 			isa = PBXGroup;
 			children = (
-				2707893728858F4B00AEDA05 /* ProgressView.swift */,
+				2707893728858F4B00AEDA05 /* WeightProgressView.swift */,
 				2707893C2885A39300AEDA05 /* WeighInsListView.swift */,
 			);
 			path = ProgressViews;
@@ -521,7 +521,7 @@
 				2709AA112858C49C00655C19 /* SexPickerView.swift in Sources */,
 				27D5191928537717004F4C9C /* OnboardingView.swift in Sources */,
 				27FC67FE28661AB70033DEBC /* GoalSummaryView.swift in Sources */,
-				2707893828858F4B00AEDA05 /* ProgressView.swift in Sources */,
+				2707893828858F4B00AEDA05 /* WeightProgressView.swift in Sources */,
 				27EE30E02864F6EE00929406 /* UserInfoViewModifier.swift in Sources */,
 				270CDD402857719300D32953 /* EnvironmentViewModel.swift in Sources */,
 				274FBBE62861D6F8001CB004 /* KeyboardDismissButton.swift in Sources */,

@@ -29,7 +29,6 @@ class EnvironmentViewModel: ObservableObject {
         do {
             let data = try JSONEncoder().encode(user)
             userData = data
-            signIn()
         } catch {
             alertItem = AlertContext.invalidUserData
         }
@@ -45,9 +44,7 @@ class EnvironmentViewModel: ObservableObject {
     
     // MARK: Retrieve User
     func retrieveUser() {
-        guard let userData = userData else {
-            return
-        }
+        guard let userData = userData else { return }
         
         do {
             user = try JSONDecoder().decode(User.self, from: userData)

@@ -41,6 +41,7 @@ struct DashboardView: View {
                     } label: {
                         Image(systemName: "person")
                     }
+                    .isDetailLink(false)
             )
         }
     }
@@ -101,7 +102,8 @@ extension DashboardView {
     
     private var progressTowardsGoal: some View {
         NavigationLink {
-            ProgressView()
+            WeightProgressView()
+                .navigationTitle("Progress")
         } label: {
             VStack {
                 Text("Progress")

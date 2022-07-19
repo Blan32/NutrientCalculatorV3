@@ -228,6 +228,7 @@ extension OnboardingView {
             protein: viewModel.user.protein
         )
         
+        viewModel.signIn()
         viewModel.saveProfile()
     }
 }

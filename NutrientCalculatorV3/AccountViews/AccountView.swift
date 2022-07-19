@@ -40,5 +40,6 @@ extension AccountView {
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .modifier(AccountInfoViewModifier())
+        
     }
 }

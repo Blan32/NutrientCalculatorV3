@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct ProgressView: View {
+struct WeightProgressView: View {
     
     @EnvironmentObject private var viewModel: EnvironmentViewModel
     @FocusState private var focusedTextField: Bool
@@ -22,7 +22,6 @@ struct ProgressView: View {
             addWeight
             WeighInsListView()
 
-            
         }
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
@@ -38,12 +37,12 @@ struct ProgressView: View {
 struct ProgressView_Previews: PreviewProvider {
     
     static var previews: some View {
-        ProgressView()
+        WeightProgressView()
             .environmentObject(dev.environmentViewModel)
     }
 }
 
-extension ProgressView {
+extension WeightProgressView {
     
     private var addWeight: some View {
         VStack {
