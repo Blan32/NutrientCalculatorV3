@@ -10,7 +10,7 @@
 		2707893828858F4B00AEDA05 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707893728858F4B00AEDA05 /* ProgressView.swift */; };
 		2707893A2885934100AEDA05 /* WeightTextFieldViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270789392885934100AEDA05 /* WeightTextFieldViewModifier.swift */; };
 		2707893D2885A39300AEDA05 /* WeighInsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707893C2885A39300AEDA05 /* WeighInsListView.swift */; };
-		2707893F2885B36700AEDA05 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2707893E2885B36700AEDA05 /* DateExtension.swift */; };
+		270789432886DDA500AEDA05 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270789422886DDA500AEDA05 /* Date+Ext.swift */; };
 		2709AA032858A7B300655C19 /* AgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA022858A7B300655C19 /* AgeView.swift */; };
 		2709AA052858A80A00655C19 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA042858A80A00655C19 /* PreviewProvider.swift */; };
 		2709AA082858AF1500655C19 /* BirthdayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA072858AF1500655C19 /* BirthdayPickerView.swift */; };
@@ -78,7 +78,7 @@
 		2707893728858F4B00AEDA05 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		270789392885934100AEDA05 /* WeightTextFieldViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTextFieldViewModifier.swift; sourceTree = "<group>"; };
 		2707893C2885A39300AEDA05 /* WeighInsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeighInsListView.swift; sourceTree = "<group>"; };
-		2707893E2885B36700AEDA05 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		270789422886DDA500AEDA05 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		2709AA022858A7B300655C19 /* AgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeView.swift; sourceTree = "<group>"; };
 		2709AA042858A80A00655C19 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		2709AA072858AF1500655C19 /* BirthdayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayPickerView.swift; sourceTree = "<group>"; };
@@ -261,7 +261,7 @@
 			children = (
 				27D5191A28537ADE004F4C9C /* Color.swift */,
 				2709AA042858A80A00655C19 /* PreviewProvider.swift */,
-				2707893E2885B36700AEDA05 /* DateExtension.swift */,
+				270789422886DDA500AEDA05 /* Date+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -526,7 +526,6 @@
 				270CDD402857719300D32953 /* EnvironmentViewModel.swift in Sources */,
 				274FBBE62861D6F8001CB004 /* KeyboardDismissButton.swift in Sources */,
 				2709AA082858AF1500655C19 /* BirthdayPickerView.swift in Sources */,
-				2707893F2885B36700AEDA05 /* DateExtension.swift in Sources */,
 				270CDD45285783E600D32953 /* UserInfoSubmitButtonModifier.swift in Sources */,
 				27FC6809286630A60033DEBC /* ProfileView.swift in Sources */,
 				274FBBE828621490001CB004 /* OnboardingUserInfoSummaryView.swift in Sources */,
@@ -559,6 +558,7 @@
 				270CDD4F2857B80100D32953 /* WeightMeasurementTypeView.swift in Sources */,
 				2707893D2885A39300AEDA05 /* WeighInsListView.swift in Sources */,
 				276CBC10286DE18600EEC775 /* CaloriePreferencePickerView.swift in Sources */,
+				270789432886DDA500AEDA05 /* Date+Ext.swift in Sources */,
 				27199BBD286B5EBB002978E3 /* UserInfoBackButtonModifier.swift in Sources */,
 				2707893A2885934100AEDA05 /* WeightTextFieldViewModifier.swift in Sources */,
 				2709AA052858A80A00655C19 /* PreviewProvider.swift in Sources */,
