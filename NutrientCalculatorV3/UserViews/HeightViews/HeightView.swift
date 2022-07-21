@@ -13,6 +13,7 @@ struct HeightView: View {
     @EnvironmentObject private var viewModel: EnvironmentViewModel
     @State var updateHeight: Bool
     
+    
     var body: some View {
         VStack {
             Text("Select your height.")

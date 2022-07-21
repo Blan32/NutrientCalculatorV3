@@ -21,7 +21,7 @@ struct CaloriePreferenceSummaryView: View {
             
             if viewModel.user.dynamicCalories {
                 Text("(+\(viewModel.user.dynamicCalorieVariance, specifier: "%.f")%)")
-                    .foregroundColor(viewModel.user.dynamicCalorieVarianceDescriptionTextColor)
+                    .foregroundColor(dynamicCalorieVarianceDescriptionTextColor)
             }
         }
         .padding(.trailing, 50)
@@ -33,5 +33,20 @@ struct CaloriePreferenceSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         CaloriePreferenceSummaryView()
             .environmentObject(dev.environmentViewModel)
+    }
+}
+
+extension CaloriePreferenceSummaryView {
+    
+    private var dynamicCalorieVarianceDescriptionTextColor: Color {
+        if viewModel.user.dynamicCalorieVarianceDescription == "Low" {
+            return Color.blue
+        } else if viewModel.user.dynamicCalorieVarianceDescription == "Moderate" {
+            return Color.green
+        } else if viewModel.user.dynamicCalorieVarianceDescription == "High" {
+            return Color.red
+        } else {
+            return Color.accentColor
+        }
     }
 }

@@ -13,6 +13,8 @@ class EnvironmentViewModel: ObservableObject {
     @AppStorage("user") private var userData: Data?
     @AppStorage("new_user") var newUser: Bool = true
     
+    
+    
     @Published var user = User()
     @Published var alertItem: AlertItem?
     
@@ -22,6 +24,44 @@ class EnvironmentViewModel: ObservableObject {
     private let kgsToPounds = 2.20462
     private let inchesToCm = 2.54
     private let cmToInches = 0.393701
+    
+    
+    
+    @Published var coreDataUser: [TheUser] = []
+    
+    init() {
+        getUser()
+    }
+    
+    
+    func getUser() {
+        let request = NSFetchRequest<TheUser>(entityName: "TheUser")
+        
+        do {
+            coreDataUser = try manager.context.fetch(request)
+        } catch let error {
+            print("Error fetching. \(error.localizedDescription)")
+        }
+    }
+    
+    func createUser(sex: String) {
+        let newUser = TheUser(context: manager.context)
+        newUser.sex = sex
+        
+        save()
+    }
+    
+    func updateUser(entity: TheUser, sex: String) {
+        entity.sex = sex
+        
+        save()
+    }
+    
+    func save() {
+        coreDataUser.removeAll()
+        self.manager.save()
+        self.getUser()
+    }
     
     
     //MARK: Save Profile / Sign In

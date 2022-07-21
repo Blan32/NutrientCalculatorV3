@@ -7,7 +7,8 @@
 
 import Foundation
 import SwiftUI
-
+//import CoreData
+//final class User: NSManagedObject {
 final class User: ObservableObject, Codable {
     
     private var poundsToKgs = 0.453592
@@ -51,10 +52,10 @@ final class User: ObservableObject, Codable {
     // MARK: Age
     // User inputs birthdate, we calculate age. Default age is 30
     var birthday: Date = Calendar.current.date(byAdding: .year, value: -30, to: Date()) ?? Date()
-    var age: Int? {
+    var age: Int {
         let calendar = Calendar.current
         let ageComponents = calendar.dateComponents([.year], from: birthday, to: Date())
-        return ageComponents.year
+        return ageComponents.year ?? 0
     }
     
     // MARK: Sex
@@ -130,17 +131,17 @@ final class User: ObservableObject, Codable {
             return "n/a"
         }
     }
-    var dynamicCalorieVarianceDescriptionTextColor: Color {
-        if dynamicCalorieVarianceDescription == "Low" {
-            return Color.blue
-        } else if dynamicCalorieVarianceDescription == "Moderate" {
-            return Color.green
-        } else if dynamicCalorieVarianceDescription == "High" {
-            return Color.red
-        } else {
-            return Color.accentColor
-        }
-    }
+//    var dynamicCalorieVarianceDescriptionTextColor: Color {
+//        if dynamicCalorieVarianceDescription == "Low" {
+//            return Color.blue
+//        } else if dynamicCalorieVarianceDescription == "Moderate" {
+//            return Color.green
+//        } else if dynamicCalorieVarianceDescription == "High" {
+//            return Color.red
+//        } else {
+//            return Color.accentColor
+//        }
+//    }
     
     // MARK: High Calorie Days
     var monday: Bool = false
@@ -155,14 +156,14 @@ final class User: ObservableObject, Codable {
     var maleBMR: Double { // height & weight must be converted to metric
         let weight = startingWeight * poundsToKgs * 10
         let height = Double(height) * inchesToCm * 6.25
-        let age = Double(age ?? 0) * 5
+        let age = Double(age) * 5
         return weight + height - age + 5
     }
     
     var femaleBMR: Double { // height & weight must be converted to metric
         let weight = startingWeight * poundsToKgs * 10
         let height = Double(height) * inchesToCm * 6.25
-        let age = Double(age ?? 0) * 5
+        let age = Double(age) * 5
         return weight + height - age - 161
     }
     

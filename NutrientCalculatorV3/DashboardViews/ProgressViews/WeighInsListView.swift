@@ -14,10 +14,14 @@ struct WeighInsListView: View {
     @EnvironmentObject private var viewModel: EnvironmentViewModel
     @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .reverse)]) var loggedWeighIns: FetchedResults<WeighIn>
     @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .reverse)]) var loggedCheckIns: FetchedResults<CheckIn>
+    @FetchRequest(sortDescriptors: []) var userHeightMetrics: FetchedResults<HeightMetrics>
     
     var body: some View {
         VStack {
             checkIns
+            ForEach(userHeightMetrics) { metric in
+                Text("\(metric.height)")
+            }
         }
     }
 }

@@ -41,7 +41,9 @@ struct OnboardingView: View {
                         .transition(transition)
                         .navigationTitle("Birthday")
                 case 4:
-                    SexView(updateSex: false)
+                    CoreDataSexView(viewModel: viewModel, updateSex: false, moc: viewModel.manager.context)
+                        
+                    //SexView(updateSex: false)
                         .transition(transition)
                         .navigationTitle("Sex")
                 case 5:
@@ -96,6 +98,13 @@ struct OnboardingView: View {
                             }
                         }
             )
+            
+            // MARK: Create User with default values to be updated during onboarding
+            .onAppear {
+                if viewModel.coreDataUser.count < 1 {
+                    viewModel.createUser(sex: viewModel.coreDataUser.first?.sex ?? "Male")
+                }
+            }
         }
     }
 }
@@ -180,6 +189,15 @@ extension OnboardingView {
             withAnimation(.easeInOut) {
                 onboardingState += 1
             }
+        } else if onboardingState == 4 {
+            
+            
+            
+            viewModel.updateUser(entity: viewModel.coreDataUser.first!, sex: viewModel.coreDataUser.first!.sex!)
+            
+            withAnimation(.easeInOut) {
+                onboardingState += 1
+            }
         } else if onboardingState == 6 && !viewModel.isValidGoalWeight() {
             // Shows invalidGoalWeight Alert from viewModel
         } else if onboardingState == 6 && viewModel.user.weightInPounds {
@@ -227,6 +245,11 @@ extension OnboardingView {
             carbs: viewModel.user.carbs,
             protein: viewModel.user.protein
         )
+        
+//        if viewModel.coreDataUser.isEmpty {
+//            viewModel.createUser(sex: viewModel.user.sex)
+//        }
+        
         
         viewModel.signIn()
         viewModel.saveProfile()

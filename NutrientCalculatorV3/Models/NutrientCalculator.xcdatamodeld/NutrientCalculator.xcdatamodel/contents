@@ -7,27 +7,40 @@
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="fats" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="protein" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TheUser" inverseName="checkIns" inverseEntity="TheUser"/>
         <relationship name="weighIns" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="WeighIn" inverseName="checkin" inverseEntity="WeighIn"/>
     </entity>
-    <entity name="UserEntity" representedClassName="UserEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="activityLevel" optional="YES" attributeType="Transformable"/>
+    <entity name="HeightMetrics" representedClassName="HeightMetrics" syncable="YES" codeGenerationType="class">
+        <attribute name="height" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="heightCm" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="heightIn" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="heightInFeetAndInches" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TheUser" inverseName="heightMetrics" inverseEntity="TheUser"/>
+    </entity>
+    <entity name="TheUser" representedClassName="TheUser" syncable="YES" codeGenerationType="class">
+        <attribute name="sex" optional="YES" attributeType="String"/>
+        <relationship name="checkIns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CheckIn" inverseName="user" inverseEntity="CheckIn"/>
+        <relationship name="heightMetrics" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HeightMetrics" inverseName="user" inverseEntity="HeightMetrics"/>
+        <relationship name="weighIns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WeighIn" inverseName="user" inverseEntity="WeighIn"/>
+    </entity>
+    <entity name="UserEntity" representedClassName="UserEntity" syncable="YES">
+        <attribute name="activityLevel" optional="YES" attributeType="Transformable" customClassName="ActivityLevel"/>
         <attribute name="activityMultiplier" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="age" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="birthday" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="carbs" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="currentWeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="dynamicCalories" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="dynamicCalorieVariance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="dynamicCalorieVarianceDescription" optional="YES" attributeType="String"/>
-        <attribute name="dynamicCalorieVarianceDescriptionTextColor" optional="YES" attributeType="Transformable"/>
         <attribute name="fats" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="femaleBMR" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="friday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="goalType" optional="YES" attributeType="Transformable"/>
+        <attribute name="goalType" optional="YES" attributeType="String"/>
         <attribute name="goalWeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="height" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="heightCm" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="heightIn" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="heightCm" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="heightIn" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="heightInFeetAndInches" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="inputCalorieMultiplier" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="inputCalories" optional="YES" attributeType="String"/>
@@ -48,26 +61,27 @@
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="startingCalories" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="startingWeight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="stepsPerDay" optional="YES" attributeType="Transformable"/>
+        <attribute name="stepsPerDay" optional="YES" attributeType="String"/>
         <attribute name="sunday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="thursday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="totalIntensityScore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="trainingSessionsPerWeek" optional="YES" attributeType="Transformable"/>
+        <attribute name="totalIntensityScore" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="trainingSessionsPerWeek" optional="YES" attributeType="String"/>
         <attribute name="tuesday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="wednesday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="weeklyInputWeightChange" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="weightInPounds" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <relationship name="checkIns" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CheckIn"/>
-        <relationship name="weighIns" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="WeighIn"/>
     </entity>
     <entity name="WeighIn" representedClassName="WeighIn" syncable="YES" codeGenerationType="class">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="checkin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CheckIn" inverseName="weighIns" inverseEntity="CheckIn"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TheUser" inverseName="weighIns" inverseEntity="TheUser"/>
     </entity>
     <elements>
-        <element name="CheckIn" positionX="-27" positionY="18" width="128" height="134"/>
-        <element name="UserEntity" positionX="0" positionY="90" width="128" height="764"/>
-        <element name="WeighIn" positionX="18" positionY="108" width="128" height="74"/>
+        <element name="CheckIn" positionX="-246.05078125" positionY="-270.046875" width="128" height="163"/>
+        <element name="UserEntity" positionX="-755.22265625" positionY="-116.43359375" width="128" height="733"/>
+        <element name="WeighIn" positionX="117.203125" positionY="-246.234375" width="128" height="103"/>
+        <element name="HeightMetrics" positionX="-292.88671875" positionY="-16.5703125" width="128" height="118"/>
+        <element name="TheUser" positionX="-59.95703125" positionY="-70.2265625" width="128" height="103"/>
     </elements>
 </model>

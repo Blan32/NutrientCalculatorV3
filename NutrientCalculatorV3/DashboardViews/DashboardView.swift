@@ -13,6 +13,7 @@ struct DashboardView: View {
     @Environment(\.managedObjectContext) var moc
     @EnvironmentObject private var viewModel: EnvironmentViewModel
     @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .reverse)]) var loggedCheckIns: FetchedResults<CheckIn>
+    @FetchRequest(sortDescriptors: []) private var user: FetchedResults<TheUser>
     
     @State var calorieProgress: Double = 0.75
     @State var fatsProgress: Double = 0.6
@@ -43,6 +44,9 @@ struct DashboardView: View {
                     }
                     .isDetailLink(false)
             )
+            .onAppear {
+                viewModel.getUser()
+            }
         }
     }
 }
@@ -120,22 +124,31 @@ extension DashboardView {
     }
     
     private var weeklyMacroAverages: some View {
-        VStack {
-            Text("Avg Macros Hit")
-                .bold()
-                .frame(maxWidth: UIScreen.main.bounds.width * 0.5, alignment: .leading)
-                .padding(.horizontal, 25)
-            
-            RoundedRectangle(cornerRadius: 25)
-                .fill(Color.clear)
-                .frame(width: 150, height: 150)
+        NavigationLink {
+            CoreDataSexView(viewModel: viewModel, updateSex: true, moc: viewModel.manager.context)
+                .navigationTitle("CoreData Sex View")
+        } label: {
+            VStack {
+                Text("CoreData")
+                    .bold()
+                    .frame(maxWidth: UIScreen.main.bounds.width * 0.5, alignment: .leading)
+                    .padding(.horizontal, 25)
+                
+                Text(user.first?.sex ?? "n/a")
+                Text(viewModel.coreDataUser.first?.sex ?? "n/a")
+                Text("Count: \(viewModel.coreDataUser.count)")
+                
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(Color.clear)
+                    .frame(width: 150, height: 150)
+            }
+            .padding(.vertical)
+            .background(
+                sectionBorder
+                    .padding(.leading, 6)
+                    .padding(.trailing, 3)
+            )
         }
-        .padding(.vertical)
-        .background(
-            sectionBorder
-                .padding(.leading, 6)
-                .padding(.trailing, 3)
-        )
     }
     
     private var mealsLoggedToday: some View {

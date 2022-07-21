@@ -16,7 +16,7 @@ struct AgeSummaryView: View {
             Text("Age: ")
                 .bold()
             Spacer()
-            Text("\(viewModel.user.age ?? 0) years old")
+            Text("\(viewModel.user.age) years old")
                 .padding(.trailing, 50)
         }
         .modifier(UserInfoViewModifier())

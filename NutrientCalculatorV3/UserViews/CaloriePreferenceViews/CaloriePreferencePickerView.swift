@@ -112,7 +112,7 @@ extension CaloriePreferencePickerView {
                 .opacity(viewModel.user.dynamicCalories ? 1.0 : 0.0)
                 
                 Text(viewModel.user.dynamicCalorieVarianceDescription)
-                    .foregroundColor(viewModel.user.dynamicCalorieVarianceDescriptionTextColor)
+                    .foregroundColor(dynamicCalorieVarianceDescriptionTextColor)
                     .opacity(viewModel.user.dynamicCalories ? 1.0 : 0.0)
             }
             Slider(value: $viewModel.user.dynamicCalorieVariance, in: 5...25, step: 1.0)
@@ -130,5 +130,17 @@ extension CaloriePreferencePickerView {
                 .opacity(viewModel.user.dynamicCalories ? 1.0 : 0.0)
         }
         .padding(.top)
+    }
+    
+    private var dynamicCalorieVarianceDescriptionTextColor: Color {
+        if viewModel.user.dynamicCalorieVarianceDescription == "Low" {
+            return Color.blue
+        } else if viewModel.user.dynamicCalorieVarianceDescription == "Moderate" {
+            return Color.green
+        } else if viewModel.user.dynamicCalorieVarianceDescription == "High" {
+            return Color.red
+        } else {
+            return Color.accentColor
+        }
     }
 }
