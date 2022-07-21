@@ -17,14 +17,14 @@ struct SexSummaryView: View {
                 .bold()
             Spacer()
             HStack {
-                Text(viewModel.user.sex)
-                if viewModel.user.sex == "Male" {
+                Text(viewModel.coreDataUser.first?.sex ?? "n/a")
+                if viewModel.coreDataUser.first?.sex == "Male" {
                     Text("♂︎")
                 } else {
                     Text("♀︎")
                 }
             }
-            .foregroundColor(viewModel.user.sex == "Male" ? .blue : .pink)
+            .foregroundColor(viewModel.coreDataUser.first?.sex == "Male" ? .blue : .pink)
             .padding(.trailing, 50)
         }
         .modifier(UserInfoViewModifier())

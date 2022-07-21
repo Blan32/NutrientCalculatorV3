@@ -14,8 +14,8 @@
 		2709AA032858A7B300655C19 /* AgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA022858A7B300655C19 /* AgeView.swift */; };
 		2709AA052858A80A00655C19 /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA042858A80A00655C19 /* PreviewProvider.swift */; };
 		2709AA082858AF1500655C19 /* BirthdayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA072858AF1500655C19 /* BirthdayPickerView.swift */; };
-		2709AA0B2858C17400655C19 /* SexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA0A2858C17400655C19 /* SexView.swift */; };
-		2709AA112858C49C00655C19 /* SexPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA102858C49C00655C19 /* SexPickerView.swift */; };
+		2709AA0B2858C17400655C19 /* OLDSexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA0A2858C17400655C19 /* OLDSexView.swift */; };
+		2709AA112858C49C00655C19 /* OLDSexPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA102858C49C00655C19 /* OLDSexPickerView.swift */; };
 		2709AA142858D23100655C19 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA132858D23100655C19 /* Alert.swift */; };
 		2709AA192858EA5900655C19 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA182858EA5900655C19 /* ActivityView.swift */; };
 		2709AA1C2858EAEA00655C19 /* StepPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709AA1B2858EAEA00655C19 /* StepPickerView.swift */; };
@@ -43,7 +43,7 @@
 		276CBC1B286E476500EEC775 /* AdjustedCalorieDaysSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CBC1A286E476500EEC775 /* AdjustedCalorieDaysSummaryView.swift */; };
 		277485B2288703D800CCA6AD /* UserEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277485B0288703D800CCA6AD /* UserEntity+CoreDataClass.swift */; };
 		277485B3288703D800CCA6AD /* UserEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277485B1288703D800CCA6AD /* UserEntity+CoreDataProperties.swift */; };
-		277485B528874D3800CCA6AD /* CoreDataSexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277485B428874D3800CCA6AD /* CoreDataSexView.swift */; };
+		277485B528874D3800CCA6AD /* SexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277485B428874D3800CCA6AD /* SexView.swift */; };
 		27D51909285375C5004F4C9C /* NutrientCalculatorV3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D51908285375C5004F4C9C /* NutrientCalculatorV3App.swift */; };
 		27D5190D285375C6004F4C9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D5190C285375C6004F4C9C /* Assets.xcassets */; };
 		27D51910285375C6004F4C9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D5190F285375C6004F4C9C /* Preview Assets.xcassets */; };
@@ -85,8 +85,8 @@
 		2709AA022858A7B300655C19 /* AgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeView.swift; sourceTree = "<group>"; };
 		2709AA042858A80A00655C19 /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		2709AA072858AF1500655C19 /* BirthdayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayPickerView.swift; sourceTree = "<group>"; };
-		2709AA0A2858C17400655C19 /* SexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexView.swift; sourceTree = "<group>"; };
-		2709AA102858C49C00655C19 /* SexPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexPickerView.swift; sourceTree = "<group>"; };
+		2709AA0A2858C17400655C19 /* OLDSexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLDSexView.swift; sourceTree = "<group>"; };
+		2709AA102858C49C00655C19 /* OLDSexPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLDSexPickerView.swift; sourceTree = "<group>"; };
 		2709AA132858D23100655C19 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		2709AA182858EA5900655C19 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		2709AA1B2858EAEA00655C19 /* StepPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepPickerView.swift; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 		276CBC1A286E476500EEC775 /* AdjustedCalorieDaysSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustedCalorieDaysSummaryView.swift; sourceTree = "<group>"; };
 		277485B0288703D800CCA6AD /* UserEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		277485B1288703D800CCA6AD /* UserEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		277485B428874D3800CCA6AD /* CoreDataSexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSexView.swift; sourceTree = "<group>"; };
+		277485B428874D3800CCA6AD /* SexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexView.swift; sourceTree = "<group>"; };
 		27D51905285375C5004F4C9C /* NutrientCalculatorV3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutrientCalculatorV3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D51908285375C5004F4C9C /* NutrientCalculatorV3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientCalculatorV3App.swift; sourceTree = "<group>"; };
 		27D5190C285375C6004F4C9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -182,10 +182,9 @@
 		2709AA092858C16000655C19 /* SexViews */ = {
 			isa = PBXGroup;
 			children = (
-				2709AA0A2858C17400655C19 /* SexView.swift */,
-				2709AA102858C49C00655C19 /* SexPickerView.swift */,
+				277485B428874D3800CCA6AD /* SexView.swift */,
 				27FC67F52866195F0033DEBC /* SexSummaryView.swift */,
-				277485B428874D3800CCA6AD /* CoreDataSexView.swift */,
+				277485B62889A2F500CCA6AD /* OLDSexViews */,
 			);
 			path = SexViews;
 			sourceTree = "<group>";
@@ -327,6 +326,15 @@
 				276CBC1A286E476500EEC775 /* AdjustedCalorieDaysSummaryView.swift */,
 			);
 			path = AdjustedCalorieDaysViews;
+			sourceTree = "<group>";
+		};
+		277485B62889A2F500CCA6AD /* OLDSexViews */ = {
+			isa = PBXGroup;
+			children = (
+				2709AA0A2858C17400655C19 /* OLDSexView.swift */,
+				2709AA102858C49C00655C19 /* OLDSexPickerView.swift */,
+			);
+			path = OLDSexViews;
 			sourceTree = "<group>";
 		};
 		27D518FC285375C5004F4C9C = {
@@ -524,10 +532,10 @@
 				274FBBDF2860AD02001CB004 /* InputCurrentMacrosView.swift in Sources */,
 				27FC680528661CB40033DEBC /* MonthWeightChangeSummaryView.swift in Sources */,
 				27E112BD287357AF00F4C8DA /* CoreDataManager.swift in Sources */,
-				2709AA0B2858C17400655C19 /* SexView.swift in Sources */,
+				2709AA0B2858C17400655C19 /* OLDSexView.swift in Sources */,
 				27FC67F22866180A0033DEBC /* WeightSummaryView.swift in Sources */,
 				270CDD49285793B700D32953 /* HeightPickerView.swift in Sources */,
-				2709AA112858C49C00655C19 /* SexPickerView.swift in Sources */,
+				2709AA112858C49C00655C19 /* OLDSexPickerView.swift in Sources */,
 				27D5191928537717004F4C9C /* OnboardingView.swift in Sources */,
 				27FC67FE28661AB70033DEBC /* GoalSummaryView.swift in Sources */,
 				2707893828858F4B00AEDA05 /* WeightProgressView.swift in Sources */,
@@ -571,7 +579,7 @@
 				270789432886DDA500AEDA05 /* Date+Ext.swift in Sources */,
 				27199BBD286B5EBB002978E3 /* UserInfoBackButtonModifier.swift in Sources */,
 				2707893A2885934100AEDA05 /* WeightTextFieldViewModifier.swift in Sources */,
-				277485B528874D3800CCA6AD /* CoreDataSexView.swift in Sources */,
+				277485B528874D3800CCA6AD /* SexView.swift in Sources */,
 				277485B2288703D800CCA6AD /* UserEntity+CoreDataClass.swift in Sources */,
 				2709AA052858A80A00655C19 /* PreviewProvider.swift in Sources */,
 				27E112B328731F8800F4C8DA /* DashboardView.swift in Sources */,

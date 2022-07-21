@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SexPickerView: View {
+struct OLDSexPickerView: View {
     
     @EnvironmentObject private var viewModel: EnvironmentViewModel
     var updateSex: Bool
@@ -32,12 +32,12 @@ struct SexPickerView: View {
 
 struct SexPicker_Previews: PreviewProvider {
     static var previews: some View {
-        SexPickerView(updateSex: true)
+        OLDSexPickerView(updateSex: true)
             .environmentObject(dev.environmentViewModel)
     }
 }
 
-extension SexPickerView {
+extension OLDSexPickerView {
     
     private var sexSymbolImage: some View {
         Image(viewModel.user.sex == "Male" ? "MaleSymbol" : "FemaleSymbol")

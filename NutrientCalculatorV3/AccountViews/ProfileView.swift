@@ -89,7 +89,7 @@ extension ProfileView {
     // MARK: User Sex
     private var userSex: some View {
         NavigationLink {
-            SexView(updateSex: true)
+            OLDSexView(updateSex: true)
                 .navigationTitle("Sex")
         } label: {
             SexSummaryView()

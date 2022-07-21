@@ -41,9 +41,7 @@ struct OnboardingView: View {
                         .transition(transition)
                         .navigationTitle("Birthday")
                 case 4:
-                    CoreDataSexView(viewModel: viewModel, updateSex: false, moc: viewModel.manager.context)
-                        
-                    //SexView(updateSex: false)
+                    SexView(viewModel: viewModel, updateSex: false, moc: viewModel.manager.context)
                         .transition(transition)
                         .navigationTitle("Sex")
                 case 5:

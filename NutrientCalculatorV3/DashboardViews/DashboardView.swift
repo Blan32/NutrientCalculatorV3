@@ -125,7 +125,7 @@ extension DashboardView {
     
     private var weeklyMacroAverages: some View {
         NavigationLink {
-            CoreDataSexView(viewModel: viewModel, updateSex: true, moc: viewModel.manager.context)
+            SexView(viewModel: viewModel, updateSex: true, moc: viewModel.manager.context)
                 .navigationTitle("CoreData Sex View")
         } label: {
             VStack {
