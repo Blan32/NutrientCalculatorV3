@@ -14,20 +14,16 @@ struct SexView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var viewModel: EnvironmentViewModel
     
+    @State var updateSex: Bool
+    @State var sexSelection: String
+    
     private var user: [TheUser]
     
-    @State var sexSelection: String
-    @State var updateSex: Bool
     
     init (viewModel: EnvironmentViewModel, updateSex: Bool, moc: NSManagedObjectContext ) {
         self.user = viewModel.coreDataUser
         self._updateSex = State(wrappedValue: updateSex)
-        
-       // if user.count > 0 {
-            self._sexSelection = State(initialValue: user.first?.sex ?? "n/a")
-       // } else {
-       //     self._sexSelection = State(initialValue: "Male")//TheUser(context: moc).sex ?? "n/a")
-       // }
+        self._sexSelection = State(initialValue: user.first?.sex ?? "n/a")
 
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor) //changes selected background
 
