@@ -13,7 +13,7 @@ struct DashboardView: View {
     @Environment(\.managedObjectContext) var moc
     @EnvironmentObject private var viewModel: EnvironmentViewModel
     @FetchRequest(sortDescriptors: [SortDescriptor(\.date, order: .reverse)]) var loggedCheckIns: FetchedResults<CheckIn>
-    @FetchRequest(sortDescriptors: []) private var user: FetchedResults<TheUser>
+    @FetchRequest(sortDescriptors: []) private var user: FetchedResults<TheUser> // wont need this
     
     @State var calorieProgress: Double = 0.75
     @State var fatsProgress: Double = 0.6

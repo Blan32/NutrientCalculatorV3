@@ -19,7 +19,6 @@ struct SexView: View {
     
     private var user: [TheUser]
     
-    
     init (viewModel: EnvironmentViewModel, updateSex: Bool, moc: NSManagedObjectContext ) {
         self.user = viewModel.coreDataUser
         self._updateSex = State(wrappedValue: updateSex)
@@ -33,45 +32,6 @@ struct SexView: View {
         UISegmentedControl.appearance().setTitleTextAttributes(attributes, for: .selected) //changes selected foreground
     }
 
-// Working solution with @FetchRequest
-/*
-    
-//    @Environment(\.presentationMode) var presentationMode
-//    @EnvironmentObject private var viewModel: EnvironmentViewModel
-//    @FetchRequest(sortDescriptors: []) private var user: FetchedResults<TheUser>
-//
-//    @State var sexSelection: String
-//    @State var updateSex: Bool
-//
-//    init (moc: NSManagedObjectContext, updateSex: Bool) {
-//        let fetchRequest: NSFetchRequest<TheUser> = TheUser.fetchRequest()
-//        fetchRequest.sortDescriptors = []
-//        fetchRequest.predicate = NSPredicate(value: true)
-//        self._user = FetchRequest(fetchRequest: fetchRequest)
-//        self._updateSex = State(wrappedValue: updateSex)
-//
-//        do {
-//            let theUser = try moc.fetch(fetchRequest)
-//            if theUser.count > 0 {
-//                self._sexSelection = State(initialValue: theUser[0].sex ?? "Male")
-//            } else {
-//                self._sexSelection = State(initialValue: TheUser(context: moc).sex ?? "n/a")
-//            }
-//
-//        } catch {
-//            fatalError("init problem")
-//        }
-//
-//        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor) //changes selected background
-//
-//        let attributes: [NSAttributedString.Key:Any] = [
-//            .foregroundColor : UIColor(Color.inverseAccentColor)
-//        ]
-//        UISegmentedControl.appearance().setTitleTextAttributes(attributes, for: .selected) //changes selected foreground
-//    }
-    
-*/
-    
     // MARK: View
     var body: some View {
         VStack {
@@ -94,7 +54,7 @@ struct SexView: View {
         }
         .onDisappear {
             if !updateSex {
-                viewModel.updateUser(entity: user.first!, sex: sexSelection)
+                viewModel.updateSex(entity: user.first!, sex: sexSelection)
             }
         }
     }
@@ -163,7 +123,47 @@ extension SexView {
     
     // MARK: func SubmitButtonPressed
     private func submitButtonPressed() {
-        viewModel.updateUser(entity: user.first!, sex: sexSelection)
+        viewModel.updateSex(entity: user.first!, sex: sexSelection)
         presentationMode.wrappedValue.dismiss()
     }
+    
+    
+    // Working solution with @FetchRequest
+    /*
+        
+    //    @Environment(\.presentationMode) var presentationMode
+    //    @EnvironmentObject private var viewModel: EnvironmentViewModel
+    //    @FetchRequest(sortDescriptors: []) private var user: FetchedResults<TheUser>
+    //
+    //    @State var sexSelection: String
+    //    @State var updateSex: Bool
+    //
+    //    init (moc: NSManagedObjectContext, updateSex: Bool) {
+    //        let fetchRequest: NSFetchRequest<TheUser> = TheUser.fetchRequest()
+    //        fetchRequest.sortDescriptors = []
+    //        fetchRequest.predicate = NSPredicate(value: true)
+    //        self._user = FetchRequest(fetchRequest: fetchRequest)
+    //        self._updateSex = State(wrappedValue: updateSex)
+    //
+    //        do {
+    //            let theUser = try moc.fetch(fetchRequest)
+    //            if theUser.count > 0 {
+    //                self._sexSelection = State(initialValue: theUser[0].sex ?? "Male")
+    //            } else {
+    //                self._sexSelection = State(initialValue: TheUser(context: moc).sex ?? "n/a")
+    //            }
+    //
+    //        } catch {
+    //            fatalError("init problem")
+    //        }
+    //
+    //        UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color.accentColor) //changes selected background
+    //
+    //        let attributes: [NSAttributedString.Key:Any] = [
+    //            .foregroundColor : UIColor(Color.inverseAccentColor)
+    //        ]
+    //        UISegmentedControl.appearance().setTitleTextAttributes(attributes, for: .selected) //changes selected foreground
+    //    }
+        
+    */
 }

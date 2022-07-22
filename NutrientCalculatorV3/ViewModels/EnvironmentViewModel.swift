@@ -25,8 +25,6 @@ class EnvironmentViewModel: ObservableObject {
     private let inchesToCm = 2.54
     private let cmToInches = 0.393701
     
-    
-    
     @Published var coreDataUser: [TheUser] = []
     
     init() {
@@ -44,16 +42,25 @@ class EnvironmentViewModel: ObservableObject {
         }
     }
     
-    func createUser(sex: String) {
+    func createUser(heightInInches: Bool, heightIn: Int64, heightCm: Int64, sex: String) {
         let newUser = TheUser(context: manager.context)
+        newUser.heightInInches = heightInInches
+        newUser.heightIn = heightIn
+        newUser.heightCm = heightCm
         newUser.sex = sex
         
         save()
     }
     
-    func updateUser(entity: TheUser, sex: String) {
+    func updateHeight(entity: TheUser, heightInInches: Bool, heightIn: Int64, heightCm: Int64) {
+        entity.heightInInches = heightInInches
+        entity.heightIn = heightIn
+        entity.heightCm = heightCm
+        save()
+    }
+    
+    func updateSex(entity: TheUser, sex: String) {
         entity.sex = sex
-        
         save()
     }
     

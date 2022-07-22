@@ -69,7 +69,7 @@ extension ProfileView {
     // MARK: User Height
     private var userHeight: some View {
         NavigationLink {
-            HeightView(updateHeight: true)
+            HeightView(viewModel: viewModel, updateHeight: true, moc: viewModel.manager.context)
                 .navigationTitle("Height")
         } label: {
             HeightSummaryView()

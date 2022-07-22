@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HeightPickerView: View {
+struct OLDHeightPickerView: View {
     
     @EnvironmentObject var viewModel: EnvironmentViewModel
     
@@ -28,14 +28,14 @@ struct HeightPickerView: View {
 struct HeightPickerView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            HeightPickerView()
+            OLDHeightPickerView()
         }
         .environmentObject(dev.environmentViewModel)
     }
 }
 
 
-extension HeightPickerView {
+extension OLDHeightPickerView {
     
     // MARK: heightInFeetPicker
     private var heightInFeetPicker: some View {

@@ -16,7 +16,7 @@ struct HeightSummaryView: View {
             Text("Height: ")
                 .bold()
             Spacer()
-            Text(viewModel.user.heightInFeetAndInches ? "\(viewModel.user.heightIn / 12) ft \(viewModel.user.heightIn % 12) in" : "\(viewModel.user.heightCm) cm")
+            Text(viewModel.coreDataUser.first!.heightInInches ? "\(Int(viewModel.coreDataUser.first!.heightIn / 12)) ft \(Int(viewModel.coreDataUser.first!.heightIn % 12)) in" : "\(Int(viewModel.coreDataUser.first!.heightCm)) cm")
                 .padding(.trailing, 50)
         }
         .modifier(UserInfoViewModifier())

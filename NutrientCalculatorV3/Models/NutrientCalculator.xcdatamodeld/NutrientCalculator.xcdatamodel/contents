@@ -18,7 +18,10 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TheUser" inverseName="heightMetrics" inverseEntity="TheUser"/>
     </entity>
     <entity name="TheUser" representedClassName="TheUser" syncable="YES" codeGenerationType="class">
-        <attribute name="sex" optional="YES" attributeType="String"/>
+        <attribute name="heightCm" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="heightIn" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="heightInInches" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="sex" attributeType="String"/>
         <relationship name="checkIns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CheckIn" inverseName="user" inverseEntity="CheckIn"/>
         <relationship name="heightMetrics" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HeightMetrics" inverseName="user" inverseEntity="HeightMetrics"/>
         <relationship name="weighIns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WeighIn" inverseName="user" inverseEntity="WeighIn"/>
@@ -82,6 +85,6 @@
         <element name="UserEntity" positionX="-755.22265625" positionY="-116.43359375" width="128" height="733"/>
         <element name="WeighIn" positionX="117.203125" positionY="-246.234375" width="128" height="103"/>
         <element name="HeightMetrics" positionX="-292.88671875" positionY="-16.5703125" width="128" height="118"/>
-        <element name="TheUser" positionX="-59.95703125" positionY="-70.2265625" width="128" height="103"/>
+        <element name="TheUser" positionX="-59.95703125" positionY="-70.2265625" width="128" height="148"/>
     </elements>
 </model>

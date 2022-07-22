@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HeightMeasurementTypeView: View {
+struct OLDHeightMeasurementTypeView: View {
     
     @EnvironmentObject var viewModel: EnvironmentViewModel
     
@@ -39,7 +39,7 @@ struct HeightMeasurementTypeView: View {
 struct HeightMeasurementTypeView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            HeightMeasurementTypeView()
+            OLDHeightMeasurementTypeView()
         }
         .environmentObject(dev.environmentViewModel)
     }

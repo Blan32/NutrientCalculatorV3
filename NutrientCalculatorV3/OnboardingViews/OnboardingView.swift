@@ -29,7 +29,7 @@ struct OnboardingView: View {
                         .transition(transition)
                         .navigationTitle("Welcome")
                 case 1:
-                    HeightView(updateHeight: false)
+                    HeightView(viewModel: viewModel, updateHeight: false, moc: viewModel.manager.context)
                         .transition(transition)
                         .navigationTitle("Height")
                 case 2:
@@ -100,7 +100,10 @@ struct OnboardingView: View {
             // MARK: Create User with default values to be updated during onboarding
             .onAppear {
                 if viewModel.coreDataUser.count < 1 {
-                    viewModel.createUser(sex: viewModel.coreDataUser.first?.sex ?? "Male")
+                    viewModel.createUser(
+                        heightInInches: true, heightIn: Int64(68), heightCm: Int64(173),
+                        sex: "Male"
+                    )
                 }
             }
         }
@@ -184,15 +187,6 @@ extension OnboardingView {
             }
         } else if onboardingState == 2 && !viewModel.user.weightInPounds {
             viewModel.setInputWeightLbs()
-            withAnimation(.easeInOut) {
-                onboardingState += 1
-            }
-        } else if onboardingState == 4 {
-            
-            
-            
-            viewModel.updateUser(entity: viewModel.coreDataUser.first!, sex: viewModel.coreDataUser.first!.sex!)
-            
             withAnimation(.easeInOut) {
                 onboardingState += 1
             }

@@ -24,8 +24,8 @@
 		270CDD382857630000D32953 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD372857630000D32953 /* User.swift */; };
 		270CDD402857719300D32953 /* EnvironmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD3F2857719300D32953 /* EnvironmentViewModel.swift */; };
 		270CDD45285783E600D32953 /* UserInfoSubmitButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD44285783E600D32953 /* UserInfoSubmitButtonModifier.swift */; };
-		270CDD472857933900D32953 /* HeightMeasurementTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD462857933900D32953 /* HeightMeasurementTypeView.swift */; };
-		270CDD49285793B700D32953 /* HeightPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD48285793B700D32953 /* HeightPickerView.swift */; };
+		270CDD472857933900D32953 /* OLDHeightMeasurementTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD462857933900D32953 /* OLDHeightMeasurementTypeView.swift */; };
+		270CDD49285793B700D32953 /* OLDHeightPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD48285793B700D32953 /* OLDHeightPickerView.swift */; };
 		270CDD4D2857B4FF00D32953 /* WeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD4C2857B4FE00D32953 /* WeightView.swift */; };
 		270CDD4F2857B80100D32953 /* WeightMeasurementTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD4E2857B80100D32953 /* WeightMeasurementTypeView.swift */; };
 		270CDD512857BA6000D32953 /* WeightTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270CDD502857BA6000D32953 /* WeightTextFieldView.swift */; };
@@ -44,13 +44,14 @@
 		277485B2288703D800CCA6AD /* UserEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277485B0288703D800CCA6AD /* UserEntity+CoreDataClass.swift */; };
 		277485B3288703D800CCA6AD /* UserEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277485B1288703D800CCA6AD /* UserEntity+CoreDataProperties.swift */; };
 		277485B528874D3800CCA6AD /* SexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277485B428874D3800CCA6AD /* SexView.swift */; };
+		277485B82889A59300CCA6AD /* HeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277485B72889A59300CCA6AD /* HeightView.swift */; };
 		27D51909285375C5004F4C9C /* NutrientCalculatorV3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D51908285375C5004F4C9C /* NutrientCalculatorV3App.swift */; };
 		27D5190D285375C6004F4C9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D5190C285375C6004F4C9C /* Assets.xcassets */; };
 		27D51910285375C6004F4C9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D5190F285375C6004F4C9C /* Preview Assets.xcassets */; };
 		27D5191728537608004F4C9C /* DashboardTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D5191628537608004F4C9C /* DashboardTabView.swift */; };
 		27D5191928537717004F4C9C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D5191828537717004F4C9C /* OnboardingView.swift */; };
 		27D5191B28537ADE004F4C9C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D5191A28537ADE004F4C9C /* Color.swift */; };
-		27D5191D28537CDB004F4C9C /* HeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D5191C28537CDB004F4C9C /* HeightView.swift */; };
+		27D5191D28537CDB004F4C9C /* OLDHeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D5191C28537CDB004F4C9C /* OLDHeightView.swift */; };
 		27E112B328731F8800F4C8DA /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E112B228731F8800F4C8DA /* DashboardView.swift */; };
 		27E112B62873211300F4C8DA /* TodaysMacroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E112B52873211300F4C8DA /* TodaysMacroView.swift */; };
 		27E112B8287321A100F4C8DA /* IndividualMacroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E112B7287321A100F4C8DA /* IndividualMacroView.swift */; };
@@ -95,8 +96,8 @@
 		270CDD372857630000D32953 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		270CDD3F2857719300D32953 /* EnvironmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentViewModel.swift; sourceTree = "<group>"; };
 		270CDD44285783E600D32953 /* UserInfoSubmitButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoSubmitButtonModifier.swift; sourceTree = "<group>"; };
-		270CDD462857933900D32953 /* HeightMeasurementTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightMeasurementTypeView.swift; sourceTree = "<group>"; };
-		270CDD48285793B700D32953 /* HeightPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightPickerView.swift; sourceTree = "<group>"; };
+		270CDD462857933900D32953 /* OLDHeightMeasurementTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLDHeightMeasurementTypeView.swift; sourceTree = "<group>"; };
+		270CDD48285793B700D32953 /* OLDHeightPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLDHeightPickerView.swift; sourceTree = "<group>"; };
 		270CDD4C2857B4FE00D32953 /* WeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightView.swift; sourceTree = "<group>"; };
 		270CDD4E2857B80100D32953 /* WeightMeasurementTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightMeasurementTypeView.swift; sourceTree = "<group>"; };
 		270CDD502857BA6000D32953 /* WeightTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightTextFieldView.swift; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 		277485B0288703D800CCA6AD /* UserEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		277485B1288703D800CCA6AD /* UserEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		277485B428874D3800CCA6AD /* SexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexView.swift; sourceTree = "<group>"; };
+		277485B72889A59300CCA6AD /* HeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightView.swift; sourceTree = "<group>"; };
 		27D51905285375C5004F4C9C /* NutrientCalculatorV3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutrientCalculatorV3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D51908285375C5004F4C9C /* NutrientCalculatorV3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientCalculatorV3App.swift; sourceTree = "<group>"; };
 		27D5190C285375C6004F4C9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,7 +124,7 @@
 		27D5191628537608004F4C9C /* DashboardTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabView.swift; sourceTree = "<group>"; };
 		27D5191828537717004F4C9C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		27D5191A28537ADE004F4C9C /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		27D5191C28537CDB004F4C9C /* HeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightView.swift; sourceTree = "<group>"; };
+		27D5191C28537CDB004F4C9C /* OLDHeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLDHeightView.swift; sourceTree = "<group>"; };
 		27E112B228731F8800F4C8DA /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		27E112B52873211300F4C8DA /* TodaysMacroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysMacroView.swift; sourceTree = "<group>"; };
 		27E112B7287321A100F4C8DA /* IndividualMacroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndividualMacroView.swift; sourceTree = "<group>"; };
@@ -277,10 +279,11 @@
 		270CDD4A2857941E00D32953 /* HeightViews */ = {
 			isa = PBXGroup;
 			children = (
-				27D5191C28537CDB004F4C9C /* HeightView.swift */,
-				270CDD462857933900D32953 /* HeightMeasurementTypeView.swift */,
-				270CDD48285793B700D32953 /* HeightPickerView.swift */,
+				27D5191C28537CDB004F4C9C /* OLDHeightView.swift */,
+				270CDD462857933900D32953 /* OLDHeightMeasurementTypeView.swift */,
+				270CDD48285793B700D32953 /* OLDHeightPickerView.swift */,
 				27FC67EF286601620033DEBC /* HeightSummaryView.swift */,
+				277485B72889A59300CCA6AD /* HeightView.swift */,
 			);
 			path = HeightViews;
 			sourceTree = "<group>";
@@ -534,7 +537,7 @@
 				27E112BD287357AF00F4C8DA /* CoreDataManager.swift in Sources */,
 				2709AA0B2858C17400655C19 /* OLDSexView.swift in Sources */,
 				27FC67F22866180A0033DEBC /* WeightSummaryView.swift in Sources */,
-				270CDD49285793B700D32953 /* HeightPickerView.swift in Sources */,
+				270CDD49285793B700D32953 /* OLDHeightPickerView.swift in Sources */,
 				2709AA112858C49C00655C19 /* OLDSexPickerView.swift in Sources */,
 				27D5191928537717004F4C9C /* OnboardingView.swift in Sources */,
 				27FC67FE28661AB70033DEBC /* GoalSummaryView.swift in Sources */,
@@ -549,6 +552,7 @@
 				2709AA032858A7B300655C19 /* AgeView.swift in Sources */,
 				27FC67F4286618F40033DEBC /* AgeSummaryView.swift in Sources */,
 				27D5191B28537ADE004F4C9C /* Color.swift in Sources */,
+				277485B82889A59300CCA6AD /* HeightView.swift in Sources */,
 				27150298287DB655008C84DA /* WeightMeasurementTypeSummaryView.swift in Sources */,
 				27E82422285BE91C00A7FE96 /* GoalEnum.swift in Sources */,
 				27FC67F8286619A90033DEBC /* StepSummaryView.swift in Sources */,
@@ -570,7 +574,7 @@
 				27E112B8287321A100F4C8DA /* IndividualMacroView.swift in Sources */,
 				27FC680B286633E50033DEBC /* AccountInfoViewModifier.swift in Sources */,
 				27FC67EE2865FBF00033DEBC /* AccountView.swift in Sources */,
-				27D5191D28537CDB004F4C9C /* HeightView.swift in Sources */,
+				27D5191D28537CDB004F4C9C /* OLDHeightView.swift in Sources */,
 				27FC67FA28661A260033DEBC /* WorkoutSummaryView.swift in Sources */,
 				270CDD4F2857B80100D32953 /* WeightMeasurementTypeView.swift in Sources */,
 				2707893D2885A39300AEDA05 /* WeighInsListView.swift in Sources */,
@@ -584,7 +588,7 @@
 				2709AA052858A80A00655C19 /* PreviewProvider.swift in Sources */,
 				27E112B328731F8800F4C8DA /* DashboardView.swift in Sources */,
 				27FC67F62866195F0033DEBC /* SexSummaryView.swift in Sources */,
-				270CDD472857933900D32953 /* HeightMeasurementTypeView.swift in Sources */,
+				270CDD472857933900D32953 /* OLDHeightMeasurementTypeView.swift in Sources */,
 				2709AA142858D23100655C19 /* Alert.swift in Sources */,
 				27D51909285375C5004F4C9C /* NutrientCalculatorV3App.swift in Sources */,
 			);

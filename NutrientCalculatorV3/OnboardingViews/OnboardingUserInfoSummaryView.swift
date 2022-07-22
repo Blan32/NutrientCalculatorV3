@@ -23,7 +23,9 @@ struct OnboardingUserInfoSummaryView: View {
             userGoal
             userInputMacrosAndCalories
             CaloriePreferenceSummaryView()
-            AdjustedCalorieDaysSummaryView()
+            if viewModel.user.dynamicCalories {
+                AdjustedCalorieDaysSummaryView()
+            }
             Rectangle()
                 .opacity(0.0)
                 .frame(height: 80)
